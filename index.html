@@ -56,7 +56,8 @@
     .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);font-size:var(--text-sm);color:var(--color-text-muted);background:rgba(255,255,255,.03)}
     .header-right{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;justify-content:flex-end}
     .social-links{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap}
-    .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800}
+    .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease}
+    .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)}
     .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--radius-full);border:1px solid var(--color-border);display:grid;place-items:center;background:var(--color-surface);cursor:pointer}
     .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space-10)}
     .hero-layout{display:grid;grid-template-columns:1fr .96fr;gap:var(--space-5);align-items:start}
@@ -161,10 +162,10 @@
 
       <div class="header-right">
         <div class="social-links" aria-label="Social links">
-          <a class="social-icon" href="#" title="YouTube">Y</a>
-          <a class="social-icon" href="#" title="Spotify">S</a>
-          <a class="social-icon" href="#" title="TikTok">T</a>
-          <a class="social-icon" href="#" title="Instagram">I</a>
+          <a class="social-icon" href="#" title="YouTube"><span>YT</span></a>
+          <a class="social-icon" href="#" title="Spotify"><span>SP</span></a>
+          <a class="social-icon" href="#" title="TikTok"><span>TT</span></a>
+          <a class="social-icon" href="#" title="Instagram"><span>IG</span></a>
         </div>
         <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -179,7 +180,7 @@
         <div class="hero-copy">
           <span class="hero-kicker">Trap Balkan music hub</span>
           <h1 class="display">Sve pjesme na jednom mjestu</h1>
-          <p>Hero je sada čišći, bez suvišnih info kartica, a social i platform linkovi su odmah vidljivi da korisnik brzo klikne na play, YouTube ili streaming profile.[web:100][web:87]</p>
+          <p>Hero je sada čišći, bez suvišnih info kartica, a social i platform linkovi su odmah vidljivi da korisnik brzo klikne na play, YouTube ili streaming profile.</p>
           <div class="hero-actions">
             <button class="btn btn-primary" id="playAllHero">Play all</button>
             <a class="btn btn-secondary" href="#catalog">Pogledaj pjesme</a>
@@ -223,7 +224,7 @@
               <span class="eyebrow">Video catalog</span>
               <h2>Pjesme</h2>
             </div>
-            <p>Desna traka je sada uža da video kartice dobiju više prostora, a katalog ostaje 2 u redu sa 16:9 thumbnail odnosom pogodnim za normalne YouTube klipove.[web:92][web:98]</p>
+            <p>Desna traka je sada uža da video kartice dobiju više prostora, a katalog ostaje 2 u redu sa 16:9 thumbnail odnosom pogodnim za normalne YouTube klipove.</p>
           </div>
 
           <div class="video-grid">
@@ -325,7 +326,7 @@
         <section class="seo-shell">
           <span class="eyebrow">SEO content</span>
           <h2 style="font-family:var(--font-display);font-size:var(--text-xl);text-transform:uppercase;margin-top:var(--space-3)">Tekst ostaje za SEO</h2>
-          <p style="margin-top:var(--space-4)">Tekstovi pjesama, opisi izdanja i artist priča i dalje imaju mjesto na sajtu, ali sada ne guše prvi ekran. Tako početak stranice radi za klik, a donji dijelovi rade za duže zadržavanje i Google sadržaj.[cite:38][web:96]</p>
+          <p style="margin-top:var(--space-4)">Tekstovi pjesama, opisi izdanja i artist priča i dalje imaju mjesto na sajtu, ali sada ne guše prvi ekran. Tako početak stranice radi za klik, a donji dijelovi rade za duže zadržavanje i Google sadržaj.</p>
         </section>
       </div>
 
@@ -378,10 +379,10 @@ Trap Balkan vozi dok se pali traka.</pre>
         <div class="footer-note">Čišća production verzija sa social linkovima, većim klipovima i užom up-next trakom.</div>
       </div>
       <div class="social-links">
-        <a class="social-icon" href="#" title="YouTube">Y</a>
-        <a class="social-icon" href="#" title="Spotify">S</a>
-        <a class="social-icon" href="#" title="TikTok">T</a>
-        <a class="social-icon" href="#" title="Instagram">I</a>
+        <a class="social-icon" href="#" title="YouTube"><span>YT</span></a>
+        <a class="social-icon" href="#" title="Spotify"><span>SP</span></a>
+        <a class="social-icon" href="#" title="TikTok"><span>TT</span></a>
+        <a class="social-icon" href="#" title="Instagram"><span>IG</span></a>
       </div>
     </div>
   </footer>
