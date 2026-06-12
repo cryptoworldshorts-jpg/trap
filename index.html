@@ -96,7 +96,7 @@
     .video-thumb.alt-2{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%),linear-gradient(135deg, #111111, #5a1820)}
     .video-thumb.alt-3{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.34) 100%),linear-gradient(135deg, #611019, #191919)}
     .video-thumb.alt-4{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.32) 100%),linear-gradient(135deg, #2b2b2b, #8e1d26)}
-    .video-thumb::after{content:"▶";position:absolute;left:var(--space-4);top:var(--space-4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12);font-size:1rem}
+    .video-thumb::after{content:"▶";position:absolute;left:var(--space-4);top:var(--space-4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)}
     .video-badge{display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:var(--radius-full);background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.12);font-size:var(--text-xs);letter-spacing:.18em;text-transform:uppercase}
     .video-title{font-size:var(--text-lg);font-weight:800;line-height:1.15}
     .video-meta{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--color-text-faint)}
@@ -216,163 +216,7 @@
       </div>
     </section>
 
-    <section class="container main-layout">
-      <div class="left-col">
-        <section class="catalog-shell" id="catalog">
-          <div class="catalog-head">
-            <div>
-              <span class="eyebrow">Video catalog</span>
-              <h2>Pjesme</h2>
-            </div>
-            <p>Desna traka je sada uža da video kartice dobiju više prostora, a katalog ostaje 2 u redu sa 16:9 thumbnail odnosom pogodnim za normalne YouTube klipove.</p>
-          </div>
-
-          <div class="video-grid">
-            <article class="video-card" data-track-id="1" data-title="Noćni Grad" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-lyrics="Noćni grad, hladan asfalt pod nogama.&#10;Svjetla gore, ali duša ostaje sama.&#10;Bass udara, priča kreće iz mraka.&#10;Trap Balkan vozi dok se pali traka.">
-              <div class="video-thumb"><span class="video-badge">Single</span></div>
-              <div>
-                <div class="video-title">Noćni Grad</div>
-                <div class="video-meta"><span>2026</span><span>Trap</span><span>Official video</span></div>
-              </div>
-              <div class="video-copy">Prva pjesma može odmah voditi i na player i na lyrics, bez dodatnog skrolanja ili traženja po stranici.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-
-            <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/ScMzIvxBSi4" data-lyrics="Crveni dim nad gradom stoji dugo.&#10;Svaki verse je hladan, svaki korak grubo.&#10;Nema glume, samo beat i beton.&#10;Kad krene refren, cijeli blok je jednom.">
-              <div class="video-thumb alt-2"><span class="video-badge">Video</span></div>
-              <div>
-                <div class="video-title">Crveni Dim</div>
-                <div class="video-meta"><span>2026</span><span>Drill</span><span>Visual</span></div>
-              </div>
-              <div class="video-copy">Širi thumbnail sada bolje radi za klasične klipove i djeluje više kao pravi video katalog.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-
-            <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="Podrum flow, zidovi pamte glas.&#10;Nema nazad kad se otvori bas.&#10;Svaka linija nosi trag sa ulice.&#10;Svaki drop diže ruke iz mase ilice.">
-              <div class="video-thumb alt-3"><span class="video-badge">Audio</span></div>
-              <div>
-                <div class="video-title">Podrum Flow</div>
-                <div class="video-meta"><span>2026</span><span>Trap</span><span>Audio drop</span></div>
-              </div>
-              <div class="video-copy">I kada je samo audio release, ostaje isti pregledan thumbnail stil pa katalog izgleda ujednačeno.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-
-            <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/ysz5S6PUM-U" data-lyrics="Beton i sjena, hladan kadar grada.&#10;Glava gore i kad bude blokada.&#10;Refren nosi, ulica ga zna.&#10;Ispod neona svaki glas odzvanja.">
-              <div class="video-thumb alt-4"><span class="video-badge">Lyric</span></div>
-              <div>
-                <div class="video-title">Beton i Sjena</div>
-                <div class="video-meta"><span>2026</span><span>Trap</span><span>Lyric video</span></div>
-              </div>
-              <div class="video-copy">Lyric video kartica izgleda prirodno i dalje ostaje u istom ritmu sa ostalim objavama na sajtu.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-
-            <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/jfKfPfyJRdk" data-lyrics="Kasni sat i grad diše sporije.&#10;U glavi beat, riječi idu dublje.&#10;Nema filtera, sve je čisto ovdje.&#10;Samo noć i glas, sve drugo prođe.">
-              <div class="video-thumb"><span class="video-badge">Single</span></div>
-              <div>
-                <div class="video-title">Kasni Sat</div>
-                <div class="video-meta"><span>2026</span><span>Trap soul</span><span>Visual</span></div>
-              </div>
-              <div class="video-copy">Ovo je dobar primjer sporije pjesme koja može držati korisnika na sajtu kroz player i up next listu.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-
-            <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/aqz-KE-bpKQ" data-lyrics="Linija vatre, pogled pravo naprijed.&#10;Nema stajanja kad beat krene jače.&#10;Svaki hook ostaje da gori dugo.&#10;Ovo nije trend, ovo nosi ulicu.">
-              <div class="video-thumb alt-2"><span class="video-badge">Premiere</span></div>
-              <div>
-                <div class="video-title">Linija Vatre</div>
-                <div class="video-meta"><span>2026</span><span>Drill</span><span>Premiere</span></div>
-              </div>
-              <div class="video-copy">Pagination je i dalje spremna za buduće stranice kada katalog pređe prvih 20 pjesama.</div>
-              <div class="video-actions">
-                <button class="track-btn primary" data-action="play">Play</button>
-                <button class="track-btn" data-action="lyrics">Lyrics</button>
-                <a class="track-btn" href="#">YouTube</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="pagination" aria-label="Pagination placeholder">
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
-            <button class="page-btn">5</button>
-            <div class="page-note">Do 20 pjesama po strani. Poslije samo dodaješ stranu 2, 3, 4...</div>
-          </div>
-        </section>
-
-        <section class="seo-shell">
-          <span class="eyebrow">SEO content</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);text-transform:uppercase;margin-top:var(--space-3)">Tekst ostaje za SEO</h2>
-          <p style="margin-top:var(--space-4)">Tekstovi pjesama, opisi izdanja i artist priča i dalje imaju mjesto na sajtu, ali sada ne guše prvi ekran. Tako početak stranice radi za klik, a donji dijelovi rade za duže zadržavanje i Google sadržaj.</p>
-        </section>
-      </div>
-
-      <div class="right-col">
-        <section class="rail-shell">
-          <div class="rail-head">
-            <div>
-              <div class="eyebrow">Up next</div>
-              <div class="rail-title">Sljedeće pjesme</div>
-              <div class="rail-sub">Uža traka za brzo prebacivanje bez gušenja glavnog kataloga.</div>
-            </div>
-          </div>
-          <button class="btn btn-secondary" id="playAllSidebar" style="width:100%;margin-bottom:var(--space-4)">Sve pjesme na jednom mjestu</button>
-          <div class="rail-list">
-            <button class="rail-item active" data-track-id="1"><span class="rail-index">01</span><span class="rail-meta"><strong>Noćni Grad</strong><span>Trap / official video</span></span></button>
-            <button class="rail-item" data-track-id="2"><span class="rail-index">02</span><span class="rail-meta"><strong>Crveni Dim</strong><span>Drill / visual</span></span></button>
-            <button class="rail-item" data-track-id="3"><span class="rail-index">03</span><span class="rail-meta"><strong>Podrum Flow</strong><span>Trap / audio</span></span></button>
-            <button class="rail-item" data-track-id="4"><span class="rail-index">04</span><span class="rail-meta"><strong>Beton i Sjena</strong><span>Trap / lyric</span></span></button>
-            <button class="rail-item" data-track-id="5"><span class="rail-index">05</span><span class="rail-meta"><strong>Kasni Sat</strong><span>Trap soul / visual</span></span></button>
-            <button class="rail-item" data-track-id="6"><span class="rail-index">06</span><span class="rail-meta"><strong>Linija Vatre</strong><span>Drill / premiere</span></span></button>
-          </div>
-        </section>
-
-        <section class="lyrics-shell" id="lyrics">
-          <div class="lyrics-head">
-            <div>
-              <div class="eyebrow">Selected lyrics</div>
-              <div class="lyrics-title" id="lyricsTitle">Noćni Grad</div>
-              <div class="lyrics-sub">Klik na pjesmu ili lyrics dugme mijenja ovaj panel.</div>
-            </div>
-          </div>
-          <pre id="lyricsBody">Noćni grad, hladan asfalt pod nogama.
-Svjetla gore, ali duša ostaje sama.
-Bass udara, priča kreće iz mraka.
-Trap Balkan vozi dok se pali traka.</pre>
-          <div class="lyrics-tags">
-            <span>Lyrics</span>
-            <span>YouTube</span>
-            <span>SEO</span>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
+      <footer class="footer">
     <div class="container footer-row">
       <div>
         <div class="brand-title">Trap Balkan</div>
@@ -389,98 +233,30 @@ Trap Balkan vozi dok se pali traka.</pre>
 
   <script>
     (function(){
-      const toggle = document.querySelector('[data-theme-toggle]');
-      const root = document.documentElement;
-      let theme = 'dark';
-      const playlistEmbed = 'https://www.youtube.com/embed/videoseries?list=PL8J9oi-nz2_UosOrPnOHstOQAe8F3AQyI';
-      const cards = Array.from(document.querySelectorAll('.video-card'));
-      const items = Array.from(document.querySelectorAll('.rail-item'));
-      const frame = document.getElementById('playerFrame');
-      const playerTitle = document.getElementById('playerTitle');
-      const playerModeText = document.getElementById('playerModeText');
-      const lyricsTitle = document.getElementById('lyricsTitle');
-      const lyricsBody = document.getElementById('lyricsBody');
-      const singleModeBtn = document.getElementById('singleModeBtn');
-      const playlistModeBtn = document.getElementById('playlistModeBtn');
-
-      const renderTheme = () => {
-        root.setAttribute('data-theme', theme);
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
-          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
-      };
-      renderTheme();
-      toggle.addEventListener('click', function(){
-        theme = theme === 'dark' ? 'light' : 'dark';
-        renderTheme();
-      });
-
-      function setActiveRail(trackId){
-        items.forEach(function(item){ item.classList.toggle('active', item.dataset.trackId === trackId); });
-      }
-
-      function setSingleMode(){
-        singleModeBtn.classList.add('active');
-        playlistModeBtn.classList.remove('active');
-        playerModeText.textContent = 'Mode: Single track player';
-      }
-
-      function setPlaylistMode(){
-        singleModeBtn.classList.remove('active');
-        playlistModeBtn.classList.add('active');
-        playerTitle.textContent = 'Sve pjesme na jednom mjestu';
-        playerModeText.textContent = 'Mode: YouTube playlist player';
-        frame.src = playlistEmbed;
-      }
-
-      function updateFromCard(card){
-        const title = card.dataset.title || 'Track';
-        const video = card.dataset.video || '';
-        const lyrics = (card.dataset.lyrics || '').replaceAll('&#10;', '\n');
-        const trackId = card.dataset.trackId || '';
-        setSingleMode();
-        playerTitle.textContent = title;
-        frame.src = video;
-        lyricsTitle.textContent = title;
-        lyricsBody.textContent = lyrics || 'Lyrics će se pojaviti ovdje.';
-        setActiveRail(trackId);
-        document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'});
-      }
-
-      function updateLyrics(card){
-        const title = card.dataset.title || 'Track';
-        const lyrics = (card.dataset.lyrics || '').replaceAll('&#10;', '\n');
-        const trackId = card.dataset.trackId || '';
-        lyricsTitle.textContent = title;
-        lyricsBody.textContent = lyrics || 'Lyrics će se pojaviti ovdje.';
-        setActiveRail(trackId);
-        document.getElementById('lyrics').scrollIntoView({behavior:'smooth', block:'start'});
-      }
-
-      cards.forEach(function(card){
-        card.querySelector('[data-action="play"]').addEventListener('click', function(){ updateFromCard(card); });
-        card.querySelector('[data-action="lyrics"]').addEventListener('click', function(){ updateLyrics(card); });
-      });
-
-      items.forEach(function(item){
-        item.addEventListener('click', function(){
-          const card = cards.find(function(c){ return c.dataset.trackId === item.dataset.trackId; });
-          if(card) updateFromCard(card);
-        });
-      });
-
-      [document.getElementById('playAllHero'), document.getElementById('playAllMain'), document.getElementById('playAllSidebar')].forEach(function(btn){
-        btn.addEventListener('click', function(){
-          setPlaylistMode();
-          document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'});
-        });
-      });
-
-      singleModeBtn.addEventListener('click', function(){
-        const activeId = document.querySelector('.rail-item.active')?.dataset.trackId;
-        const activeCard = cards.find(function(c){ return c.dataset.trackId === activeId; }) || cards[0];
-        updateFromCard(activeCard);
-      });
+      const toggle=document.querySelector('[data-theme-toggle]');
+      const root=document.documentElement;
+      let theme='dark';
+      const playlistEmbed='https://www.youtube.com/embed/videoseries?list=PL8J9oi-nz2_UosOrPnOHstOQAe8F3AQyI';
+      const cards=[...document.querySelectorAll('.video-card')];
+      const items=[...document.querySelectorAll('.rail-item')];
+      const frame=document.getElementById('playerFrame');
+      const playerTitle=document.getElementById('playerTitle');
+      const playerModeText=document.getElementById('playerModeText');
+      const lyricsTitle=document.getElementById('lyricsTitle');
+      const lyricsBody=document.getElementById('lyricsBody');
+      const singleModeBtn=document.getElementById('singleModeBtn');
+      const playlistModeBtn=document.getElementById('playlistModeBtn');
+      const renderTheme=()=>{ root.setAttribute('data-theme', theme); toggle.innerHTML = theme==='dark' ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>' : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'; };
+      renderTheme(); toggle.addEventListener('click', function(){ theme = theme==='dark' ? 'light' : 'dark'; renderTheme(); });
+      function setActiveRail(trackId){ items.forEach(function(item){ item.classList.toggle('active', item.dataset.trackId === trackId); }); }
+      function setSingleMode(){ singleModeBtn.classList.add('active'); playlistModeBtn.classList.remove('active'); playerModeText.textContent='Mode: Single track player'; }
+      function setPlaylistMode(){ singleModeBtn.classList.remove('active'); playlistModeBtn.classList.add('active'); playerTitle.textContent='Sve pjesme na jednom mjestu'; playerModeText.textContent='Mode: YouTube playlist player'; frame.src=playlistEmbed; }
+      function updateFromCard(card){ const title=card.dataset.title||'Track'; const video=card.dataset.video||''; const lyrics=(card.dataset.lyrics||'').replaceAll('&#10;','\n'); const trackId=card.dataset.trackId||''; setSingleMode(); playerTitle.textContent=title; frame.src=video; lyricsTitle.textContent=title; lyricsBody.textContent=lyrics||'Lyrics će se pojaviti ovdje.'; setActiveRail(trackId); document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'}); }
+      function updateLyrics(card){ const title=card.dataset.title||'Track'; const lyrics=(card.dataset.lyrics||'').replaceAll('&#10;','\n'); const trackId=card.dataset.trackId||''; lyricsTitle.textContent=title; lyricsBody.textContent=lyrics||'Lyrics će se pojaviti ovdje.'; setActiveRail(trackId); document.getElementById('lyrics').scrollIntoView({behavior:'smooth', block:'start'}); }
+      cards.forEach(function(card){ card.querySelector('[data-action="play"]').addEventListener('click', function(){ updateFromCard(card); }); card.querySelector('[data-action="lyrics"]').addEventListener('click', function(){ updateLyrics(card); }); });
+      items.forEach(function(item){ item.addEventListener('click', function(){ const card = cards.find(function(c){ return c.dataset.trackId === item.dataset.trackId; }); if(card) updateFromCard(card); }); });
+      [document.getElementById('playAllHero'), document.getElementById('playAllMain'), document.getElementById('playAllSidebar')].forEach(function(btn){ btn.addEventListener('click', function(){ setPlaylistMode(); document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'}); }); });
+      singleModeBtn.addEventListener('click', function(){ const activeId=document.querySelector('.rail-item.active')?.dataset.trackId; const activeCard=cards.find(function(c){ return c.dataset.trackId===activeId; }) || cards[0]; updateFromCard(activeCard); });
       playlistModeBtn.addEventListener('click', function(){ setPlaylistMode(); });
     })();
   </script>
