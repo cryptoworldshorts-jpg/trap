@@ -373,60 +373,24 @@ Trap Balkan vozi dok se pali traka.</pre>
   </footer>
 
   <script>
-    from pathlib import Path
-p=Path('output/trap-balkan-production-layout.html')
-s=p.read_text(encoding='utf-8')
-old='''<script>
-    (function(){
-      const toggle=document.querySelector('[data-theme-toggle]');
-      const root=document.documentElement;
-      let theme='dark';
-      const playlistEmbed='https://www.youtube.com/embed/videoseries?list=PL8J9oi-nz2_UosOrPnOHstOQAe8F3AQyI';
-      const cards=[...document.querySelectorAll('.video-card')];
-      const items=[...document.querySelectorAll('.rail-item')];
-      const frame=document.getElementById('playerFrame');
-      const playerTitle=document.getElementById('playerTitle');
-      const playerModeText=document.getElementById('playerModeText');
-      const lyricsTitle=document.getElementById('lyricsTitle');
-      const lyricsBody=document.getElementById('lyricsBody');
-      const singleModeBtn=document.getElementById('singleModeBtn');
-      const playlistModeBtn=document.getElementById('playlistModeBtn');
-      const renderTheme=()=>{ root.setAttribute('data-theme', theme); toggle.innerHTML = theme==='dark' ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>' : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'; };
-      renderTheme(); toggle.addEventListener('click', function(){ theme = theme==='dark' ? 'light' : 'dark'; renderTheme(); });
-      function setActiveRail(trackId){ items.forEach(function(item){ item.classList.toggle('active', item.dataset.trackId === trackId); }); }
-      function setSingleMode(){ singleModeBtn.classList.add('active'); playlistModeBtn.classList.remove('active'); playerModeText.textContent='Mode: Single track player'; }
-      function setPlaylistMode(){ singleModeBtn.classList.remove('active'); playlistModeBtn.classList.add('active'); playerTitle.textContent='Sve pjesme na jednom mjestu'; playerModeText.textContent='Mode: YouTube playlist player'; frame.src=playlistEmbed; }
-      function updateFromCard(card){ const title=card.dataset.title||'Track'; const video=card.dataset.video||''; const lyrics=(card.dataset.lyrics||'').replaceAll('&#10;','\n'); const trackId=card.dataset.trackId||''; setSingleMode(); playerTitle.textContent=title; frame.src=video; lyricsTitle.textContent=title; lyricsBody.textContent=lyrics||'Lyrics će se pojaviti ovdje.'; setActiveRail(trackId); document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'}); }
-      function updateLyrics(card){ const title=card.dataset.title||'Track'; const lyrics=(card.dataset.lyrics||'').replaceAll('&#10;','\n'); const trackId=card.dataset.trackId||''; lyricsTitle.textContent=title; lyricsBody.textContent=lyrics||'Lyrics će se pojaviti ovdje.'; setActiveRail(trackId); document.getElementById('lyrics').scrollIntoView({behavior:'smooth', block:'start'}); }
-      cards.forEach(function(card){ card.querySelector('[data-action="play"]').addEventListener('click', function(){ updateFromCard(card); }); card.querySelector('[data-action="lyrics"]').addEventListener('click', function(){ updateLyrics(card); }); });
-      items.forEach(function(item){ item.addEventListener('click', function(){ const card = cards.find(function(c){ return c.dataset.trackId === item.dataset.trackId; }); if(card) updateFromCard(card); }); });
-      [document.getElementById('playAllHero'), document.getElementById('playAllMain'), document.getElementById('playAllSidebar')].forEach(function(btn){ btn.addEventListener('click', function(){ setPlaylistMode(); document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'}); }); });
-      singleModeBtn.addEventListener('click', function(){ const activeId=document.querySelector('.rail-item.active')?.dataset.trackId; const activeCard=cards.find(function(c){ return c.dataset.trackId===activeId; }) || cards[0]; updateFromCard(activeCard); });
-      playlistModeBtn.addEventListener('click', function(){ setPlaylistMode(); });
-    })();
-  </script>'''
-new='''<script>
   (function() {
-    const toggle = document.querySelector('[data-theme-toggle]');
-    const root = document.documentElement;
-    const playlistEmbed = 'https://www.youtube.com/embed/videoseries?list=PL8J9oi-nz2_UosOrPnOHstOQAe8F3AQyI';
+    const lyricsBody = document.getElementById('lyricsBody');
+    const lyricsTitle = document.getElementById('lyricsTitle');
     const cards = Array.from(document.querySelectorAll('.video-card'));
     const items = Array.from(document.querySelectorAll('.rail-item'));
-    const frame = document.getElementById('playerFrame');
     const playerTitle = document.getElementById('playerTitle');
     const playerModeText = document.getElementById('playerModeText');
-    const lyricsTitle = document.getElementById('lyricsTitle');
-    const lyricsBody = document.getElementById('lyricsBody');
+    const frame = document.getElementById('playerFrame');
     const singleModeBtn = document.getElementById('singleModeBtn');
     const playlistModeBtn = document.getElementById('playlistModeBtn');
-    let theme = 'dark';
+    const playAllButtons = ['playAllHero','playAllMain','playAllSidebar'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
 
-    function renderTheme() {
-      root.setAttribute('data-theme', theme);
-      toggle.innerHTML = theme === 'dark'
-        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
-        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
-    }
+    const debug = document.createElement('div');
+    debug.id = 'js-debug';
+    debug.style.cssText = 'margin-top:8px;padding:8px;border:1px solid #ff4d4d;color:#ff4d4d;font-size:12px;border-radius:8px';
+    debug.textContent = 'JS OK';
+    const lyricsSection = document.getElementById('lyrics');
+    if (lyricsSection) lyricsSection.appendChild(debug);
 
     function setActiveRail(trackId) {
       items.forEach(function(item) {
@@ -434,93 +398,64 @@ new='''<script>
       });
     }
 
-    function setSingleMode() {
-      singleModeBtn.classList.add('active');
-      playlistModeBtn.classList.remove('active');
-      playerModeText.textContent = 'Mode: Single track player';
-    }
-
-    function setPlaylistMode() {
-      singleModeBtn.classList.remove('active');
-      playlistModeBtn.classList.add('active');
-      playerTitle.textContent = 'Sve pjesme na jednom mjestu';
-      playerModeText.textContent = 'Mode: YouTube playlist player';
-      frame.src = playlistEmbed;
-    }
-
-    function updateFromCard(card) {
+    function showLyrics(card) {
       const title = card.dataset.title || 'Track';
-      const video = card.dataset.video || '';
-      const lyrics = card.dataset.lyrics || 'Lyrics test';
-      const trackId = card.dataset.trackId || '';
-      setSingleMode();
-      playerTitle.textContent = title;
-      frame.src = video;
+      const lyrics = card.dataset.lyrics || 'TEST LYRICS';
       lyricsTitle.textContent = title;
       lyricsBody.textContent = lyrics;
-      setActiveRail(trackId);
-      document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function updateLyrics(card) {
-      const title = card.dataset.title || 'Track';
-      const lyrics = card.dataset.lyrics || 'Lyrics test';
-      const trackId = card.dataset.trackId || '';
-      lyricsTitle.textContent = title;
-      lyricsBody.textContent = lyrics;
-      setActiveRail(trackId);
+      setActiveRail(card.dataset.trackId || '');
+      debug.textContent = 'Clicked: ' + title;
       document.getElementById('lyrics').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function wireCard(card) {
-      const playBtn = card.querySelector('[data-action="play"]');
-      const lyricsBtn = card.querySelector('[data-action="lyrics"]');
-      if (playBtn) playBtn.addEventListener('click', function() { updateFromCard(card); });
-      if (lyricsBtn) lyricsBtn.addEventListener('click', function() { updateLyrics(card); });
+    function playCard(card) {
+      playerTitle.textContent = card.dataset.title || 'Track';
+      frame.src = card.dataset.video || frame.src;
+      playerModeText.textContent = 'Mode: Single track player';
+      setActiveRail(card.dataset.trackId || '');
+      debug.textContent = 'Played: ' + (card.dataset.title || 'Track');
+      document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    renderTheme();
-    toggle.addEventListener('click', function() {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      renderTheme();
+    cards.forEach(function(card) {
+      var playBtn = card.querySelector('[data-action="play"]');
+      var lyricsBtn = card.querySelector('[data-action="lyrics"]');
+      if (playBtn) playBtn.addEventListener('click', function() { playCard(card); });
+      if (lyricsBtn) lyricsBtn.addEventListener('click', function() { showLyrics(card); });
     });
-
-    cards.forEach(wireCard);
 
     items.forEach(function(item) {
       item.addEventListener('click', function() {
-        const card = cards.find(function(c) { return c.dataset.trackId === item.dataset.trackId; });
-        if (card) updateFromCard(card);
+        var card = cards.find(function(c) { return c.dataset.trackId === item.dataset.trackId; });
+        if (card) playCard(card);
       });
     });
 
-    ['playAllHero', 'playAllMain', 'playAllSidebar'].forEach(function(id) {
-      const btn = document.getElementById(id);
-      if (btn) {
-        btn.addEventListener('click', function() {
-          setPlaylistMode();
-          document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      }
+    playAllButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        playerTitle.textContent = 'Sve pjesme na jednom mjestu';
+        playerModeText.textContent = 'Mode: YouTube playlist player';
+        debug.textContent = 'Playlist mode';
+      });
     });
 
     singleModeBtn.addEventListener('click', function() {
-      const active = document.querySelector('.rail-item.active');
-      const activeId = active ? active.dataset.trackId : null;
-      const activeCard = cards.find(function(c) { return c.dataset.trackId === activeId; }) || cards[0];
-      if (activeCard) updateFromCard(activeCard);
+      var active = document.querySelector('.rail-item.active');
+      var activeCard = cards.find(function(c) {
+        return c.dataset.trackId === (active ? active.dataset.trackId : '');
+      }) || cards[0];
+      if (activeCard) playCard(activeCard);
     });
 
     playlistModeBtn.addEventListener('click', function() {
-      setPlaylistMode();
+      playerTitle.textContent = 'Sve pjesme na jednom mjestu';
+      playerModeText.textContent = 'Mode: YouTube playlist player';
+      debug.textContent = 'Playlist mode';
     });
 
-    if (cards[0]) updateFromCard(cards[0]);
+    if (cards[0]) playCard(cards[0]);
   })();
-</script>'''
-s=s.replace(old,new)
-p.write_text(s,encoding='utf-8')
-print('script replaced')
-  </script>
+</script>
+
 </body>
 </html>
