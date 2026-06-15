@@ -3,76 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trap Balkan — Official Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Trap Balkan — Official Production</title>
   <style>
     :root {
-      --color-bg: #050505;
-      --color-surface: #111111;
-      --color-primary: #e63946;
-      --color-text: #ffffff;
-      --color-text-muted: #a0a0a0;
-      --radius: 12px;
+      --bg: #070707; --surface: #111111; --text: #ffffff;
+      --primary: #b6202a; --accent: #d6ab68;
     }
-    body { font-family: 'Inter', sans-serif; background: var(--color-bg); color: var(--color-text); margin: 0; padding: 20px; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    
-    /* Player & Layout */
-    .grid { display: grid; grid-template-columns: 1fr 350px; gap: 20px; }
-    .video-card { background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 15px; border: 1px solid #222; }
-    .btn { background: var(--color-primary); color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-    
-    /* Lyrics Panel */
-    .lyrics-box { background: var(--color-surface); padding: 20px; border-radius: var(--radius); position: sticky; top: 20px; }
-    pre { white-space: pre-wrap; font-family: 'Inter', sans-serif; color: var(--color-text-muted); }
-
-    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; padding: 20px; transition: background 0.5s ease; }
+    .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 350px; gap: 30px; }
+    .video-card { background: var(--surface); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #222; }
+    .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+    .lyrics-box { background: var(--surface); padding: 30px; border-radius: 20px; position: sticky; top: 20px; border-top: 5px solid var(--primary); }
+    #playerFrame { width: 100%; aspect-ratio: 16/9; border-radius: 10px; }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Trap Balkan</h1>
-  <div class="grid">
-    <!-- Katalog -->
+  <main>
+    <h1>Trap Balkan</h1>
+    <div id="playerSection">
+      <iframe id="playerFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <h2 id="activeTitle">Odaberi pjesmu</h2>
+    </div>
+
     <div id="catalog">
       <!-- Pjesma 1 -->
-      <article class="video-card" data-title="Noćni Grad" data-lyrics="[Vers 1]&#10;Hladan beton, kasni sati,&#10;u daljini zvuk se klati.&#10;Trap Balkan na traci brate,&#10;svi na podu kad se vrate.">
+      <article class="video-card" data-title="Noćni Grad" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-lyrics="Hladan grad, asfalt sija,&#10;Trap Balkan se sad savija.&#10;Nema stajanja, samo gas,&#10;ovo je naš novi glas." data-color="#b6202a">
         <h3>Noćni Grad</h3>
-        <button class="btn" onclick="playTrack(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ')">Play</button>
-        <button class="btn" onclick="showLyrics(this)">Lyrics</button>
+        <button class="btn" onclick="updatePlayer(this)">Play Pjesmu</button>
       </article>
 
       <!-- Pjesma 2 -->
-      <article class="video-card" data-title="Balkanski San" data-lyrics="[Chorus]&#10;Balkanski san, ne spavam dan,&#10;tražim svoj put, izlazan plan.&#10;Bas udara jako u glavu,&#10;pravim istoriju, pravim slavu.">
-        <h3>Balkanski San</h3>
-        <button class="btn" onclick="playTrack(this, 'https://www.youtube.com/embed/tgbNymZ7vqY')">Play</button>
-        <button class="btn" onclick="showLyrics(this)">Lyrics</button>
+      <article class="video-card" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="Podrum mračan, bas se čuje,&#10;balkan ritam sad vas tuče.&#10;Svaka riječ je čista vatra,&#10;ovo je naša nova matra." data-color="#d6ab68">
+        <h3>Podrum Flow</h3>
+        <button class="btn" onclick="updatePlayer(this)">Play Pjesmu</button>
       </article>
     </div>
+  </main>
 
-    <!-- Sidebar -->
-    <div>
-      <div class="lyrics-box">
-        <h2 id="currentTitle">Odaberi pjesmu</h2>
-        <pre id="currentLyrics">Klikni na 'Lyrics' ispod bilo koje pjesme da vidiš tekst ovdje...</pre>
-      </div>
-    </div>
-  </div>
+  <aside class="lyrics-box">
+    <h2 id="lyricsTitle">Lyrics</h2>
+    <pre id="lyricsBody">Klikni play na bilo koju pjesmu...</pre>
+  </aside>
 </div>
 
 <script>
-  function playTrack(btn, url) {
-    alert("Player bi ovdje učitao: " + url);
-  }
-
-  function showLyrics(btn) {
+  function updatePlayer(btn) {
     const card = btn.closest('.video-card');
-    const title = card.getAttribute('data-title');
-    const lyrics = card.getAttribute('data-lyrics');
+    const title = card.dataset.title;
+    const video = card.dataset.video;
+    const lyrics = card.dataset.lyrics;
+    const color = card.dataset.color;
+
+    // Ažuriraj Player
+    document.getElementById('playerFrame').src = video;
+    document.getElementById('activeTitle').innerText = title;
     
-    document.getElementById('currentTitle').innerText = title;
-    document.getElementById('currentLyrics').innerText = lyrics;
+    // Ažuriraj Lyrics
+    document.getElementById('lyricsTitle').innerText = title;
+    document.getElementById('lyricsBody').innerText = lyrics;
+
+    // Ažuriraj Boju (Dinamički efekt)
+    document.documentElement.style.setProperty('--primary', color);
+    document.body.style.background = 'linear-gradient(to bottom, ' + color + '11, #070707)';
   }
 </script>
 
