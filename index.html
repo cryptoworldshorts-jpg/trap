@@ -9,7 +9,81 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{--bg:#f5f2ee;--surface:#ffffff;--surface2:#eee8e2;--border:rgba(19,19,19,.1);--text:#161210;--muted:#69625d;--faint:#928881;--primary:#8e1d26;--primaryHover:#6c151b;--inverse:#fbf6f1;--shadow:0 24px 80px rgba(18,12,10,.15);--fontDisplay:'Anton',Impact,sans-serif;--fontBody:'Inter',Arial,sans-serif;--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);--base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);--xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--space2:.5rem;--space3:.75rem;--space4:1rem;--space5:1.25rem;--space6:1.5rem;--space8:2rem;--space10:2.5rem;--space12:3rem;--space16:4rem;--space20:5rem;--rmd:.75rem;--rxl:1.75rem;--rfull:999px} [data-theme="dark"]{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--muted:#b6ada5;--faint:#7d736c;--primary:#b6202a;--primaryHover:#db3641;--inverse:#fdf8f3;--shadow:0 30px 100px rgba(0,0,0,.45)} *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--fontBody);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at top right, rgba(182,32,42,.16), transparent 26%),var(--bg)} a{text-decoration:none;color:inherit} img,iframe,svg{display:block;max-width:100%} button{font:inherit;color:inherit} .container{width:min(1440px,calc(100% - 2rem));margin:0 auto} .skip-link{position:absolute;left:-999px;top:1rem}.skip-link:focus{left:1rem;z-index:80;background:var(--primary);color:var(--inverse);padding:.85rem 1rem;border-radius:var(--rmd)} .site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,7,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)} .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space4);padding:var(--space4) 0} .brand{display:flex;align-items:center;gap:var(--space3)} .brand-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)} .brand-logo img{width:100%;height:100%;object-fit:contain;background:#000} .brand-copy{display:flex;flex-direction:column} .eyebrow{font-size:var(--xs);text-transform:uppercase;letter-spacing:.22em;color:var(--faint)} .brand-title{font-size:var(--sm);font-weight:800;letter-spacing:.12em;text-transform:uppercase} .nav-links,.header-right,.social-links{display:flex;align-items:center;gap:var(--space2);flex-wrap:wrap} .nav-links{justify-content:center} .header-right{justify-content:flex-end} .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);font-size:var(--sm);color:var(--muted);background:rgba(255,255,255,.03)} .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease} .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)} .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--rfull);border:1px solid var(--border);display:grid;place-items:center;background:var(--surface);cursor:pointer} .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space10)} .hero-layout{display:grid;grid-template-columns:1fr;gap:var(--space5)} .panel{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .hero-copy{display:grid;gap:var(--space4)} .hero-kicker{display:inline-flex;align-items:center;gap:.7rem;padding:.55rem .95rem;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);text-transform:uppercase;letter-spacing:.2em;color:var(--muted);background:rgba(255,255,255,.03);width:max-content} .hero-kicker::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--primary);box-shadow:0 0 18px rgba(182,32,42,.75)} h1,h2,h3{margin:0;line-height:1} .display{font-family:var(--fontDisplay);font-size:clamp(3.1rem,8vw,6.7rem);line-height:.92;text-transform:uppercase;letter-spacing:.03em} .hero-copy p{max-width:62ch;color:var(--muted)} .hero-actions,.platform-row,.video-actions,.lyrics-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.95rem 1.35rem;border-radius:var(--rfull);border:1px solid transparent;font-size:var(--sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:.2s ease;cursor:pointer} .btn-primary{background:var(--primary);color:var(--inverse)} .btn-primary:hover{background:var(--primaryHover);transform:translateY(-1px)} .btn-secondary{background:transparent;border-color:var(--border);color:var(--text)} .btn-secondary:hover{background:rgba(255,255,255,.04)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase} .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)} .mode-switch{display:flex;flex-wrap:wrap;gap:var(--space2);margin-top:var(--space4)} .mode-chip{padding:.65rem .9rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer} .mode-chip.active{background:var(--primary);border-color:transparent;color:var(--inverse)} .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)} .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4)} .video-thumb.alt-2{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%),linear-gradient(135deg, #111111, #5a1820)} .video-thumb.alt-3{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.34) 100%),linear-gradient(135deg, #611019, #191919)} .video-thumb.alt-4{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.32) 100%),linear-gradient(135deg, #2b2b2b, #8e1d26)} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:var(--rfull);background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);letter-spacing:.18em;text-transform:uppercase} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-meta{display:flex;align-items:center;gap:var(--space3);flex-wrap:wrap;font-size:var(--xs);text-transform:uppercase;letter-spacing:.16em;color:var(--faint)} .video-copy{font-size:var(--sm);color:var(--muted)} .track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;font-size:var(--xs);letter-spacing:.14em;text-transform:uppercase;cursor:pointer} .track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted)} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space2);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .seo-shell p{color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)} @media (max-width: 1100px){.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width: 760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}\n  </style>
+    :root,[data-theme="light"]{--bg:#f5f2ee;--surface:#ffffff;--surface2:#eee8e2;--border:rgba(19,19,19,.1);--text:#161210;--muted:#69625d;--faint:#928881;--primary:#8e1d26;--primaryHover:#6c151b;--inverse:#fbf6f1;--shadow:0 24px 80px rgba(18,12,10,.15);--fontDisplay:'Anton',Impact,sans-serif;--fontBody:'Inter',Arial,sans-serif;--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);--base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);--xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--space2:.5rem;--space3:.75rem;--space4:1rem;--space5:1.25rem;--space6:1.5rem;--space8:2rem;--space10:2.5rem;--space12:3rem;--space16:4rem;--space20:5rem;--rmd:.75rem;--rxl:1.75rem;--rfull:999px}
+    [data-theme="dark"]{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--muted:#b6ada5;--faint:#7d736c;--primary:#b6202a;--primaryHover:#db3641;--inverse:#fdf8f3;--shadow:0 30px 100px rgba(0,0,0,.45)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:var(--fontBody);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at top right, rgba(182,32,42,.16), transparent 26%),var(--bg)}
+    a{text-decoration:none;color:inherit}
+    img,iframe,svg{display:block;max-width:100%}
+    button{font:inherit;color:inherit}
+    .container{width:min(1440px,calc(100% - 2rem));margin:0 auto}
+    .skip-link{position:absolute;left:-999px;top:1rem}
+    .skip-link:focus{left:1rem;z-index:80;background:var(--primary);color:var(--inverse);padding:.85rem 1rem;border-radius:var(--rmd)}
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,7,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space4);padding:var(--space4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space3)}
+    .brand-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)}
+    .brand-logo img{width:100%;height:100%;object-fit:contain;background:#000}
+    .brand-copy{display:flex;flex-direction:column}
+    .eyebrow{font-size:var(--xs);text-transform:uppercase;letter-spacing:.22em;color:var(--faint)}
+    .brand-title{font-size:var(--sm);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .nav-links,.header-right,.social-links{display:flex;align-items:center;gap:var(--space2);flex-wrap:wrap}
+    .nav-links{justify-content:center}
+    .header-right{justify-content:flex-end}
+    .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);font-size:var(--sm);color:var(--muted);background:rgba(255,255,255,.03)}
+    .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease}
+    .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)}
+    .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--rfull);border:1px solid var(--border);display:grid;place-items:center;background:var(--surface);cursor:pointer}
+    .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space10)}
+    .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space5);align-items:start}
+    .panel{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)}
+    .hero-copy{display:grid;gap:var(--space4)}
+    .hero-kicker{display:inline-flex;align-items:center;gap:.7rem;padding:.55rem .95rem;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);text-transform:uppercase;letter-spacing:.2em;color:var(--muted);background:rgba(255,255,255,.03);width:max-content}
+    .hero-kicker::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--primary);box-shadow:0 0 18px rgba(182,32,42,.75)}
+    h1,h2,h3{margin:0;line-height:1}
+    .display{font-family:var(--fontDisplay);font-size:clamp(3.1rem,8vw,6.7rem);line-height:.92;text-transform:uppercase;letter-spacing:.03em}
+    .hero-copy p{max-width:62ch;color:var(--muted)}
+    .hero-copy,.player-shell{min-height:100%}
+    .player-shell{align-self:start}
+    .player-shell .hero-actions{margin-top:0}
+    .hero-actions,.platform-row,.video-actions,.lyrics-actions{display:flex;flex-wrap:wrap;gap:var(--space3)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.95rem 1.35rem;border-radius:var(--rfull);border:1px solid transparent;font-size:var(--sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:.2s ease;cursor:pointer}
+    .btn-primary{background:var(--primary);color:var(--inverse)}
+    .btn-primary:hover{background:var(--primaryHover);transform:translateY(-1px)}
+    .btn-secondary{background:transparent;border-color:var(--border);color:var(--text)}
+    .btn-secondary:hover{background:rgba(255,255,255,.04)}
+    .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;max-width:100%;max-height:360px}
+    .player-shell iframe{width:100%;height:100%;border:0}
+    .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)}
+    .player-title,.lyrics-title{font-size:var(--lg);font-weight:800}
+    .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
+    .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)}
+    .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em}
+    .catalog-head p{max-width:60ch;color:var(--muted)}
+    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)}
+    .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4)}
+    .video-thumb.alt-2{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%),linear-gradient(135deg, #111111, #5a1820)}
+    .video-thumb.alt-3{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.34) 100%),linear-gradient(135deg, #611019, #191919)}
+    .video-thumb.alt-4{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.32) 100%),linear-gradient(135deg, #2b2b2b, #8e1d26)}
+    .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)}
+    .video-badge{display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:var(--rfull);background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);letter-spacing:.18em;text-transform:uppercase}
+    .video-title{font-size:var(--lg);font-weight:800;line-height:1.15}
+    .video-copy{font-size:var(--sm);color:var(--muted)}
+    .track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;font-size:var(--xs);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+    .track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)}
+    .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)}
+    .lyrics-shell pre{margin:0;white-space:pre-wrap;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted)}
+    .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space2);margin-top:var(--space4)}
+    .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+    .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap}
+    .footer-note{font-size:var(--sm);color:var(--faint)}
+    @media (max-width: 1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width: 760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Preskoči na sadržaj</a>
@@ -36,10 +110,13 @@
           <a class="social-icon" href="#" title="TikTok"><span>TT</span></a>
           <a class="social-icon" href="#" title="Instagram"><span>IG</span></a>
         </div>
-        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
       </div>
     </div>
   </header>
+
   <main id="main">
     <section class="hero">
       <div class="container hero-layout">
@@ -59,6 +136,7 @@
             <a class="platform-chip" href="#">Instagram</a>
           </div>
         </div>
+
         <section class="player-shell panel" id="player">
           <div class="player-head">
             <div>
@@ -80,6 +158,7 @@
         </section>
       </div>
     </section>
+
     <section class="container main-layout">
       <section class="catalog-shell panel" id="catalog">
         <div class="catalog-head">
@@ -89,12 +168,12 @@
           </div>
           <p>Tri kartice u redu na desktopu, jedna na mobitelu.</p>
         </div>
+
         <div class="video-grid">
           <article class="video-card" data-track-id="1" data-title="Noćni Grad" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-lyrics="TEST LYRICS 1 - ovo treba da se vidi ispod videa.">
             <div class="video-thumb"><span class="video-badge">Single</span></div>
             <div>
               <div class="video-title">Noćni Grad</div>
-              <div class="video-meta"><span>2026</span><span>Trap</span><span>Official video</span></div>
             </div>
             <div class="video-copy">Prva pjesma sa test tekstom.</div>
             <div class="video-actions">
@@ -103,11 +182,11 @@
               <a class="track-btn" href="#">YouTube</a>
             </div>
           </article>
+
           <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/ScMzIvxBSi4" data-lyrics="TEST LYRICS 2 - drugi tekst.">
             <div class="video-thumb alt-2"><span class="video-badge">Video</span></div>
             <div>
               <div class="video-title">Crveni Dim</div>
-              <div class="video-meta"><span>2026</span><span>Drill</span><span>Visual</span></div>
             </div>
             <div class="video-copy">Druga kartica za test.</div>
             <div class="video-actions">
@@ -116,11 +195,11 @@
               <a class="track-btn" href="#">YouTube</a>
             </div>
           </article>
+
           <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="TEST LYRICS 3 - treći tekst.">
             <div class="video-thumb alt-3"><span class="video-badge">Audio</span></div>
             <div>
               <div class="video-title">Podrum Flow</div>
-              <div class="video-meta"><span>2026</span><span>Trap</span><span>Audio drop</span></div>
             </div>
             <div class="video-copy">Treća kartica za test.</div>
             <div class="video-actions">
@@ -129,11 +208,11 @@
               <a class="track-btn" href="#">YouTube</a>
             </div>
           </article>
+
           <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/ysz5S6PUM-U" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
             <div class="video-thumb alt-4"><span class="video-badge">Lyric</span></div>
             <div>
               <div class="video-title">Beton i Sjena</div>
-              <div class="video-meta"><span>2026</span><span>Trap</span><span>Lyric video</span></div>
             </div>
             <div class="video-copy">Četvrta kartica za test.</div>
             <div class="video-actions">
@@ -142,11 +221,11 @@
               <a class="track-btn" href="#">YouTube</a>
             </div>
           </article>
+
           <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/jfKfPfyJRdk" data-lyrics="TEST LYRICS 5 - peti tekst.">
             <div class="video-thumb"><span class="video-badge">Single</span></div>
             <div>
               <div class="video-title">Kasni Sat</div>
-              <div class="video-meta"><span>2026</span><span>Trap soul</span><span>Visual</span></div>
             </div>
             <div class="video-copy">Peta kartica za test.</div>
             <div class="video-actions">
@@ -155,11 +234,11 @@
               <a class="track-btn" href="#">YouTube</a>
             </div>
           </article>
+
           <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/aqz-KE-bpKQ" data-lyrics="TEST LYRICS 6 - šesti tekst.">
             <div class="video-thumb alt-2"><span class="video-badge">Premiere</span></div>
             <div>
               <div class="video-title">Linija Vatre</div>
-              <div class="video-meta"><span>2026</span><span>Drill</span><span>Premiere</span></div>
             </div>
             <div class="video-copy">Šesta kartica za test.</div>
             <div class="video-actions">
@@ -170,12 +249,13 @@
           </article>
         </div>
       </section>
+
       <section class="lyrics-shell panel" id="lyrics">
         <div class="lyrics-head">
           <div>
             <div class="eyebrow">Selected lyrics</div>
             <div class="lyrics-title" id="lyricsTitle">Noćni Grad</div>
-            <div class="lyrics-sub">Klik na pjesmu ili Lyrics otvara tekst ispod videa.</div>
+            <div class="lyrics-sub">Ovdje će se prikazivati tekst pjesme ispod videa.</div>
           </div>
         </div>
         <pre id="lyricsBody">TEST LYRICS 1 - ovo treba da se vidi ispod videa.</pre>
@@ -185,6 +265,7 @@
       </section>
     </section>
   </main>
+
   <footer class="footer">
     <div class="container footer-row">
       <div>
@@ -199,6 +280,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     (function() {
       const toggle = document.querySelector('[data-theme-toggle]');
