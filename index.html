@@ -864,7 +864,13 @@ Trap Balkan vozi dok se pali traka.</pre>
 
 
 
-    playAllButtons.forEach(function(btn) {
+    
+    function setMode(mode) {
+      singleModeBtn.classList.toggle('active', mode === 'single');
+      playlistModeBtn.classList.toggle('active', mode === 'playlist');
+    }
+
+playAllButtons.forEach(function(btn) {
 
       btn.addEventListener('click', function() {
 
@@ -891,6 +897,7 @@ Trap Balkan vozi dok se pali traka.</pre>
       }) || cards[0];
 
       if (activeCard) playCard(activeCard);
+      setMode('single');
 
     });
 
@@ -908,7 +915,10 @@ Trap Balkan vozi dok se pali traka.</pre>
 
 
 
-    if (cards[0]) playCard(cards[0]);
+    if (cards[0]) {
+      playCard(cards[0]);
+      showLyrics(cards[0]);
+    }
 
   })();
 
