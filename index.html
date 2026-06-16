@@ -1,57 +1,67 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="bs" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Trap Balkan | Music Hub</title>
+    <title>Trap Balkan — Official Production</title>
     <style>
-        :root { --dark: #0a0a0a; --accent: #00f2ff; /* Boja iz Logo TB.jpg */ }
-        body { background: var(--dark); color: #fff; font-family: sans-serif; margin: 0; }
-        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        :root { --bg: #070707; --surface: #111111; --primary: #00f2ff; --text: #ffffff; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; }
+        .container { max-width: 1400px; margin: auto; padding: 20px; display: grid; grid-template-columns: 1fr 350px; gap: 30px; }
         
-        /* Logo sekcija */
-        .header { text-align: center; padding: 40px 0; }
-        .header img { width: 120px; border-radius: 50%; }
+        /* Brand */
+        .brand { text-align: center; grid-column: 1 / -1; padding: 20px; }
+        .brand img { width: 80px; border-radius: 50%; border: 2px solid var(--primary); }
 
-        /* Grid za pjesme */
-        .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .track-card { background: #161616; padding: 15px; border-radius: 8px; border: 1px solid #333; }
+        /* Grid - 20 mjesta */
+        .catalog { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .card { background: var(--surface); padding: 15px; border-radius: 10px; border: 1px solid #222; }
         
-        /* Player i SEO linkovi */
-        .actions { display: flex; gap: 10px; margin-top: 10px; }
-        .btn { padding: 10px; border-radius: 4px; cursor: pointer; text-decoration: none; font-weight: bold; }
-        .btn-play { background: var(--accent); color: #000; }
-        .btn-stream { background: #333; color: #fff; }
+        /* Sidebar (Lyrics) */
+        .sidebar { position: sticky; top: 20px; height: fit-content; background: var(--surface); padding: 20px; border-radius: 10px; border: 1px solid #333; }
+        .btn { cursor: pointer; background: var(--primary); color: black; border: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; margin-right: 5px; }
     </style>
 </head>
 <body>
 
-<header class="header">
-    <img src="Logo TB.jpg" alt="Trap Balkan">
-    <h1>Trap Balkan</h1>
-</header>
+<div class="container">
+    <div class="brand">
+        <img src="Logo TB.jpg" alt="Trap Balkan">
+        <h1>Trap Balkan</h1>
+    </div>
 
-<main class="container">
-    <div class="music-grid">
-        <!-- Primjer kartice pjesme -->
-        <article class="track-card">
-            <h3>Noćni Grad</h3>
-            <div class="actions">
-                <a href="#" class="btn btn-play">YouTube</a>
-                <a href="#" class="btn btn-stream">Spotify</a>
-            </div>
-            <!-- SEO tekst (sakriven/skrolabilan) -->
-            <details style="margin-top:15px; font-size: 0.9em; color: #aaa;">
-                <summary>Lyrics (SEO)</summary>
-                <p>Ovdje ide tekst pjesme za SEO pretragu...</p>
-            </details>
-        </article>
+    <div class="catalog" id="grid">
+        <!-- Generišemo 20 kartica kroz JS -->
     </div>
-    
-    <!-- Paginacija -->
-    <div style="text-align: center; margin-top: 30px;">
-        <button>1</button> <button>2</button> <button>3</button>
-    </div>
-</main>
+
+    <aside class="sidebar">
+        <h2 id="lyricsTitle">Lyrics</h2>
+        <pre id="lyricsBody">Odaberi pjesmu...</pre>
+    </aside>
+</div>
+
+<script>
+    const grid = document.getElementById('grid');
+    const lyricsTitle = document.getElementById('lyricsTitle');
+    const lyricsBody = document.getElementById('lyricsBody');
+
+    // Kreiramo 20 pjesama
+    for (let i = 1; i <= 20; i++) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>Pjesma ${i}</h3>
+            <button class="btn" onclick="play('${i}')">Play</button>
+            <button class="btn" onclick="showLyrics('${i}')">Lyrics</button>
+        `;
+        grid.appendChild(card);
+    }
+
+    function play(i) { alert("Učitavam YouTube video za pjesmu " + i); }
+    function showLyrics(i) {
+        lyricsTitle.innerText = "Lyrics za Pjesmu " + i;
+        lyricsBody.innerText = "Ovdje će stajati tekst pjesme " + i + " za potrebe SEO optimizacije...";
+    }
+</script>
 
 </body>
 </html>
