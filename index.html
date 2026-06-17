@@ -3,40 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trap Balkan — Premium</title>
+    <title>Trap Balkan — Premium Neon</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #b6202a; --bg: #070707; --glass: rgba(255,255,255,0.05); }
-        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
+        :root { --neon: #3b82f6; --bg: #070707; --glass: rgba(255,255,255,0.03); }
+        body { background: var(--bg); color: #f4eee8; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
         .container { max-width: 1200px; margin: 0 auto; }
         
-        /* PREMIUM HEADER */
+        /* HEADER */
         .site-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; margin-bottom: 40px; }
         .brand { display: flex; align-items: center; gap: 15px; }
-        .logo { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); }
+        .logo { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--neon); }
         .brand-title { font-family: 'Anton', sans-serif; font-size: 2rem; letter-spacing: 3px; }
-        .social-nav a { color: #888; margin-left: 20px; text-decoration: none; font-weight: 700; }
-        .social-nav a:hover { color: var(--primary); }
-
-        /* HERO - PREMIUM */
-        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        h1 { font-family: 'Anton', sans-serif; font-size: 4rem; text-transform: uppercase; margin: 0; }
-        .featured-video { width: 100%; aspect-ratio: 16/9; border-radius: 20px; border: 2px solid #222; box-shadow: 0 0 20px var(--primary); }
-
-        /* GRID - PREMIUM KARTICE */
+        
+        /* HERO OKVIR (Glass + Neon) */
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; align-items: center; }
+        .hero-box { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid var(--neon); box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+        h1 { font-family: 'Anton', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin: 0 0 10px 0; color: var(--neon); text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        .featured-video { width: 100%; aspect-ratio: 16/9; border-radius: 20px; border: 1px solid var(--neon); box-shadow: 0 0 20px var(--neon); overflow: hidden; }
+        
+        /* GRID */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .card { background: var(--glass); padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card { background: var(--glass); padding: 20px; border-radius: 20px; border: 1px solid #333; transition: 0.3s; }
+        .card:hover { border-color: var(--neon); transform: translateY(-5px); }
         .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
         iframe { width: 100%; height: 100%; border: none; }
         
-        button { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; width: 100%; font-weight: 700; transition: 0.3s; }
-        button:hover { filter: brightness(1.2); }
-
-        /* MODAL - ZMELOS */
+        /* DUGMAD I MODAL */
+        button { background: var(--neon); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; width: 100%; font-weight: 700; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal.active { display: flex; }
-        .modal-content { background: #111; padding: 40px; border-radius: 20px; max-width: 500px; border: 1px solid var(--primary); }
+        .modal-content { background: #111; padding: 40px; border-radius: 20px; max-width: 500px; border: 1px solid var(--neon); }
     </style>
 </head>
 <body>
@@ -47,32 +44,34 @@
             <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" class="logo">
             <div class="brand-title">TRAP BALKAN</div>
         </div>
-        <nav class="social-nav">
-            <a href="#">Spotify</a> <a href="#">FB</a> <a href="#">TikTok</a> <a href="#">Instagram</a>
-        </nav>
+        <nav> <!-- Dodaj linkove ovdje --> </nav>
     </header>
 
     <section class="hero">
-        <div>
+        <div class="hero-box">
             <h1>Sve pjesme na jednom mjestu</h1>
             <p>Najnoviji trap hitovi s Balkana u Premium izdanju.</p>
         </div>
-        <div class="featured-video"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
+        <div class="featured-video">
+            <iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe>
+        </div>
     </section>
 
     <div class="grid">
+        <!-- KARTICA -->
         <article class="card">
             <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
             <h3>Asfaltni Dug</h3>
             <button onclick="otvoriTekst('modal1')">Lyrics</button>
         </article>
-        </div>
+        <!-- Kopiraj ovaj <article> blok za ostale pjesme -->
+    </div>
 </div>
 
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h3>Asfaltni Dug</h3>
-        <p>Ovdje pišeš tekst pjesme...</p>
+        <p>Ovdje ide tekst pjesme...</p>
         <button onclick="zatvoriTekst('modal1')">Zatvori</button>
     </div>
 </div>
