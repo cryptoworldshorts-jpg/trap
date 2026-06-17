@@ -4,116 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trap Balkan — Production Layout</title>
-  <meta name="description" content="Trap Balkan music site with featured player, lyrics below video, 3-card catalog on desktop, and 1-card mobile layout." />
+  <meta name="description" content="Trap Balkan music site with featured player and easy-to-edit song cards." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{--bg:#f5f2ee;--surface:#ffffff;--surface2:#eee8e2;--border:rgba(19,19,19,.1);--text:#161210;--muted:#69625d;--faint:#928881;--primary:#8e1d26;--primaryHover:#6c151b;--inverse:#fbf6f1;--shadow:0 24px 80px rgba(18,12,10,.15);--fontDisplay:'Anton',Impact,sans-serif;--fontBody:'Inter',Arial,sans-serif;--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);--base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);--xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--space2:.5rem;--space3:.75rem;--space4:1rem;--space5:1.25rem;--space6:1.5rem;--space8:2rem;--space10:2.5rem;--space12:3rem;--space16:4rem;--space20:5rem;--rmd:.75rem;--rxl:1.75rem;--rfull:999px}
+    :root,[data-theme="light"]{--bg:#f5f2ee;--surface:#ffffff;--surface2:#eee8e2;--border:rgba(19,19,19,.1);--text:#161210;--muted:#69625d;--faint:#928881;--primary:#8e1d26;--primaryHover:#6c151b;--inverse:#fbf6f1;--shadow:0 24px 80px rgba(18,12,10,.15);--fontDisplay:'Anton',Impact,sans-serif;--fontBody:'Inter',Arial,sans-serif;--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);--base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--space3:.75rem;--space4:1rem;--space5:1.25rem;--space10:2.5rem;--space16:4rem;--space20:5rem;--rmd:.75rem;--rxl:1.75rem;--rfull:999px}
     [data-theme="dark"]{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--muted:#b6ada5;--faint:#7d736c;--primary:#b6202a;--primaryHover:#db3641;--inverse:#fdf8f3;--shadow:0 30px 100px rgba(0,0,0,.45)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;min-height:100vh;font-family:var(--fontBody);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at top right, rgba(182,32,42,.16), transparent 26%),var(--bg)}
-    a{text-decoration:none;color:inherit}
-    img,iframe,svg{display:block;max-width:100%}
-    button{font:inherit;color:inherit}
-    .container{width:min(1440px,calc(100% - 2rem));margin:0 auto}
-    .skip-link{position:absolute;left:-999px;top:1rem}
-    .skip-link:focus{left:1rem;z-index:80;background:var(--primary);color:var(--inverse);padding:.85rem 1rem;border-radius:var(--rmd)}
-    .site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,7,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-    .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space4);padding:var(--space4) 0}
-    .brand{display:flex;align-items:center;gap:var(--space3)}
-    .brand-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)}
-    .brand-logo img{width:100%;height:100%;object-fit:contain;background:#000}
-    .brand-copy{display:flex;flex-direction:column}
-    .eyebrow{font-size:var(--xs);text-transform:uppercase;letter-spacing:.22em;color:var(--faint)}
-    .brand-title{font-size:var(--sm);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    .nav-links,.header-right,.social-links{display:flex;align-items:center;gap:var(--space2);flex-wrap:wrap}
-    .nav-links{justify-content:center}
-    .header-right{justify-content:flex-end}
-    .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);font-size:var(--sm);color:var(--muted);background:rgba(255,255,255,.03)}
-    .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease}
-    .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)}
-    .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--rfull);border:1px solid var(--border);display:grid;place-items:center;background:var(--surface);cursor:pointer}
-    .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space10)}
-    .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space5);align-items:start}
-    .panel{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)}
-    .hero-copy{display:grid;gap:var(--space4)}
-    .hero-kicker{display:inline-flex;align-items:center;gap:.7rem;padding:.55rem .95rem;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);text-transform:uppercase;letter-spacing:.2em;color:var(--muted);background:rgba(255,255,255,.03);width:max-content}
-    .hero-kicker::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--primary);box-shadow:0 0 18px rgba(182,32,42,.75)}
-    h1,h2,h3{margin:0;line-height:1}
-    .display{font-family:var(--fontDisplay);font-size:clamp(3.1rem,8vw,6.7rem);line-height:.92;text-transform:uppercase;letter-spacing:.03em}
-    .hero-copy p{max-width:62ch;color:var(--muted)}
-    .hero-copy,.player-shell{min-height:100%}
-    .player-shell{align-self:start}
-    .player-shell .hero-actions{margin-top:0}
-    .hero-actions,.platform-row,.video-actions,.lyrics-actions{display:flex;flex-wrap:wrap;gap:var(--space3)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.95rem 1.35rem;border-radius:var(--rfull);border:1px solid transparent;font-size:var(--sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:.2s ease;cursor:pointer}
-    .btn-primary{background:var(--primary);color:var(--inverse)}
-    .btn-primary:hover{background:var(--primaryHover);transform:translateY(-1px)}
-    .btn-secondary{background:transparent;border-color:var(--border);color:var(--text)}
-    .btn-secondary:hover{background:rgba(255,255,255,.04)}
-    .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-    .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;max-width:100%;max-height:360px}
-    .player-shell iframe{width:100%;height:100%;border:0}
-    .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)}
-    .player-title,.lyrics-title{font-size:var(--lg);font-weight:800}
-    .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
-    .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)}
-    .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em}
-    .catalog-head p{max-width:60ch;color:var(--muted)}
-    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)}
-    .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4)}
-    .video-thumb.alt-2{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%),linear-gradient(135deg, #111111, #5a1820)}
-    .video-thumb.alt-3{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.34) 100%),linear-gradient(135deg, #611019, #191919)}
-    .video-thumb.alt-4{background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.32) 100%),linear-gradient(135deg, #2b2b2b, #8e1d26)}
-    .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)}
-    .video-badge{display:none}
-    .video-title{font-size:var(--lg);font-weight:800;line-height:1.15}
-    .video-copy{font-size:var(--sm);color:var(--muted)}
-    .track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;font-size:var(--xs);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
-    .track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)}
-    .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)}
-    .lyrics-shell pre{margin:0;white-space:pre-wrap;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted)}
-    .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space2);margin-top:var(--space4)}
-    .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
-    .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)}
-    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap}
-    .footer-note{font-size:var(--sm);color:var(--faint)}
-    @media (max-width: 1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width: 760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--fontBody);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at top right, rgba(182,32,42,.16), transparent 26%),var(--bg)} a{text-decoration:none;color:inherit} img,iframe,svg{display:block;max-width:100%} button{font:inherit;color:inherit}
+    .container{width:min(1440px,calc(100% - 2rem));margin:0 auto} .site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,7,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space4);padding:var(--space4) 0} .brand{display:flex;align-items:center;gap:var(--space3)} .brand-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)} .brand-logo img{width:100%;height:100%;object-fit:contain;background:#000} .brand-copy{display:flex;flex-direction:column} .eyebrow{font-size:var(--xs);text-transform:uppercase;letter-spacing:.22em;color:var(--faint)} .brand-title{font-size:var(--sm);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .nav-links,.header-right,.social-links{display:flex;align-items:center;gap:var(--space3);flex-wrap:wrap} .nav-links{justify-content:center} .header-right{justify-content:flex-end} .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);font-size:var(--sm);color:var(--muted);background:rgba(255,255,255,.03)} .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease} .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)} .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--rfull);border:1px solid var(--border);display:grid;place-items:center;background:var(--surface);cursor:pointer}
+    .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space10)} .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space5);align-items:start} .panel{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .hero-copy{display:grid;gap:var(--space4)} .hero-kicker{display:inline-flex;align-items:center;gap:.7rem;padding:.55rem .95rem;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);text-transform:uppercase;letter-spacing:.2em;color:var(--muted);background:rgba(255,255,255,.03);width:max-content} .hero-kicker::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--primary);box-shadow:0 0 18px rgba(182,32,42,.75)} h1,h2,h3{margin:0;line-height:1} .display{font-family:var(--fontDisplay);font-size:clamp(3.1rem,8vw,6.7rem);line-height:.92;text-transform:uppercase;letter-spacing:.03em} .hero-copy p{max-width:62ch;color:var(--muted)} .hero-copy,.player-shell{min-height:100%} .player-shell{align-self:start}
+    .hero-actions,.platform-row,.video-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn,.track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.8rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;cursor:pointer} .btn-primary,.track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .btn-primary:hover,.track-btn.primary:hover{background:var(--primaryHover)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;width:100%} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
+    .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4)} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
+    .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted)} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space3);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)}
+    @media (max-width:1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width:760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
-        <div class="brand-logo">
-          <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Trap Balkan logo" width="54" height="54" loading="eager">
-        </div>
-        <div class="brand-copy">
-          <span class="eyebrow">Production concept</span>
-          <span class="brand-title">Trap Balkan</span>
-        </div>
+        <div class="brand-logo"><img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Trap Balkan logo" width="54" height="54"></div>
+        <div class="brand-copy"><span class="eyebrow">Production concept</span><span class="brand-title">Trap Balkan</span></div>
       </div>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#player">Player</a>
-        <a href="#catalog">Pjesme</a>
-        <a href="#lyrics">Lyrics</a>
-      </nav>
-      <div class="header-right">
-        <div class="social-links" aria-label="Social links">
-          <a class="social-icon" href="#" title="YouTube"><span>YT</span></a>
-          <a class="social-icon" href="#" title="Spotify"><span>SP</span></a>
-          <a class="social-icon" href="#" title="TikTok"><span>TT</span></a>
-          <a class="social-icon" href="#" title="Instagram"><span>IG</span></a>
-        </div>
-        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-      </div>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="#player">Player</a><a href="#catalog">Pjesme</a><a href="#lyrics">Lyrics</a></nav>
+      <div class="header-right"><div class="social-links"><a class="social-icon" href="#">YT</a><a class="social-icon" href="#">SP</a><a class="social-icon" href="#">TT</a><a class="social-icon" href="#">IG</a></div><button class="theme-toggle" data-theme-toggle aria-label="Switch theme">🌓</button></div>
     </div>
   </header>
 
@@ -124,71 +43,72 @@
           <span class="hero-kicker">Trap Balkan music hub</span>
           <h1 class="display">Sve pjesme na jednom mjestu</h1>
           <p>Hero je sada čišći, a pjesme možeš redati jednostavno pomjeranjem kartica gore ili dole.</p>
-          <div class="hero-actions"><button class="btn btn-primary" id="playAllHero" type="button">Play all</button><a class="btn" href="#catalog">Pogledaj pjesme</a></div>
+          <div class="hero-actions"><button class="btn btn-primary" id="playAllHero" type="button">Play featured</button><a class="btn" href="#catalog">Pogledaj pjesme</a></div>
           <div class="platform-row"><a class="platform-chip" href="#">YouTube</a><a class="platform-chip" href="#">Spotify</a><a class="platform-chip" href="#">Apple Music</a><a class="platform-chip" href="#">TikTok</a><a class="platform-chip" href="#">Instagram</a></div>
         </div>
 
         <section class="player-shell panel" id="player">
           <div class="player-head"><div><div class="eyebrow">Featured player</div><div class="player-title" id="playerTitle">Noćni Grad</div><div class="player-sub" id="playerModeText">Mode: Single track player</div></div></div>
           <div class="video-wrap"><iframe id="playerFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Trap Balkan YouTube player" loading="lazy" allowfullscreen></iframe></div>
-          <div class="mode-switch" style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem"><button class="mode-chip" id="singleModeBtn" type="button">Single mode</button><button class="mode-chip" id="playlistModeBtn" type="button">Playlist mode</button></div>
-          <div class="hero-actions" style="margin-top:var(--space4)"><button class="btn btn-primary" id="playAllMain" type="button">Sve pjesme na jednom mjestu</button></div>
         </section>
       </div>
     </section>
 
     <section class="container main-layout">
       <section class="catalog-shell panel" id="catalog">
-        <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div><p>Tri kartice u redu na desktopu, jedna na mobitelu.</p></div>
+        <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div><p>Prva kartica je featured. Ostale su zasebne pjesme. Dodaj novu pjesmu tako što kopiraš jedan blok i premjestiš ga po želji.</p></div>
 
         <div class="video-grid">
-          <article class="video-card" data-track-id="1" data-title="Noćni Grad" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-lyrics="TEST LYRICS 1 - ovo treba da se vidi ispod videa.">
+          <article class="video-card" data-track-id="1" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro\n\nSvi bi med i mlijeko, al ne bi znoj na čelo\nOko nas je sivilo, al srce nam je vrelo\nKad zagrmi ulica, znam ko mi čuva leđa\nNije to ona priča što se po gradu vjeđa\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nNismo se birali, al smo se našli u jadu\nDok su drugi brojali šta imaju u hladu\nMi smo dijelili koru, mi smo dijelili mrak\nZato je svaki udarac danas jači, jači znak\nNe trebaju nam svjedoci za ono što smo bili\nSvi ti lažni drugovi davno su se skrili\nBrate, ostajemo čisti kad sve postane prljavo\nTo je ono pravo, to je ono glavno\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nSamo brat\nDo zadnjeg trena\nBrate">
             <div class="video-thumb"></div>
-            <div><div class="video-title">Noćni Grad</div></div>
-            <div class="video-copy">Prva pjesma sa test tekstom.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div><div class="video-title">Asfaltni Dug</div></div>
+            <div class="video-copy">Featured pjesma.</div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/IZcITfepWFw" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/ScMzIvxBSi4" data-lyrics="TEST LYRICS 2 - drugi tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Crveni Dim</div></div>
             <div class="video-copy">Druga kartica za test.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/ScMzIvxBSi4" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="TEST LYRICS 3 - treći tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Podrum Flow</div></div>
             <div class="video-copy">Treća kartica za test.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/tgbNymZ7vqY" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/ysz5S6PUM-U" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Beton i Sjena</div></div>
             <div class="video-copy">Četvrta kartica za test.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/ysz5S6PUM-U" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/jfKfPfyJRdk" data-lyrics="TEST LYRICS 5 - peti tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Kasni Sat</div></div>
             <div class="video-copy">Peta kartica za test.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/jfKfPfyJRdk" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
-          <article class="video-card" data-track-id="6" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro\n\nSvi bi med i mlijeko, al ne bi znoj na čelo\nOko nas je sivilo, al srce nam je vrelo\nKad zagrmi ulica, znam ko mi čuva leđa\nNije to ona priča što se po gradu vjeđa\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nNismo se birali, al smo se našli u jadu\nDok su drugi brojali šta imaju u hladu\nMi smo dijelili koru, mi smo dijelili mrak\nZato je svaki udarac danas jači, jači znak\nNe trebaju nam svjedoci za ono što smo bili\nSvi ti lažni drugovi davno su se skrili\nBrate, ostajemo čisti kad sve postane prljavo\nTo je ono pravo, to je ono glavno\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nSamo brat\nDo zadnjeg trena\nBrate">
+          <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/9bZkp7q19f0" data-lyrics="TEST LYRICS 6 - šesti tekst.">
             <div class="video-thumb"></div>
-            <div><div class="video-title">Asfaltni Dug</div></div>
+            <div><div class="video-title">Linija Vatre</div></div>
             <div class="video-copy">Šesta kartica za test.</div>
-            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="https://www.youtube.com/embed/9bZkp7q19f0" target="_blank" rel="noopener">YouTube</a></div>
           </article>
         </div>
       </section>
 
       <section class="lyrics-shell panel" id="lyrics">
-        <div class="lyrics-head"><div><div class="eyebrow">Selected lyrics</div><div class="lyrics-title" id="lyricsTitle">Noćni Grad</div><div class="lyrics-sub">Ovdje će se prikazivati tekst pjesme ispod videa.</div></div></div>
-        <pre id="lyricsBody">TEST LYRICS 1 - ovo treba da se vidi ispod videa.</pre>
+        <div class="lyrics-head"><div><div class="eyebrow">Selected lyrics</div><div class="lyrics-title" id="lyricsTitle">Asfaltni Dug</div><div class="lyrics-sub">Klik na pjesmu prikazuje tekst ovdje ispod.</div></div></div>
+        <pre id="lyricsBody">Asfalt pamti korake što su ovdje stali
+Brate, mnogi su pali jer su previše dali
+Gledam grad kroz maglu, pitam se ko je ko
+Ovdje obraz košta, a niko nije pro</pre>
         <div class="lyrics-tags"><span>Lyrics</span><span>YouTube</span><span>SEO</span></div>
       </section>
     </section>
@@ -196,16 +116,8 @@
 
   <footer class="footer">
     <div class="container footer-row">
-      <div>
-        <div class="brand-title">Trap Balkan</div>
-        <div class="footer-note">Desktop: 3 kartice. Mobitel: 1 kartica. Lyrics ispod videa.</div>
-      </div>
-      <div class="social-links">
-        <a class="social-icon" href="#" title="YouTube"><span>YT</span></a>
-        <a class="social-icon" href="#" title="Spotify"><span>SP</span></a>
-        <a class="social-icon" href="#" title="TikTok"><span>TT</span></a>
-        <a class="social-icon" href="#" title="Instagram"><span>IG</span></a>
-      </div>
+      <div><div class="brand-title">Trap Balkan</div><div class="footer-note">Desktop: 3 kartice. Mobitel: 1 kartica. Klik na karticu svira baš tu pjesmu.</div></div>
+      <div class="social-links"><a class="social-icon" href="#">YT</a><a class="social-icon" href="#">SP</a><a class="social-icon" href="#">TT</a><a class="social-icon" href="#">IG</a></div>
     </div>
   </footer>
 
@@ -214,75 +126,35 @@
       const toggle = document.querySelector('[data-theme-toggle]');
       const root = document.documentElement;
       const cards = Array.from(document.querySelectorAll('.video-card'));
+      const playerPanel = document.getElementById('player');
       const frame = document.getElementById('playerFrame');
       const playerTitle = document.getElementById('playerTitle');
       const playerModeText = document.getElementById('playerModeText');
       const lyricsTitle = document.getElementById('lyricsTitle');
       const lyricsBody = document.getElementById('lyricsBody');
-      const singleModeBtn = document.getElementById('singleModeBtn');
-      const playlistModeBtn = document.getElementById('playlistModeBtn');
-      const playlistEmbed = 'https://www.youtube.com/embed/videoseries?list=PL8J9oi-nz2_UosOrPnOHstOQAe8F3AQyI';
       let theme = 'dark';
-      let currentCard = cards[0];
 
-      function renderTheme() {
-        root.setAttribute('data-theme', theme);
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
-          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
-      }
-
+      function renderTheme() { root.setAttribute('data-theme', theme); }
       function setCurrent(card) {
-        currentCard = card;
-        playerTitle.textContent = card.dataset.title || 'Track';
+        const title = card.dataset.title || 'Track';
+        const video = card.dataset.video || '';
+        playerTitle.textContent = title;
         playerModeText.textContent = 'Mode: Single track player';
-        frame.src = card.dataset.video || frame.src;
-        lyricsTitle.textContent = card.dataset.title || 'Track';
+        lyricsTitle.textContent = title;
         lyricsBody.textContent = card.dataset.lyrics || 'Lyrics će se pojaviti ovdje.';
-        cards.forEach(function(c){ c.classList.toggle('active', c === card); });
-        document.getElementById('lyrics').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function setPlaylistMode() {
-        playerTitle.textContent = 'Sve pjesme na jednom mjestu';
-        playerModeText.textContent = 'Mode: YouTube playlist player';
-        frame.src = playlistEmbed;
+        if (video) frame.src = video;
+        playerPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       cards.forEach(function(card) {
         const playBtn = card.querySelector('[data-action="play"]');
         const lyricsBtn = card.querySelector('[data-action="lyrics"]');
-        if (playBtn) playBtn.addEventListener('click', function() {
-          setCurrent(card);
-          document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        if (lyricsBtn) lyricsBtn.addEventListener('click', function() {
-          setCurrent(card);
-        });
+        if (playBtn) playBtn.addEventListener('click', function() { setCurrent(card); });
+        if (lyricsBtn) lyricsBtn.addEventListener('click', function() { setCurrent(card); });
       });
-
-      singleModeBtn.addEventListener('click', function() {
-        if (currentCard) setCurrent(currentCard);
-      });
-      playlistModeBtn.addEventListener('click', function() {
-        setPlaylistMode();
-      });
-      document.getElementById('playAllHero').addEventListener('click', function() {
-        setPlaylistMode();
-        document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-      document.getElementById('playAllMain').addEventListener('click', function() {
-        setPlaylistMode();
-        document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      toggle.addEventListener('click', function() {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        renderTheme();
-      });
-
-      renderTheme();
-      if (currentCard) setCurrent(currentCard);
+      document.getElementById('playAllHero').addEventListener('click', function() { if (cards[0]) setCurrent(cards[0]); });
+      toggle.addEventListener('click', function() { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
+      renderTheme(); if (cards[0]) setCurrent(cards[0]);
     })();
   </script>
 </body>
