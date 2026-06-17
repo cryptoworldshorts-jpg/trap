@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trap Balkan — Production Layout</title>
-  <meta name="description" content="Trap Balkan music site with featured player and easy-to-edit song cards." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
     .hero-actions,.platform-row,.video-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn,.track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.8rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;cursor:pointer} .btn-primary,.track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .btn-primary:hover,.track-btn.primary:hover{background:var(--primaryHover)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
     .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;width:100%} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
     .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;cursor:pointer;background:#000}.video-thumb::before{content:"";position:absolute;inset:0;background:url(https://img.youtube.com/vi/IZcITfepWFw/hqdefault.jpg) center/cover no-repeat;pointer-events:none}.video-thumb::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:72px;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.7);pointer-events:none} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;cursor:pointer;background:#000}.video-thumb::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:72px;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.7);pointer-events:none} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
     .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted);max-width:100%} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space3);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)}
     @media (max-width:1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width:760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
   </style>
@@ -41,71 +40,37 @@
         <div class="hero-copy panel">
           <span class="hero-kicker">Trap Balkan music hub</span>
           <h1 class="display">Sve pjesme na jednom mjestu</h1>
-          <p>Hero je sada čišći, a pjesme možeš redati jednostavno pomjeranjem kartica gore ili dole.</p>
+          <p>Izaberi pjesmu iz kataloga, ona će se automatski pokrenuti u playeru.</p>
           <div class="hero-actions"><button class="btn btn-primary" id="playAllHero" type="button">Play featured</button><a class="btn" href="#catalog">Pogledaj pjesme</a></div>
-          <div class="platform-row"><a class="platform-chip" href="#">YouTube</a><a class="platform-chip" href="#">Spotify</a><a class="platform-chip" href="#">Apple Music</a><a class="platform-chip" href="#">TikTok</a><a class="platform-chip" href="#">Instagram</a></div>
         </div>
         <section class="player-shell panel" id="player">
           <div class="player-head"><div><div class="eyebrow">Featured player</div><div class="player-title" id="playerTitle">Asfaltni Dug</div><div class="player-sub" id="playerModeText">Mode: Single track player</div></div></div>
-          <div class="video-wrap"><iframe id="playerFrame" src="https://www.youtube.com/embed/IZcITfepWFw" title="Trap Balkan YouTube player" loading="lazy" allowfullscreen></iframe></div>
+          <div class="video-wrap"><iframe id="playerFrame" src="https://www.youtube.com/embed/IZcITfepWFw?autoplay=1" title="Trap Balkan YouTube player" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
         </section>
       </div>
     </section>
     <section class="container main-layout">
       <section class="catalog-shell panel" id="catalog">
-        <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div><p>Prva kartica je featured. Ostale su zasebne pjesme. Klik na karticu svira baš tu pjesmu.</p></div>
+        <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div></div>
         <div class="video-grid">
-          <article class="video-card" data-track-id="1" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro\n\nSvi bi med i mlijeko, al ne bi znoj na čelo\nOko nas je sivilo, al srce nam je vrelo\nKad zagrmi ulica, znam ko mi čuva leđa\nNije to ona priča što se po gradu vjeđa\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nNismo se birali, al smo se našli u jadu\nDok su drugi brojali šta imaju u hladu\nMi smo dijelili koru, mi smo dijelili mrak\nZato je svaki udarac danas jači, jači znak\nNe trebaju nam svjedoci za ono što smo bili\nSvi ti lažni drugovi davno su se skrili\nBrate, ostajamo čisti kad sve postane prljavo\nTo je ono pravo, to je ono glavno\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nSamo brat\nDo zadnjeg trena\nBrate">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Asfaltni Dug</div></div>
-            <div class="video-copy">Opis pjesme: ulica, bratstvo i težina dana.</div>
+          <article class="video-card" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw?autoplay=1" data-lyrics="Tekst pjesme Asfaltni Dug...">
+            <div class="video-thumb" style="background: url(https://img.youtube.com/vi/IZcITfepWFw/hqdefault.jpg) center/cover"></div>
+            <div class="video-title">Asfaltni Dug</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
-          <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 2 - drugi tekst.">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Crveni Dim</div></div>
-            <div class="video-copy">Opis pjesme: energija, noć i crveni dim.</div>
-            <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
-          </article>
-          <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 3 - treći tekst.">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Podrum Flow</div></div>
-            <div class="video-copy">Opis pjesme: mračan beat i podrum vibe.</div>
-            <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
-          </article>
-          <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Beton i Sjena</div></div>
-            <div class="video-copy">Opis pjesme: beton, hladnoća i sjena grada.</div>
-            <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
-          </article>
-          <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 5 - peti tekst.">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Kasni Sat</div></div>
-            <div class="video-copy">Opis pjesme: kasna noć i spor ritam.</div>
-            <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
-          </article>
-          <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 6 - šesti tekst.">
-            <div class="video-thumb"></div>
-            <div><div class="video-title">Linija Vatre</div></div>
-            <div class="video-copy">Opis pjesme: vatra, tempo i visoka energija.</div>
+          <article class="video-card" data-title="Drugi Video" data-video="https://www.youtube.com/embed/fjzgBXjaAcc?autoplay=1" data-lyrics="Tekst pjesme sa drugog linka...">
+            <div class="video-thumb" style="background: url(https://img.youtube.com/vi/fjzgBXjaAcc/hqdefault.jpg) center/cover"></div>
+            <div class="video-title">Drugi Video</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
         </div>
       </section>
       <section class="lyrics-shell panel" id="lyrics">
-        <div class="lyrics-head"><div><div class="eyebrow">Selected lyrics</div><div class="lyrics-title" id="lyricsTitle">Asfaltni Dug</div><div class="lyrics-sub">Klik na pjesmu prikazuje tekst ovdje ispod.</div></div></div>
-        <pre id="lyricsBody">Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro</pre>
-        <div class="lyrics-tags"><span>Lyrics</span><span>YouTube</span><span>SEO</span></div>
+        <div class="lyrics-head"><div><div class="eyebrow">Selected lyrics</div><div class="lyrics-title" id="lyricsTitle">Asfaltni Dug</div></div></div>
+        <pre id="lyricsBody">Klikni na pjesmu za prikaz teksta.</pre>
       </section>
     </section>
   </main>
-  <footer class="footer">
-    <div class="container footer-row">
-      <div><div class="brand-title">Trap Balkan</div><div class="footer-note">Desktop: 3 kartice. Mobitel: 1 kartica. Klik na karticu svira baš tu pjesmu.</div></div>
-      <div class="social-links"><a class="social-icon" href="#">YT</a><a class="social-icon" href="#">SP</a><a class="social-icon" href="#">TT</a><a class="social-icon" href="#">IG</a></div>
-    </div>
-  </footer>
   <script>
     (function() {
       const toggle = document.querySelector('[data-theme-toggle]');
@@ -113,30 +78,36 @@
       const cards = Array.from(document.querySelectorAll('.video-card'));
       const frame = document.getElementById('playerFrame');
       const playerTitle = document.getElementById('playerTitle');
-      const playerModeText = document.getElementById('playerModeText');
       const lyricsTitle = document.getElementById('lyricsTitle');
       const lyricsBody = document.getElementById('lyricsBody');
       let theme = 'dark';
+      
       function renderTheme() { root.setAttribute('data-theme', theme); }
+      
       function setCurrent(card, scrollLyrics) {
-        const title = card.dataset.title || 'Track';
-        const video = card.dataset.video || '';
+        const title = card.dataset.title;
+        const video = card.dataset.video;
         playerTitle.textContent = title;
-        playerModeText.textContent = 'Mode: Single track player';
         lyricsTitle.textContent = title;
-        lyricsBody.textContent = card.dataset.lyrics || 'Lyrics će se pojaviti ovdje.';
-        if (video) frame.src = video;
+        lyricsBody.textContent = card.dataset.lyrics;
+        
+        // Osvježavanje iframe-a
+        frame.src = ""; 
+        setTimeout(() => {
+          frame.src = video;
+        }, 50);
+        
         if (scrollLyrics) document.getElementById('lyrics').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      cards.forEach(function(card) {
-        const thumb = card.querySelector('.video-thumb');
-        const lyricsBtn = card.querySelector('[data-action="lyrics"]');
-        if (thumb) thumb.addEventListener('click', function() { setCurrent(card, false); });
-        if (lyricsBtn) lyricsBtn.addEventListener('click', function() { setCurrent(card, true); });
+      
+      cards.forEach(card => {
+        card.querySelector('.video-thumb').addEventListener('click', () => setCurrent(card, false));
+        card.querySelector('[data-action="lyrics"]').addEventListener('click', () => setCurrent(card, true));
       });
-      document.getElementById('playAllHero').addEventListener('click', function() { if (cards[0]) setCurrent(cards[0], false); });
-      toggle.addEventListener('click', function() { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
-      renderTheme(); if (cards[0]) setCurrent(cards[0], false);
+      
+      document.getElementById('playAllHero').addEventListener('click', () => { if (cards[0]) setCurrent(cards[0], false); });
+      toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
+      renderTheme();
     })();
   </script>
 </body>
