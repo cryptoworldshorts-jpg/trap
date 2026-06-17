@@ -19,7 +19,7 @@
     .hero-actions,.platform-row,.video-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn,.track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.8rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;cursor:pointer} .btn-primary,.track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .btn-primary:hover,.track-btn.primary:hover{background:var(--primaryHover)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
     .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;width:100%} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
     .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4)} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4);cursor:pointer} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
     .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted);max-width:100%} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space3);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)}
     @media (max-width:1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width:760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
   </style>
@@ -66,35 +66,35 @@
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
 
-          <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/ScMzIvxBSi4" data-lyrics="TEST LYRICS 2 - drugi tekst.">
+          <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 2 - drugi tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Crveni Dim</div></div>
             <div class="video-copy">Druga kartica za test.</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
 
-          <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="TEST LYRICS 3 - treći tekst.">
+          <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 3 - treći tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Podrum Flow</div></div>
             <div class="video-copy">Treća kartica za test.</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
 
-          <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/ysz5S6PUM-U" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
+          <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Beton i Sjena</div></div>
             <div class="video-copy">Četvrta kartica za test.</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
 
-          <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/jfKfPfyJRdk" data-lyrics="TEST LYRICS 5 - peti tekst.">
+          <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 5 - peti tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Kasni Sat</div></div>
             <div class="video-copy">Peta kartica za test.</div>
             <div class="video-actions"><button class="track-btn" data-action="lyrics" type="button">Lyrics</button></div>
           </article>
 
-          <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/9bZkp7q19f0" data-lyrics="TEST LYRICS 6 - šesti tekst.">
+          <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="TEST LYRICS 6 - šesti tekst.">
             <div class="video-thumb"></div>
             <div><div class="video-title">Linija Vatre</div></div>
             <div class="video-copy">Šesta kartica za test.</div>
@@ -126,7 +126,6 @@ Ovdje obraz košta, a niko nije pro</pre>
       const toggle = document.querySelector('[data-theme-toggle]');
       const root = document.documentElement;
       const cards = Array.from(document.querySelectorAll('.video-card'));
-      const playerPanel = document.getElementById('player');
       const frame = document.getElementById('playerFrame');
       const playerTitle = document.getElementById('playerTitle');
       const playerModeText = document.getElementById('playerModeText');
@@ -135,7 +134,7 @@ Ovdje obraz košta, a niko nije pro</pre>
       let theme = 'dark';
 
       function renderTheme() { root.setAttribute('data-theme', theme); }
-      function setCurrent(card) {
+      function setCurrent(card, scrollLyrics) {
         const title = card.dataset.title || 'Track';
         const video = card.dataset.video || '';
         playerTitle.textContent = title;
@@ -143,18 +142,19 @@ Ovdje obraz košta, a niko nije pro</pre>
         lyricsTitle.textContent = title;
         lyricsBody.textContent = card.dataset.lyrics || 'Lyrics će se pojaviti ovdje.';
         if (video) frame.src = video;
-        playerPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (scrollLyrics) document.getElementById('lyrics').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       cards.forEach(function(card) {
         const thumb = card.querySelector('.video-thumb');
         const lyricsBtn = card.querySelector('[data-action="lyrics"]');
-        if (thumb) thumb.addEventListener('click', function() { setCurrent(card); });
-        if (lyricsBtn) lyricsBtn.addEventListener('click', function() { setCurrent(card); });
+        if (thumb) thumb.addEventListener('click', function() { setCurrent(card, false); });
+        if (lyricsBtn) lyricsBtn.addEventListener('click', function() { setCurrent(card, true); });
       });
-      document.getElementById('playAllHero').addEventListener('click', function() { if (cards[0]) setCurrent(cards[0]); });
+
+      document.getElementById('playAllHero').addEventListener('click', function() { if (cards[0]) setCurrent(cards[0], false); });
       toggle.addEventListener('click', function() { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
-      renderTheme(); if (cards[0]) setCurrent(cards[0]);
+      renderTheme(); if (cards[0]) setCurrent(cards[0], false);
     })();
   </script>
 </body>
