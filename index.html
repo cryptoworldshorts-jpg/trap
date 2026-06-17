@@ -16,19 +16,19 @@
         .social-nav { display: flex; gap: 15px; }
         .social-nav a { color: #888; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.3s; }
         
-        /* HERO SEKCIJA - H1 + FEATURED VIDEO */
+        /* HERO SEKCIJA */
         .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 40px 0; }
-        h1 { font-size: 3rem; line-height: 1.2; margin: 0; }
-        .featured-video { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; }
+        h1 { font-size: 3rem; margin: 0; }
+        .featured-video { width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .featured-video iframe { width: 100%; height: 100%; border: none; }
         
-        /* GRID */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
-        .card { background: #111; padding: 15px; border-radius: 20px; border: 1px solid #222; }
+        /* GRID - OKVIRI (GLASS EFFECT) */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; padding-bottom: 60px; }
+        .card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
         .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 15px; }
         .video-box iframe { width: 100%; height: 100%; border: none; }
         
-        button { background: #b6202a; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px; }
+        button { background: #b6202a; color: white; border: none; padding: 10px 20px; border-radius: 15px; cursor: pointer; margin-top: 10px; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -47,7 +47,6 @@
         </nav>
     </header>
 
-    <!-- HERO SEKCIJA (H1 + VIDEO) -->
     <section class="hero-section">
         <div>
             <h1>Sve pjesme na jednom mjestu</h1>
@@ -58,14 +57,52 @@
         </div>
     </section>
 
-    <!-- GRID SA KARTICAMA -->
     <div class="grid">
         <div class="card">
             <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
-            <h3>Asfaltni Dug</h3>
+            <h3>Pjesma 1</h3>
             <button>Lyrics</button>
         </div>
-        <!-- Dodaj ostale kartice ovdje -->
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc"></iframe></div>
+            <h3>Pjesma 2</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/35hReKc71Jw"></iframe></div>
+            <h3>Pjesma 3</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/0bZRmJI5UMk"></iframe></div>
+            <h3>Pjesma 4</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/wZYE009wIOo"></iframe></div>
+            <h3>Pjesma 5</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/9h9Rlpbl2Y0"></iframe></div>
+            <h3>Pjesma 6</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/TqRT6m45Fz0"></iframe></div>
+            <h3>Pjesma 7</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/0i0xnrUoIsE"></iframe></div>
+            <h3>Pjesma 8</h3>
+            <button>Lyrics</button>
+        </div>
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/X4qnKrg6mAs"></iframe></div>
+            <h3>Pjesma 9</h3>
+            <button>Lyrics</button>
+        </div>
     </div>
 </div>
 
