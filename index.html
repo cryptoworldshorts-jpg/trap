@@ -123,182 +123,73 @@
         <div class="hero-copy panel">
           <span class="hero-kicker">Trap Balkan music hub</span>
           <h1 class="display">Sve pjesme na jednom mjestu</h1>
-          <p>Hero je sada čišći, a klik na Lyrics otvara tekst ispod videa.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary" id="playAllHero">Play all</button>
-            <a class="btn btn-secondary" href="#catalog">Pogledaj pjesme</a>
-          </div>
-          <div class="platform-row" aria-label="Platform links">
-            <a class="platform-chip" href="#">YouTube</a>
-            <a class="platform-chip" href="#">Spotify</a>
-            <a class="platform-chip" href="#">Apple Music</a>
-            <a class="platform-chip" href="#">TikTok</a>
-            <a class="platform-chip" href="#">Instagram</a>
-          </div>
+          <p>Hero je sada čišći, a pjesme možeš redati jednostavno pomjeranjem kartica gore ili dole.</p>
+          <div class="hero-actions"><button class="btn btn-primary" id="playAllHero" type="button">Play all</button><a class="btn" href="#catalog">Pogledaj pjesme</a></div>
+          <div class="platform-row"><a class="platform-chip" href="#">YouTube</a><a class="platform-chip" href="#">Spotify</a><a class="platform-chip" href="#">Apple Music</a><a class="platform-chip" href="#">TikTok</a><a class="platform-chip" href="#">Instagram</a></div>
         </div>
 
         <section class="player-shell panel" id="player">
-          <div class="player-head">
-            <div>
-              <div class="eyebrow">Featured player</div>
-              <div class="player-title" id="playerTitle">Noćni Grad</div>
-              <div class="player-sub" id="playerModeText">Mode: Single track player</div>
-            </div>
-          </div>
-          <div class="video-wrap">
-            <iframe id="playerFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Trap Balkan YouTube player" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="mode-switch">
-            <button class="mode-chip active" id="singleModeBtn">Single mode</button>
-            <button class="mode-chip" id="playlistModeBtn">Playlist mode</button>
-          </div>
-          <div class="hero-actions" style="margin-top:var(--space4)">
-            <button class="btn btn-primary" id="playAllMain">Sve pjesme na jednom mjestu</button>
-          </div>
+          <div class="player-head"><div><div class="eyebrow">Featured player</div><div class="player-title" id="playerTitle">Noćni Grad</div><div class="player-sub" id="playerModeText">Mode: Single track player</div></div></div>
+          <div class="video-wrap"><iframe id="playerFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Trap Balkan YouTube player" loading="lazy" allowfullscreen></iframe></div>
+          <div class="mode-switch" style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem"><button class="mode-chip" id="singleModeBtn" type="button">Single mode</button><button class="mode-chip" id="playlistModeBtn" type="button">Playlist mode</button></div>
+          <div class="hero-actions" style="margin-top:var(--space4)"><button class="btn btn-primary" id="playAllMain" type="button">Sve pjesme na jednom mjestu</button></div>
         </section>
       </div>
     </section>
 
     <section class="container main-layout">
       <section class="catalog-shell panel" id="catalog">
-        <div class="catalog-head">
-          <div>
-            <span class="eyebrow">Video catalog</span>
-            <h2>Pjesme</h2>
-          </div>
-          <p>Tri kartice u redu na desktopu, jedna na mobitelu.</p>
-        </div>
+        <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div><p>Tri kartice u redu na desktopu, jedna na mobitelu.</p></div>
 
         <div class="video-grid">
           <article class="video-card" data-track-id="1" data-title="Noćni Grad" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-lyrics="TEST LYRICS 1 - ovo treba da se vidi ispod videa.">
-            <div class="video-thumb"><span class="video-badge">Single</span></div>
-            <div>
-              <div class="video-title">Noćni Grad</div>
-            </div>
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Noćni Grad</div></div>
             <div class="video-copy">Prva pjesma sa test tekstom.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="2" data-title="Crveni Dim" data-video="https://www.youtube.com/embed/ScMzIvxBSi4" data-lyrics="TEST LYRICS 2 - drugi tekst.">
-            <div class="video-thumb alt-2"><span class="video-badge">Video</span></div>
-            <div>
-              <div class="video-title">Crveni Dim</div>
-            </div>
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Crveni Dim</div></div>
             <div class="video-copy">Druga kartica za test.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="3" data-title="Podrum Flow" data-video="https://www.youtube.com/embed/tgbNymZ7vqY" data-lyrics="TEST LYRICS 3 - treći tekst.">
-            <div class="video-thumb alt-3"><span class="video-badge">Audio</span></div>
-            <div>
-              <div class="video-title">Podrum Flow</div>
-            </div>
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Podrum Flow</div></div>
             <div class="video-copy">Treća kartica za test.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="4" data-title="Beton i Sjena" data-video="https://www.youtube.com/embed/ysz5S6PUM-U" data-lyrics="TEST LYRICS 4 - četvrti tekst.">
-            <div class="video-thumb alt-4"><span class="video-badge">Lyric</span></div>
-            <div>
-              <div class="video-title">Beton i Sjena</div>
-            </div>
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Beton i Sjena</div></div>
             <div class="video-copy">Četvrta kartica za test.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
           <article class="video-card" data-track-id="5" data-title="Kasni Sat" data-video="https://www.youtube.com/embed/jfKfPfyJRdk" data-lyrics="TEST LYRICS 5 - peti tekst.">
-            <div class="video-thumb"><span class="video-badge"></span></div>
-            <div>
-              <div class="video-title">Kasni Sat</div>
-            </div>
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Kasni Sat</div></div>
             <div class="video-copy">Peta kartica za test.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
 
-          <article class="video-card" data-track-id="6" data-title="Linija Vatre" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali
-Brate, mnogi su pali jer su previše dali
-Gledam grad kroz maglu, pitam se ko je ko
-Ovdje obraz košta, a niko nije pro
-Svi bi med i mlijeko, al ne bi znoj na čelo
-Oko nas je sivilo, al srce nam je vrelo
-Kad zagrmi ulica, znam ko mi čuva leđa
-Nije to ona priča što se po gradu vjeđa
-
-
-Brate, krv nije voda, to se nikad ne briše
-Kad nas gaze odozdo, mi se dižemo više
-Jedna riječ je zakon, jedan pogled je dosta
-Sve što smo prošli, to nam je koračnica prosta
-Brate, uz tebe sam do zadnjeg daha
-Bez lažne maske, bez grama straha
-
-
-Nismo se birali, al smo se našli u jadu
-Dok su drugi brojali šta imaju u hladu
-Mi smo dijelili koru, mi smo dijelili mrak
-Zato je svaki udarac danas jači, jači znak
-Ne trebaju nam svjedoci za ono što smo bili
-Svi ti lažni drugovi davno su se skrili
-Brate, ostajemo čisti kad sve postane prljavo
-To je ono pravo, to je ono glavno
-
-
-Brate, krv nije voda, to se nikad ne briše
-Kad nas gaze odozdo, mi se dižemo više
-Jedna riječ je zakon, jedan pogled je dosta
-Sve što smo prošli, to nam je koračnica prosta
-Brate, uz tebe sam do zadnjeg daha
-Bez lažne maske, bez grama straha
-
-
-Samo brat
-Do zadnjeg trena
-Brate">
-            <div>
-              <div class="video-title">Asfaltni Dug</div>
-            </div>
+          <article class="video-card" data-track-id="6" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro\n\nSvi bi med i mlijeko, al ne bi znoj na čelo\nOko nas je sivilo, al srce nam je vrelo\nKad zagrmi ulica, znam ko mi čuva leđa\nNije to ona priča što se po gradu vjeđa\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nNismo se birali, al smo se našli u jadu\nDok su drugi brojali šta imaju u hladu\nMi smo dijelili koru, mi smo dijelili mrak\nZato je svaki udarac danas jači, jači znak\nNe trebaju nam svjedoci za ono što smo bili\nSvi ti lažni drugovi davno su se skrili\nBrate, ostajemo čisti kad sve postane prljavo\nTo je ono pravo, to je ono glavno\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nSamo brat\nDo zadnjeg trena\nBrate">
+            <div class="video-thumb"></div>
+            <div><div class="video-title">Asfaltni Dug</div></div>
             <div class="video-copy">Šesta kartica za test.</div>
-            <div class="video-actions">
-              <button class="track-btn primary" data-action="play">Play</button>
-              <button class="track-btn" data-action="lyrics">Lyrics</button>
-              <a class="track-btn" href="#">YouTube</a>
-            </div>
+            <div class="video-actions"><button class="track-btn primary" data-action="play" type="button">Play</button><button class="track-btn" data-action="lyrics" type="button">Lyrics</button><a class="track-btn" href="#" target="_blank" rel="noopener">YouTube</a></div>
           </article>
         </div>
       </section>
 
       <section class="lyrics-shell panel" id="lyrics">
-        <div class="lyrics-head">
-          <div>
-            <div class="eyebrow">Selected lyrics</div>
-            <div class="lyrics-title" id="lyricsTitle">Noćni Grad</div>
-            <div class="lyrics-sub">Ovdje će se prikazivati tekst pjesme ispod videa.</div>
-          </div>
-        </div>
+        <div class="lyrics-head"><div><div class="eyebrow">Selected lyrics</div><div class="lyrics-title" id="lyricsTitle">Noćni Grad</div><div class="lyrics-sub">Ovdje će se prikazivati tekst pjesme ispod videa.</div></div></div>
         <pre id="lyricsBody">TEST LYRICS 1 - ovo treba da se vidi ispod videa.</pre>
-        <div class="lyrics-tags">
-          <span>Lyrics</span><span>YouTube</span><span>SEO</span>
-        </div>
+        <div class="lyrics-tags"><span>Lyrics</span><span>YouTube</span><span>SEO</span></div>
       </section>
     </section>
   </main>
