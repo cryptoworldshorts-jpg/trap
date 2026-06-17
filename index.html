@@ -1,70 +1,72 @@
 <!DOCTYPE html>
-<html lang="bs" data-theme="dark">
+<html lang="bs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trap Balkan — Nezavisne kartice</title>
-  <style>
-    /* TVOJ ORIGINALNI DIZAJN (Dio) */
-    :root{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--primary:#b6202a;--rxl:1.75rem;}
-    body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padding:20px;}
-    .video-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:20px;max-width:1200px;margin:0 auto;}
-    .video-card{background:var(--surface2);padding:15px;border-radius:20px;border:1px solid var(--border);}
-    .card-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;margin-bottom:10px;}
-    .card-video iframe{width:100%;height:100%;border:0;}
-    
-    /* MODAL (Zmelos sistem) */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 20px; }
-    .modal.active { display: flex; }
-    .modal-content { background: var(--surface); max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; border: 1px solid var(--border); }
-    button { cursor: pointer; background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 99px; margin-top: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trap Balkan — Official Layout</title>
+    <style>
+        /* RESET I OSNOVE */
+        body { background: #070707; color: #f4eee8; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        /* HEADER SA LOGOM */
+        header { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
+        .logo { width: 60px; height: 60px; border-radius: 50%; border: 1px solid #333; }
+        
+        /* GRID - 3 KARTICE U REDU */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        
+        /* KARTICA */
+        .card { background: #111; padding: 15px; border-radius: 20px; border: 1px solid #222; }
+        .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 15px; }
+        .video-box iframe { width: 100%; height: 100%; border: none; }
+        
+        /* MODAL - ZMELOS SISTEM */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 20px; max-width: 500px; border: 1px solid #333; position: relative; }
+        
+        button { background: #b6202a; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+    </style>
 </head>
 <body>
 
-  <div class="video-grid">
-    
-    <!-- KARTICA 1 -->
-    <article class="video-card">
-       <div class="card-video">
-          <iframe src="https://www.youtube.com/embed/IZcITfepWFw" allowfullscreen></iframe>
-       </div>
-       <h3>Asfaltni Dug</h3>
-       <button onclick="otvoriTekst('modal-1')">Tekst Pjesme</button>
-    </article>
+<div class="container">
+    <header>
+        <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" class="logo" alt="Logo">
+        <h1>TRAP BALKAN</h1>
+    </header>
 
-    <!-- KARTICA 2 -->
-    <article class="video-card">
-       <div class="card-video">
-          <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" allowfullscreen></iframe>
-       </div>
-       <h3>Drugi Video</h3>
-       <button onclick="otvoriTekst('modal-2')">Tekst Pjesme</button>
-    </article>
+    <div class="grid">
+        <!-- KARTICA 1 -->
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
+            <h3>Asfaltni Dug</h3>
+            <button onclick="otvoriTekst('modal1')">Lyrics</button>
+        </div>
 
-  </div>
-
-  <!-- MODAL 1 -->
-  <div id="modal-1" class="modal">
-    <div class="modal-content">
-      <button onclick="zatvoriTekst('modal-1')" style="float:right;">X</button>
-      <h3>Asfaltni Dug</h3>
-      <p>Ovdje upiši tekst pjesme 1...</p>
+        <!-- KARTICA 2 -->
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc"></iframe></div>
+            <h3>Drugi Video</h3>
+            <button onclick="otvoriTekst('modal2')">Lyrics</button>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- MODAL 2 -->
-  <div id="modal-2" class="modal">
+<!-- MODAL 1 -->
+<div id="modal1" class="modal">
     <div class="modal-content">
-      <button onclick="zatvoriTekst('modal-2')" style="float:right;">X</button>
-      <h3>Drugi Video</h3>
-      <p>Ovdje upiši tekst pjesme 2...</p>
+        <h3>Asfaltni Dug</h3>
+        <p>Ovdje upiši tekst pjesme...</p>
+        <button onclick="zatvoriTekst('modal1')">Zatvori</button>
     </div>
-  </div>
+</div>
 
-  <script>
+<script>
     function otvoriTekst(id) { document.getElementById(id).classList.add('active'); }
     function zatvoriTekst(id) { document.getElementById(id).classList.remove('active'); }
-  </script>
+</script>
+
 </body>
 </html>
