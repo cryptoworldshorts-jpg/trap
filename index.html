@@ -4,83 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trap Balkan — Production Layout</title>
+  <!-- Ovdje je tvoj originalni CSS -->
   <style>
-    /* TVOJ ORIGINALNI CSS (Zadržan dizajn) */
-    :root{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--muted:#b6ada5;--primary:#b6202a;--rxl:1.75rem;}
-    body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padding:20px;}
-    .container{max-width:1000px;margin:0 auto;}
-    .panel{background:var(--surface);padding:20px;border:1px solid var(--border);border-radius:var(--rxl);margin-bottom:20px;}
-    .video-wrap{aspect-ratio:16/9;background:#000;border-radius:1rem;overflow:hidden;}
-    iframe{width:100%;height:100%;border:0;}
-    .video-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px;}
-    .video-card{background:var(--surface2);padding:15px;border-radius:1rem;border:1px solid var(--border);}
-    /* MODAL STIL (Zmelos sistem) */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 20px; }
+    /* ... (Ovdje ostavi sav tvoj originalni CSS iz prvog koda) ... */
+    :root,[data-theme="dark"]{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--primary:#b6202a;--rxl:1.75rem;}
+    body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;}
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10000; align-items: center; justify-content: center; padding: 20px; }
     .modal.active { display: flex; }
-    .modal-content { background: var(--surface); max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; }
-    button { cursor: pointer; background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 99px; }
+    .modal-content { background: var(--surface); max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; border: 1px solid var(--border); }
+    .close-btn { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: var(--muted); }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+     <div class="container nav">
+        <div class="brand">
+          <div class="brand-logo"><img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Trap Balkan logo"></div>
+          <div class="brand-copy"><span class="brand-title">Trap Balkan</span></div>
+        </div>
+     </div>
+  </header>
 
-  <div class="container">
-    <!-- FEATURED PLAYER -->
-    <section id="player" class="panel">
-      <div class="video-wrap">
-        <iframe id="mainPlayer" src="https://www.youtube.com/embed/IZcITfepWFw" allowfullscreen></iframe>
-      </div>
-      <h2 id="mainTitle" style="margin-top:15px;">Asfaltni Dug</h2>
+  <main>
+    <!-- FEATURED -->
+    <section class="hero container">
+       <div class="player-shell panel" id="player">
+          <div class="video-wrap">
+             <iframe id="mainPlayer" src="https://www.youtube.com/embed/IZcITfepWFw" allowfullscreen></iframe>
+          </div>
+          <h2 id="mainTitle" style="margin-top:20px;">Asfaltni Dug</h2>
+       </div>
     </section>
 
     <!-- KATALOG -->
-    <div id="video-grid" class="video-grid">
-      <!-- Primjer kartice -->
-      <article class="video-card">
-        <div class="video-thumb">
-           <iframe src="https://www.youtube.com/embed/IZcITfepWFw" style="height:150px; pointer-events:none;"></iframe>
-        </div>
-        <h3>Asfaltni Dug</h3>
-        <button onclick="updatePlayer('https://www.youtube.com/embed/IZcITfepWFw', 'Asfaltni Dug')">Sviraj</button>
-        <button onclick="otvoriTekst('modal-1')">Tekst</button>
-      </article>
+    <section class="container">
+      <div class="video-grid">
+         <!-- KARTICA 1 -->
+         <article class="video-card">
+            <div class="video-thumb" onclick="playVideo('https://www.youtube.com/embed/IZcITfepWFw', 'Asfaltni Dug')"></div>
+            <h3>Asfaltni Dug</h3>
+            <button onclick="otvoriTekst('modal-1')">Lyrics</button>
+         </article>
 
-      <article class="video-card">
-        <div class="video-thumb">
-           <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" style="height:150px; pointer-events:none;"></iframe>
-        </div>
-        <h3>Drugi Video</h3>
-        <button onclick="updatePlayer('https://www.youtube.com/embed/fjzgBXjaAcc', 'Drugi Video')">Sviraj</button>
-        <button onclick="otvoriTekst('modal-2')">Tekst</button>
-      </article>
-    </div>
-  </div>
+         <!-- KARTICA 2 -->
+         <article class="video-card">
+            <div class="video-thumb" onclick="playVideo('https://www.youtube.com/embed/fjzgBXjaAcc', 'Drugi Video')"></div>
+            <h3>Drugi Video</h3>
+            <button onclick="otvoriTekst('modal-2')">Lyrics</button>
+         </article>
+      </div>
+    </section>
+  </main>
 
-  <!-- MODALI -->
+  <!-- MODALI (Zmelos sistem) -->
   <div id="modal-1" class="modal">
     <div class="modal-content">
-      <button onclick="zatvoriTekst('modal-1')" style="float:right;">&times;</button>
+      <span class="close-btn" onclick="zatvoriTekst('modal-1')">&times;</span>
       <h3>Asfaltni Dug</h3>
-      <p>Tekst pjesme broj 1...</p>
+      <p>Ovdje ide tvoj tekst pjesme...</p>
     </div>
   </div>
 
   <div id="modal-2" class="modal">
     <div class="modal-content">
-      <button onclick="zatvoriTekst('modal-2')" style="float:right;">&times;</button>
+      <span class="close-btn" onclick="zatvoriTekst('modal-2')">&times;</span>
       <h3>Drugi Video</h3>
-      <p>Tekst pjesme broj 2...</p>
+      <p>Tekst za drugi video...</p>
     </div>
   </div>
 
   <script>
-    // Funkcija za promjenu videa u playeru
-    function updatePlayer(url, title) {
+    // Funkcija za Featured Player
+    function playVideo(url, title) {
       document.getElementById('mainPlayer').src = url + "?autoplay=1";
       document.getElementById('mainTitle').innerText = title;
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // Zmelos sistem za modale
+    // Funkcije za Zmelos modale
     function otvoriTekst(id) { document.getElementById(id).classList.add('active'); }
     function zatvoriTekst(id) { document.getElementById(id).classList.remove('active'); }
   </script>
