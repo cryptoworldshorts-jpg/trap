@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trap Balkan — Official Layout</title>
     <style>
-        /* RESET I OSNOVE */
-        body { background: #070707; color: #f4eee8; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        body { background: #070707; color: #f4eee8; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* HEADER SA LOGOM */
-        header { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
-        .logo { width: 60px; height: 60px; border-radius: 50%; border: 1px solid #333; }
+        /* HEADER DIZAJN */
+        .site-header { border-bottom: 1px solid #222; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .logo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; }
+        .brand-title { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* GRID - 3 KARTICE U REDU */
+        /* SOCIAL LINKS */
+        .social-nav { display: flex; gap: 15px; }
+        .social-nav a { color: #888; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.3s; }
+        .social-nav a:hover { color: #b6202a; }
+        
+        /* GRID - 3 KARTICE */
+        .content { padding: 40px 0; }
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        
-        /* KARTICA */
         .card { background: #111; padding: 15px; border-radius: 20px; border: 1px solid #222; }
         .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 15px; }
         .video-box iframe { width: 100%; height: 100%; border: none; }
         
-        /* MODAL - ZMELOS SISTEM */
+        /* MODAL */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal.active { display: flex; }
         .modal-content { background: #1a1a1a; padding: 30px; border-radius: 20px; max-width: 500px; border: 1px solid #333; position: relative; }
@@ -32,29 +37,46 @@
 <body>
 
 <div class="container">
-    <header>
-        <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" class="logo" alt="Logo">
-        <h1>TRAP BALKAN</h1>
+    <header class="site-header">
+        <div class="brand">
+            <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" class="logo" alt="Logo">
+            <div class="brand-title">Trap Balkan</div>
+        </div>
+        <nav class="social-nav">
+            <a href="#">Spotify</a>
+            <a href="#">FB</a>
+            <a href="#">TikTok</a>
+            <a href="#">Instagram</a>
+        </nav>
     </header>
 
-    <div class="grid">
-        <!-- KARTICA 1 -->
-        <div class="card">
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
-            <h3>Asfaltni Dug</h3>
-            <button onclick="otvoriTekst('modal1')">Lyrics</button>
-        </div>
+    <div class="content">
+        <div class="grid">
+            <!-- KARTICA 1 -->
+            <div class="card">
+                <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
+                <h3>Asfaltni Dug</h3>
+                <button onclick="otvoriTekst('modal1')">Lyrics</button>
+            </div>
 
-        <!-- KARTICA 2 -->
-        <div class="card">
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc"></iframe></div>
-            <h3>Drugi Video</h3>
-            <button onclick="otvoriTekst('modal2')">Lyrics</button>
+            <!-- KARTICA 2 -->
+            <div class="card">
+                <div class="video-box"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc"></iframe></div>
+                <h3>Drugi Video</h3>
+                <button onclick="otvoriTekst('modal2')">Lyrics</button>
+            </div>
+
+            <!-- KARTICA 3 -->
+            <div class="card">
+                <div class="video-box"><iframe src="https://www.youtube.com/embed/35hReKc71Jw"></iframe></div>
+                <h3>Treći Video</h3>
+                <button onclick="otvoriTekst('modal3')">Lyrics</button>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- MODAL 1 -->
+<!-- MODAL PRIMJER -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h3>Asfaltni Dug</h3>
