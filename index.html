@@ -8,30 +8,27 @@
         body { background: #070707; color: #f4eee8; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* HEADER DIZAJN */
-        .site-header { border-bottom: 1px solid #222; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+        /* HEADER */
+        .site-header { border-bottom: 1px solid #222; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
         .brand { display: flex; align-items: center; gap: 15px; }
         .logo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; }
         .brand-title { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* SOCIAL LINKS */
         .social-nav { display: flex; gap: 15px; }
         .social-nav a { color: #888; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.3s; }
-        .social-nav a:hover { color: #b6202a; }
         
-        /* GRID - 3 KARTICE */
-        .content { padding: 40px 0; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        /* HERO SEKCIJA - H1 + FEATURED VIDEO */
+        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 40px 0; }
+        h1 { font-size: 3rem; line-height: 1.2; margin: 0; }
+        .featured-video { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; }
+        .featured-video iframe { width: 100%; height: 100%; border: none; }
+        
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
         .card { background: #111; padding: 15px; border-radius: 20px; border: 1px solid #222; }
         .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 15px; }
         .video-box iframe { width: 100%; height: 100%; border: none; }
         
-        /* MODAL */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-        .modal.active { display: flex; }
-        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 20px; max-width: 500px; border: 1px solid #333; position: relative; }
-        
-        button { background: #b6202a; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+        button { background: #b6202a; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -50,45 +47,27 @@
         </nav>
     </header>
 
-    <div class="content">
-        <div class="grid">
-            <!-- KARTICA 1 -->
-            <div class="card">
-                <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
-                <h3>Asfaltni Dug</h3>
-                <button onclick="otvoriTekst('modal1')">Lyrics</button>
-            </div>
-
-            <!-- KARTICA 2 -->
-            <div class="card">
-                <div class="video-box"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc"></iframe></div>
-                <h3>Drugi Video</h3>
-                <button onclick="otvoriTekst('modal2')">Lyrics</button>
-            </div>
-
-            <!-- KARTICA 3 -->
-            <div class="card">
-                <div class="video-box"><iframe src="https://www.youtube.com/embed/35hReKc71Jw"></iframe></div>
-                <h3>Treći Video</h3>
-                <button onclick="otvoriTekst('modal3')">Lyrics</button>
-            </div>
+    <!-- HERO SEKCIJA (H1 + VIDEO) -->
+    <section class="hero-section">
+        <div>
+            <h1>Sve pjesme na jednom mjestu</h1>
+            <p>Najnoviji trap hitovi s Balkana, ekskluzivno na jednom mjestu.</p>
         </div>
+        <div class="featured-video">
+            <iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe>
+        </div>
+    </section>
+
+    <!-- GRID SA KARTICAMA -->
+    <div class="grid">
+        <div class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/IZcITfepWFw"></iframe></div>
+            <h3>Asfaltni Dug</h3>
+            <button>Lyrics</button>
+        </div>
+        <!-- Dodaj ostale kartice ovdje -->
     </div>
 </div>
-
-<!-- MODAL PRIMJER -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h3>Asfaltni Dug</h3>
-        <p>Ovdje upiši tekst pjesme...</p>
-        <button onclick="zatvoriTekst('modal1')">Zatvori</button>
-    </div>
-</div>
-
-<script>
-    function otvoriTekst(id) { document.getElementById(id).classList.add('active'); }
-    function zatvoriTekst(id) { document.getElementById(id).classList.remove('active'); }
-</script>
 
 </body>
 </html>
