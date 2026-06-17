@@ -3,76 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trap Balkan — Production Layout</title>
+  <title>Trap Balkan — Nezavisne kartice</title>
   <style>
-    :root,[data-theme="light"]{--bg:#f5f2ee;--surface:#ffffff;--surface2:#eee8e2;--border:rgba(19,19,19,.1);--text:#161210;--muted:#69625d;--faint:#928881;--primary:#8e1d26;--primaryHover:#6c151b;--inverse:#fbf6f1;--shadow:0 24px 80px rgba(18,12,10,.15);--fontDisplay:'Anton',Impact,sans-serif;--fontBody:'Inter',Arial,sans-serif;--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);--base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--space3:.75rem;--space4:1rem;--space5:1.25rem;--space10:2.5rem;--space16:4rem;--space20:5rem;--rmd:.75rem;--rxl:1.75rem;--rfull:999px}
-    [data-theme="dark"]{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--muted:#b6ada5;--faint:#7d736c;--primary:#b6202a;--primaryHover:#db3641;--inverse:#fdf8f3;--shadow:0 30px 100px rgba(0,0,0,.45)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--fontBody);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at top right, rgba(182,32,42,.16), transparent 26%),var(--bg)} a{text-decoration:none;color:inherit} img,iframe,svg{display:block;max-width:100%} button{font:inherit;color:inherit}
-    .container{width:min(1440px,calc(100% - 2rem));margin:0 auto} .site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,7,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-    .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space4);padding:var(--space4) 0} .brand{display:flex;align-items:center;gap:var(--space3)} .brand-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)} .brand-logo img{width:100%;height:100%;object-fit:contain;background:#000} .brand-copy{display:flex;flex-direction:column} .eyebrow{font-size:var(--xs);text-transform:uppercase;letter-spacing:.22em;color:var(--faint)} .brand-title{font-size:var(--sm);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    .nav-links,.header-right,.social-links{display:flex;align-items:center;gap:var(--space3);flex-wrap:wrap} .nav-links{justify-content:center} .header-right{justify-content:flex-end} .nav-links a,.social-icon{padding:.72rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);font-size:var(--sm);color:var(--muted);background:rgba(255,255,255,.03)} .social-icon{min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-weight:800;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));transition:.2s ease} .social-icon:hover{transform:translateY(-1px);background:rgba(182,32,42,.18)} .theme-toggle{min-width:44px;min-height:44px;border-radius:var(--rfull);border:1px solid var(--border);display:grid;place-items:center;background:var(--surface);cursor:pointer}
-    .hero{padding:clamp(2.8rem,6vw,4.4rem) 0 var(--space10)} .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space5);align-items:start} .panel{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .hero-copy{display:grid;gap:var(--space4)} .hero-kicker{display:inline-flex;align-items:center;gap:.7rem;padding:.55rem .95rem;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.12);font-size:var(--xs);text-transform:uppercase;letter-spacing:.2em;color:var(--muted);background:rgba(255,255,255,.03);width:max-content} .hero-kicker::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--primary);box-shadow:0 0 18px rgba(182,32,42,.75)} h1,h2,h3{margin:0;line-height:1} .display{font-family:var(--fontDisplay);font-size:clamp(3.1rem,8vw,6.7rem);line-height:.92;text-transform:uppercase;letter-spacing:.03em} .hero-copy p{max-width:62ch;color:var(--muted)} .hero-copy,.player-shell{min-height:100%} .player-shell{align-self:start}
-    .hero-actions,.platform-row,.video-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn,.track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.8rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;cursor:pointer} .btn-primary,.track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .btn-primary:hover,.track-btn.primary:hover{background:var(--primaryHover)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-    .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;width:100%} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
-    .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;cursor:pointer;background:#000}.video-thumb::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:72px;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.7);pointer-events:none} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
-    .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted);max-width:100%} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space3);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)}
-    @media (max-width:1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width:760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
+    /* TVOJ ORIGINALNI DIZAJN (Dio) */
+    :root{--bg:#070707;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,.09);--text:#f4eee8;--primary:#b6202a;--rxl:1.75rem;}
+    body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padding:20px;}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:20px;max-width:1200px;margin:0 auto;}
+    .video-card{background:var(--surface2);padding:15px;border-radius:20px;border:1px solid var(--border);}
+    .card-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;margin-bottom:10px;}
+    .card-video iframe{width:100%;height:100%;border:0;}
+    
+    /* MODAL (Zmelos sistem) */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 20px; }
+    .modal.active { display: flex; }
+    .modal-content { background: var(--surface); max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; border: 1px solid var(--border); }
+    button { cursor: pointer; background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 99px; margin-top: 10px; }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-logo"><img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Trap Balkan logo" width="54" height="54"></div>
-        <div class="brand-copy"><span class="eyebrow">Production concept</span><span class="brand-title">Trap Balkan</span></div>
-      </div>
-      <nav class="nav-links"><a href="#player">Player</a><a href="#catalog">Pjesme</a><a href="#lyrics">Lyrics</a></nav>
-      <div class="header-right"><button class="theme-toggle" data-theme-toggle>🌓</button></div>
+
+  <div class="video-grid">
+    
+    <!-- KARTICA 1 -->
+    <article class="video-card">
+       <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/IZcITfepWFw" allowfullscreen></iframe>
+       </div>
+       <h3>Asfaltni Dug</h3>
+       <button onclick="otvoriTekst('modal-1')">Tekst Pjesme</button>
+    </article>
+
+    <!-- KARTICA 2 -->
+    <article class="video-card">
+       <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" allowfullscreen></iframe>
+       </div>
+       <h3>Drugi Video</h3>
+       <button onclick="otvoriTekst('modal-2')">Tekst Pjesme</button>
+    </article>
+
+  </div>
+
+  <!-- MODAL 1 -->
+  <div id="modal-1" class="modal">
+    <div class="modal-content">
+      <button onclick="zatvoriTekst('modal-1')" style="float:right;">X</button>
+      <h3>Asfaltni Dug</h3>
+      <p>Ovdje upiši tekst pjesme 1...</p>
     </div>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="container hero-layout">
-        <div class="hero-copy panel">
-          <h1 class="display">Sve pjesme na jednom mjestu</h1>
-          <p>Klikni na karticu da učitaš pjesmu u Featured player.</p>
-        </div>
-        <section class="player-shell panel" id="player">
-          <div class="player-head"><div class="player-title" id="playerTitle">Odaberi pjesmu</div></div>
-          <div class="video-wrap"><iframe id="playerFrame" src="" title="Player" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-        </section>
-      </div>
-    </section>
-    <section class="container main-layout">
-      <section class="catalog-shell panel" id="catalog">
-        <div class="video-grid" id="videoGrid">
-          <!-- KARTICE SA JEDINSTVENIM VIDEO LINKOVIMA -->
-          <article class="video-card" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw">
-            <div class="video-thumb" onclick="updatePlayer(this)"></div>
-            <div class="video-title">Asfaltni Dug</div>
-          </article>
-          <article class="video-card" data-title="Drugi Video" data-video="https://www.youtube.com/embed/fjzgBXjaAcc">
-            <div class="video-thumb" onclick="updatePlayer(this)"></div>
-            <div class="video-title">Drugi Video</div>
-          </article>
-        </div>
-      </section>
-    </section>
-  </main>
+  </div>
+
+  <!-- MODAL 2 -->
+  <div id="modal-2" class="modal">
+    <div class="modal-content">
+      <button onclick="zatvoriTekst('modal-2')" style="float:right;">X</button>
+      <h3>Drugi Video</h3>
+      <p>Ovdje upiši tekst pjesme 2...</p>
+    </div>
+  </div>
+
   <script>
-    function updatePlayer(thumb) {
-        const card = thumb.parentElement;
-        const frame = document.getElementById('playerFrame');
-        const title = document.getElementById('playerTitle');
-        
-        // Dodajemo ?autoplay=1 da se odmah pokrene
-        frame.src = card.dataset.video + "?autoplay=1";
-        title.innerText = card.dataset.title;
-        
-        // Skrolaj na vrh do playera
-        document.getElementById('player').scrollIntoView({behavior: 'smooth'});
-    }
+    function otvoriTekst(id) { document.getElementById(id).classList.add('active'); }
+    function zatvoriTekst(id) { document.getElementById(id).classList.remove('active'); }
   </script>
 </body>
 </html>
