@@ -19,12 +19,13 @@
     .hero-actions,.platform-row,.video-actions{display:flex;flex-wrap:wrap;gap:var(--space3)} .btn,.track-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.8rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:transparent;cursor:pointer} .btn-primary,.track-btn.primary{background:var(--primary);border-color:transparent;color:var(--inverse)} .btn-primary:hover,.track-btn.primary:hover{background:var(--primaryHover)} .platform-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.78rem 1rem;border-radius:var(--rfull);border:1px solid var(--border);background:var(--surface2);font-size:var(--xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
     .player-shell .video-wrap{position:relative;border-radius:calc(var(--rxl) - var(--space5));overflow:hidden;background:#000;aspect-ratio:16/9;width:100%} .player-shell iframe{width:100%;height:100%;border:0} .player-head,.catalog-head,.lyrics-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space4);margin-bottom:var(--space4)} .player-title,.lyrics-title{font-size:var(--lg);font-weight:800} .player-sub,.lyrics-sub{font-size:var(--sm);color:var(--muted)}
     .main-layout{display:grid;grid-template-columns:1fr;gap:var(--space5);padding-bottom:var(--space20)} .catalog-head h2{font-family:var(--fontDisplay);font-size:var(--2xl);text-transform:uppercase;letter-spacing:.03em} .catalog-head p{max-width:60ch;color:var(--muted)} .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)} .video-card{display:grid;gap:var(--space4);padding:var(--space4);border-radius:var(--rxl);background:var(--surface2);border:1px solid var(--border)}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 100%),linear-gradient(135deg, rgba(182,32,42,.78), rgba(15,15,15,1));display:flex;align-items:end;padding:var(--space4);cursor:pointer} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:calc(var(--rxl) - var(--space4));overflow:hidden;background:#000 url("https://img.youtube.com/vi/IZcITfepWFw/hqdefault.jpg") center/cover no-repeat;display:flex;align-items:end;padding:var(--space4);cursor:pointer} .video-thumb::after{content:"▶";position:absolute;left:var(--space4);top:var(--space4);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.12)} .video-badge{display:none} .video-title{font-size:var(--lg);font-weight:800;line-height:1.15} .video-copy{font-size:var(--sm);color:var(--muted)}
     .lyrics-shell{padding:var(--space5);background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--shadow)} .lyrics-shell pre{margin:0;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;font-family:var(--fontBody);font-size:var(--sm);line-height:1.8;color:var(--muted);max-width:100%} .lyrics-tags{display:flex;flex-wrap:wrap;gap:var(--space3);margin-top:var(--space4)} .lyrics-tags span{padding:.55rem .75rem;border-radius:var(--rfull);background:var(--surface2);border:1px solid var(--border);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)} .footer{padding:var(--space10) 0 var(--space16);border-top:1px solid var(--border)} .footer-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space4);flex-wrap:wrap} .footer-note{font-size:var(--sm);color:var(--faint)}
     @media (max-width:1100px){.hero-layout{grid-template-columns:1fr}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}} @media (max-width:760px){.nav{grid-template-columns:1fr;justify-items:start}.nav-links,.header-right{justify-content:flex-start}.hero-actions,.platform-row,.footer-row{flex-direction:column;align-items:stretch}.player-head,.catalog-head,.lyrics-head{flex-direction:column;align-items:flex-start}.video-grid{grid-template-columns:1fr}}
   </style>
 </head>
-<body>
+
+  <body>
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
@@ -59,7 +60,42 @@
         <div class="catalog-head"><div><span class="eyebrow">Video catalog</span><h2>Pjesme</h2></div><p>Prva kartica je featured. Ostale su zasebne pjesme. Klik na karticu svira baš tu pjesmu.</p></div>
 
         <div class="video-grid">
-          <article class="video-card" data-track-id="1" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali\nBrate, mnogi su pali jer su previše dali\nGledam grad kroz maglu, pitam se ko je ko\nOvdje obraz košta, a niko nije pro\n\nSvi bi med i mlijeko, al ne bi znoj na čelo\nOko nas je sivilo, al srce nam je vrelo\nKad zagrmi ulica, znam ko mi čuva leđa\nNije to ona priča što se po gradu vjeđa\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nNismo se birali, al smo se našli u jadu\nDok su drugi brojali šta imaju u hladu\nMi smo dijelili koru, mi smo dijelili mrak\nZato je svaki udarac danas jači, jači znak\nNe trebaju nam svjedoci za ono što smo bili\nSvi ti lažni drugovi davno su se skrili\nBrate, ostajemo čisti kad sve postane prljavo\nTo je ono pravo, to je ono glavno\n\nBrate, krv nije voda, to se nikad ne briše\nKad nas gaze odozdo, mi se dižemo više\nJedna riječ je zakon, jedan pogled je dosta\nSve što smo prošli, to nam je koračnica prosta\nBrate, uz tebe sam do zadnjeg daha\nBez lažne maske, bez grama straha\n\nSamo brat\nDo zadnjeg trena\nBrate">
+          <article class="video-card" data-track-id="1" data-title="Asfaltni Dug" data-video="https://www.youtube.com/embed/IZcITfepWFw" data-lyrics="Asfalt pamti korake što su ovdje stali
+Brate, mnogi su pali jer su previše dali
+Gledam grad kroz maglu, pitam se ko je ko
+Ovdje obraz košta, a niko nije pro
+
+Svi bi med i mlijeko, al ne bi znoj na čelo
+Oko nas je sivilo, al srce nam je vrelo
+Kad zagrmi ulica, znam ko mi čuva leđa
+Nije to ona priča što se po gradu vjeđa
+
+Brate, krv nije voda, to se nikad ne briše
+Kad nas gaze odozdo, mi se dižemo više
+Jedna riječ je zakon, jedan pogled je dosta
+Sve što smo prošli, to nam je koračnica prosta
+Brate, uz tebe sam do zadnjeg daha
+Bez lažne maske, bez grama straha
+
+Nismo se birali, al smo se našli u jadu
+Dok su drugi brojali šta imaju u hladu
+Mi smo dijelili koru, mi smo dijelili mrak
+Zato je svaki udarac danas jači, jači znak
+Ne trebaju nam svjedoci za ono što smo bili
+Svi ti lažni drugovi davno su se skrili
+Brate, ostajemo čisti kad sve postane prljavo
+To je ono pravo, to je ono glavno
+
+Brate, krv nije voda, to se nikad ne briše
+Kad nas gaze odozdo, mi se dižemo više
+Jedna riječ je zakon, jedan pogled je dosta
+Sve što smo prošli, to nam je koračnica prosta
+Brate, uz tebe sam do zadnjeg daha
+Bez lažne maske, bez grama straha
+
+Samo brat
+Do zadnjeg trena
+Brate">
             <div class="video-thumb"></div>
             <div><div class="video-title">Asfaltni Dug</div></div>
             <div class="video-copy">Featured pjesma.</div>
@@ -121,7 +157,7 @@ Ovdje obraz košta, a niko nije pro</pre>
     </div>
   </footer>
 
-  <script>
+      <script>
     (function() {
       const toggle = document.querySelector('[data-theme-toggle]');
       const root = document.documentElement;
