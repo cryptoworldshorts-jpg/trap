@@ -49,12 +49,21 @@
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
         .bento-grid .card iframe { height: 200px; min-height: 200px; }
 
-        /* SOCIAL BAR */
-        .social-links { display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
-        .social-links a { 
-            background: #000; padding: 10px 20px; border-radius: 50px; 
-            text-decoration: none; color: #fff; font-size: 0.8rem; border: 1px solid #444; 
-        }
+        /* SOCIAL BAR - NOVI STIL ZA IKONE */
+.social-links { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+.social-links a { 
+    font-size: 1.5rem;    /* Ikone su veće od teksta */
+    color: #fff;          /* Bijela boja dok se ne pređe mišem */
+    text-decoration: none;
+    transition: 0.3s;     /* Efekat da se boja mijenja glatko */
+}
+
+/* Boje za ikone na hover (prelazak mišem) */
+.yt:hover { color: #FF0000; }
+.sp:hover { color: #1DB954; }
+.fb:hover { color: #4267B2; }
+.tt:hover { color: #00f2ea; }
+.ig:hover { color: #E1306C; }
 
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
     </style>
@@ -75,9 +84,17 @@
         <div class="card">
             <h1>SVE PJESME NA JEDNOM MJESTU</h1>
             <p style="color: #aaa; margin-bottom: 30px;">Najnoviji trap hitovi iz prve ruke. Klikni i slušaj.</p>
-            <div class="social-links">
-                <a href="#">YOUTUBE</a><a href="#">SPOTIFY</a><a href="#">FB</a><a href="#">TIKTOK</a><a href="#">INSTAGRAM</a>
-            </div>
+            <!-- Ubaci ovo u <head> sekciju tvog sajta -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Zamijeni onaj stari .social-links dio ovim: -->
+<div class="social-links">
+    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
+    <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+</div>
         </div>
         <div class="card">
             <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
