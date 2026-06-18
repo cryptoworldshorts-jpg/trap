@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trap Balkan | Music Hub</title>
+    <title>Trap Balkan | Official Music Hub</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; }
+        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
         
-        /* Header sa okruglim logom */
+        /* HEADER - Okrugli logo lijevo, navigacija desno */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 5%; border-bottom: 1px solid #333; margin-bottom: 40px; 
+            padding: 20px 5%; border-bottom: 2px solid #222; background: #0a0a0a; 
         }
         .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #d32f2f; }
-        .nav-links a { color: #fff; margin-left: 20px; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+        .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #d32f2f; }
+        .nav-links a { color: #aaa; margin-left: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .nav-links a:hover { color: #fff; }
 
-        /* Bento Grid 3 u redu */
+        /* BENTO GRID - 3 u redu */
+        .bento-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .bento-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+            gap: 25px; 
         }
 
+        /* PREMIUM KARTICE */
         .card { 
             background: #121212; 
-            padding: 25px; 
+            padding: 20px; 
             border-radius: 20px; 
-            border: 1px solid #222;
+            border: 1px solid #333;
+            transition: 0.3s;
         }
+        .card:hover { border-color: #d32f2f; }
+        .card h3 { margin-top: 0; font-size: 1.1rem; }
+        iframe { width: 100%; height: 200px; border-radius: 12px; margin-top: 15px; }
 
-        iframe { width: 100%; height: 180px; border-radius: 12px; margin-top: 15px; }
-        
         @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -48,24 +51,30 @@
             <a href="#">PLAYER</a>
             <a href="#">PJESME</a>
             <a href="#">LYRICS</a>
+            <a href="#" style="color:#d32f2f;">YT</a>
+            <a href="#">SP</a>
+            <a href="#">IG</a>
         </nav>
     </header>
 
-    <div class="bento-grid">
-        <!-- Kartice (ovo samo kopiraj kad dodaješ pjesme) -->
-        <div class="card">
-            <h3>Asfaltni Dug</h3>
-            <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+    <div class="bento-container">
+        <div class="bento-grid">
+            <!-- Pjesma 1 -->
+            <div class="card">
+                <h3>Okana Okana</h3>
+                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+            </div>
+            <!-- Pjesma 2 -->
+            <div class="card">
+                <h3>Naziv pjesme</h3>
+                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+            </div>
+            <!-- Pjesma 3 -->
+            <div class="card">
+                <h3>Naziv pjesme</h3>
+                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+            </div>
         </div>
-        <div class="card">
-            <h3>Pjesma 2</h3>
-            <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-        </div>
-        <div class="card">
-            <h3>Pjesma 3</h3>
-            <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-        </div>
-        <!-- Dodaj još kartica po potrebi -->
     </div>
 
 </body>
