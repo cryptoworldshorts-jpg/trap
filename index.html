@@ -49,21 +49,28 @@
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
         .bento-grid .card iframe { height: 200px; min-height: 200px; }
 
-        /* SOCIAL BAR - NOVI STIL ZA IKONE */
-.social-links { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-.social-links a { 
-    font-size: 1.5rem;    /* Ikone su veće od teksta */
-    color: #fff;          /* Bijela boja dok se ne pređe mišem */
-    text-decoration: none;
-    transition: 0.3s;     /* Efekat da se boja mijenja glatko */
+       /* SOCIAL BAR - VELIKE IKONE U BOJI */
+.social-links { 
+    display: flex; 
+    gap: 30px; /* Veći razmak za "dužinu" */
+    margin-top: 40px; 
+    align-items: center;
 }
 
-/* Boje za ikone na hover (prelazak mišem) */
-.yt:hover { color: #FF0000; }
-.sp:hover { color: #1DB954; }
-.fb:hover { color: #4267B2; }
-.tt:hover { color: #00f2ea; }
-.ig:hover { color: #E1306C; }
+.social-links a { 
+    font-size: 2.2rem; /* Veće ikone */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover { transform: scale(1.2); }
+
+/* Fiksne boje */
+.yt { color: #FF0000; }
+.sp { color: #1DB954; }
+.fb { color: #4267B2; }
+.tt { color: #ffffff; } /* TikTok je bijeli/tamni, možemo i ovako */
+.ig { color: #E1306C; }
 
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
     </style>
