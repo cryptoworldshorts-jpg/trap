@@ -32,6 +32,37 @@
 
         footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
+
+        .modal-content p {
+    white-space: pre-line;   /* Ovo čuva tvoje razmake i redove */
+    line-height: 1.8;        /* Veći razmak između redova da ne bude zbijeno */
+    font-size: 1.1rem;       /* Malo veći font za bolju čitljivost */
+    color: #ddd;             /* Malo svjetlija siva od bijele za oči */
+}
+
+         /* SOCIAL BAR - VELIKE IKONE U BOJI */
+.social-links { 
+    display: flex; 
+    gap: 30px; /* Veći razmak za "dužinu" */
+    margin-top: 40px; 
+    align-items: center;
+}
+
+.social-links a { 
+    font-size: 2.2rem; /* Veće ikone */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover { transform: scale(1.2); }
+
+/* Fiksne boje */
+.yt { color: #FF0000; }
+.sp { color: #1DB954; }
+.fb { color: #4267B2; }
+.tt { color: #ffffff; } /* TikTok je bijeli/tamni, možemo i ovako */
+.ig { color: #E1306C; }
+
     </style>
 </head>
 <body>
@@ -70,7 +101,12 @@
     </div>
 
     <!-- Modali za tekstove -->
-    <div id="tekst1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('tekst1')">&times;</span><h2>Okana Okana</h2><p>Asfalt pamti korake što su ovdje stali
+    <div id="tekst1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('tekst1')">&times;</span>
+        <h2>Okana Okana</h2>
+        <p>
+            Asfalt pamti korake što su ovdje stali
 Brate, mnogi su pali jer su previše dali
 Gledam grad kroz maglu, pitam se ko je ko
 Ovdje obraz košta, a niko nije pro
@@ -108,7 +144,10 @@ Bez lažne maske, bez grama straha
 
 Samo brat
 Do zadnjeg trena
-Brate</p></div></div>
+Brate
+        </p>
+    </div>
+</div>
     
     <div id="tekst2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('tekst2')">&times;</span><h2>Naziv pjesme 2</h2><p>Ovdje upiši tekst druge pjesme...</p></div></div>
 
