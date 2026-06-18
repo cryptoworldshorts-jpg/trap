@@ -54,19 +54,23 @@
     </header>
 
     <section class="hero-section bento-container">
-        <div class="card">
-            <h1>SVE PJESME NA JEDNOM MJESTU</h1>
-            <p style="color: #aaa;">Najnoviji trap hitovi iz prve ruke.</p>
-            <div class="social-links">
-                <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
-                <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
-            </div>
+    <div class="card">
+        <h1>SVE PJESME NA JEDNOM MJESTU</h1>
+        <p style="color: #aaa;">Najnoviji trap hitovi iz prve ruke.</p>
+        <div class="social-links">
+            <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
+            <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
         </div>
-        <div class="card"><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
-    </section>
+    </div>
+
+    <div class="card">
+        <h3>Okana Okana</h3> <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+        <button class="lyrics-btn" onclick="openModal('tekst1')">TEKST PJESME</button>
+    </div>
+</section>
 
     <div class="bento-container">
         <div class="bento-grid">
@@ -135,5 +139,51 @@ Brate
         function openModal(id) { document.getElementById(id).style.display = "block"; }
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
     </script>
+
+    <div id="tekst1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('tekst1')">&times;</span>
+        <h2>Okana Okana</h2>
+        <p>Asfalt pamti korake što su ovdje stali
+Brate, mnogi su pali jer su previše dali
+Gledam grad kroz maglu, pitam se ko je ko
+Ovdje obraz košta, a niko nije pro
+Svi bi med i mlijeko, al ne bi znoj na čelo
+Oko nas je sivilo, al srce nam je vrelo
+Kad zagrmi ulica, znam ko mi čuva leđa
+Nije to ona priča što se po gradu vjeđa
+
+
+Brate, krv nije voda, to se nikad ne briše
+Kad nas gaze odozdo, mi se dižemo više
+Jedna riječ je zakon, jedan pogled je dosta
+Sve što smo prošli, to nam je koračnica prosta
+Brate, uz tebe sam do zadnjeg daha
+Bez lažne maske, bez grama straha
+
+
+Nismo se birali, al smo se našli u jadu
+Dok su drugi brojali šta imaju u hladu
+Mi smo dijelili koru, mi smo dijelili mrak
+Zato je svaki udarac danas jači, jači znak
+Ne trebaju nam svjedoci za ono što smo bili
+Svi ti lažni drugovi davno su se skrili
+Brate, ostajemo čisti kad sve postane prljavo
+To je ono pravo, to je ono glavno
+
+
+Brate, krv nije voda, to se nikad ne briše
+Kad nas gaze odozdo, mi se dižemo više
+Jedna riječ je zakon, jedan pogled je dosta
+Sve što smo prošli, to nam je koračnica prosta
+Brate, uz tebe sam do zadnjeg daha
+Bez lažne maske, bez grama straha
+
+
+Samo brat
+Do zadnjeg trena
+Brate</p>
+    </div>
+</div>
 </body>
 </html>
