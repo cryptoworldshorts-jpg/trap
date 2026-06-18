@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trap Balkan | Official Music Hub</title>
+    <title>Trap Balkan | Official HQ</title>
     <style>
         body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
         
-        /* HEADER - Okrugli logo lijevo, navigacija desno */
+        /* HEADER */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 5%; border-bottom: 2px solid #222; background: #0a0a0a; 
@@ -15,88 +15,54 @@
         .logo-area { display: flex; align-items: center; gap: 15px; }
         .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #d32f2f; }
         .nav-links a { color: #aaa; margin-left: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .nav-links a:hover { color: #fff; }
 
-        /* BENTO GRID - 3 u redu */
-        .bento-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .bento-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 25px; 
+        /* HERO SEKCIJA (Tekst lijevo, Video desno) */
+        .hero-section { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
+            padding: 60px 5%; align-items: center; 
         }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-video { background: #121212; padding: 15px; border-radius: 20px; border: 1px solid #333; }
+        iframe { width: 100%; height: 350px; border-radius: 12px; }
 
-        /* PREMIUM KARTICE */
-        .card { 
-            background: #121212; 
-            padding: 20px; 
-            border-radius: 20px; 
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-        .card:hover { border-color: #d32f2f; }
-        .card h3 { margin-top: 0; font-size: 1.1rem; }
-        iframe { width: 100%; height: 200px; border-radius: 12px; margin-top: 15px; }
+        /* BENTO GRID (3 u redu) */
+        .bento-container { max-width: 90%; margin: 0 auto 50px auto; }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .card { background: #121212; padding: 20px; border-radius: 20px; border: 1px solid #333; }
+        .card iframe { height: 200px; }
 
-        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo-area">
-            <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Trap Balkan">
+            <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Logo">
             <h2>TRAP BALKAN</h2>
         </div>
         <nav class="nav-links">
-            <a href="#">PLAYER</a>
-            <a href="#">PJESME</a>
-            <a href="#">LYRICS</a>
-            <a href="#" style="color:#d32f2f;">YT</a>
-            <a href="#">SP</a>
-            <a href="#">IG</a>
+            <a href="#">PLAYER</a><a href="#">PJESME</a><a href="#">LYRICS</a>
         </nav>
     </header>
 
-    <div class="bento-grid">
-    <!-- Lijeva kartica -->
-    <div class="card">
-        <p>TRAP BALKAN MUSIC HUB</p>
-        <h1>SVE PJESME NA JEDNOM MJESTU</h1>
-        <a href="#" class="pill-btn">Play featured</a>
-        <a href="#" style="color:#fff; text-decoration:none;">Pogledaj pjesme</a>
-        
-        <div class="social-bar">
-            <span class="social-link">YOUTUBE</span>
-            <span class="social-link">SPOTIFY</span>
-            <span class="social-link">APPLE MUSIC</span>
+    <!-- Hero Sekcija -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>SVE PJESME NA JEDNOM MJESTU</h1>
+            <p>Najnoviji trap hitovi iz prve ruke. Klikni i slušaj.</p>
         </div>
-    </div>
+        <div class="hero-video">
+            <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+        </div>
+    </section>
 
-    <!-- Desna kartica (Video) -->
-    <div class="card">
-        <p>FEATURED PLAYER</p>
-        <h3>Asfaltni Dug</h3>
-        <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" style="width:100%; height:250px; border-radius:15px;"></iframe>
-    </div>
-</div>
-
+    <!-- Grid od 3 -->
     <div class="bento-container">
         <div class="bento-grid">
-            <!-- Pjesma 1 -->
-            <div class="card">
-                <h3>Okana Okana</h3>
-                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-            </div>
-            <!-- Pjesma 2 -->
-            <div class="card">
-                <h3>Naziv pjesme</h3>
-                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-            </div>
-            <!-- Pjesma 3 -->
-            <div class="card">
-                <h3>Naziv pjesme</h3>
-                <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-            </div>
+            <div class="card"><h3>Okana Okana</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
+            <div class="card"><h3>Pjesma 2</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
+            <div class="card"><h3>Pjesma 3</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
         </div>
     </div>
 
