@@ -4,81 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trap Balkan | Official HQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        
-        /* HEADER */
-        header { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 5%; border-bottom: 2px solid #222; background: #0a0a0a; 
-        }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 2px solid #222; background: #0a0a0a; }
         .logo-area { display: flex; align-items: center; gap: 15px; }
         .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #d32f2f; }
         .nav-links a { color: #aaa; margin-left: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-
-        /* HERO I BENTO KONTEJNERI */
         .bento-container { max-width: 1400px; margin: 40px auto; padding: 0 40px; }
-        
-        .hero-section { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            align-items: stretch; 
-            margin-bottom: 50px; 
-        }
-
-        /* JEDINSTVENI KARTICA STIL */
-        .card { 
-            background: #121212; 
-            padding: 40px; 
-            border-radius: 25px; 
-            border: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .card iframe { 
-            width: 100%; 
-            height: 100%; 
-            min-height: 250px; 
-            border-radius: 15px; 
-        }
-
-        /* GRID OD 3 */
+        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; margin-bottom: 50px; }
+        .card { background: #121212; padding: 40px; border-radius: 25px; border: 1px solid #333; display: flex; flex-direction: column; justify-content: center; }
+        .card iframe { width: 100%; height: 100%; min-height: 250px; border-radius: 15px; }
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .bento-grid .card { padding: 20px; }
         .bento-grid .card iframe { height: 200px; min-height: 200px; }
-
-       /* SOCIAL BAR - VELIKE IKONE U BOJI */
-.social-links { 
-    display: flex; 
-    gap: 30px; /* Veći razmak za "dužinu" */
-    margin-top: 40px; 
-    align-items: center;
-}
-
-.social-links a { 
-    font-size: 2.2rem; /* Veće ikone */
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.social-links a:hover { transform: scale(1.2); }
-
-/* Fiksne boje */
-.yt { color: #FF0000; }
-.sp { color: #1DB954; }
-.fb { color: #4267B2; }
-.tt { color: #ffffff; } /* TikTok je bijeli/tamni, možemo i ovako */
-.ig { color: #E1306C; }
-
-        @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
-
+        .social-links { display: flex; gap: 30px; margin-top: 40px; align-items: center; }
+        .social-links a { font-size: 2.2rem; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { transform: scale(1.2); }
+        .yt { color: #FF0000; } .sp { color: #1DB954; } .fb { color: #4267B2; } .tt { color: #fff; } .ig { color: #E1306C; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; }
-.modal-content { background: #121212; margin: 10% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
-.close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
-.lyrics-btn { margin-top: 15px; padding: 10px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 5px; width: 100%; transition: 0.3s; }
-.lyrics-btn:hover { background: #d32f2f; border-color: #d32f2f; }
+        .modal-content { background: #121212; margin: 10% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
+        .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
+        .lyrics-btn { margin-top: 15px; padding: 10px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 5px; width: 100%; transition: 0.3s; }
+        .lyrics-btn:hover { background: #d32f2f; }
+        footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
+        @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -96,59 +46,56 @@
     <section class="hero-section bento-container">
         <div class="card">
             <h1>SVE PJESME NA JEDNOM MJESTU</h1>
-            <p style="color: #aaa; margin-bottom: 30px;">Najnoviji trap hitovi iz prve ruke. Klikni i slušaj.</p>
-            <!-- Ubaci ovo u <head> sekciju tvog sajta -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- Zamijeni onaj stari .social-links dio ovim: -->
-<div class="social-links">
-    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
-    <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
-    <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
-    <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
-    <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
-</div>
+            <p style="color: #aaa; margin-bottom: 30px;">Najnoviji trap hitovi iz prve ruke.</p>
+            <div class="social-links">
+                <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
+                <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
         <div class="card">
             <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
         </div>
     </section>
 
-    <div class="card">
-    <h3>Okana Okana</h3>
-    <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-    <!-- Gumb za tekst -->
-    <button class="lyrics-btn" onclick="openModal('tekst1')">TEKST PJESME</button>
-</div>
-
-<!-- Modal (Pop-up) - ovo stavi na dno tijela (prije </body>) -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="lyrics-text">
-            <!-- Ovdje će se učitavati tekst -->
+    <div class="bento-container">
+        <div class="bento-grid" id="video-grid">
+            <div class="card"><h3>Pjesma 1</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst1')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 2</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst2')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 3</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst3')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 4</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst4')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 5</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst5')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 6</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst6')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 7</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst7')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 8</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst8')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 9</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst9')">TEKST PJESME</button></div>
+            <div class="card"><h3>Pjesma 10</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe><button class="lyrics-btn" onclick="openModal('tekst10')">TEKST PJESME</button></div>
         </div>
     </div>
-</div>
 
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card"><h3>Okana Okana</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
-            <div class="card"><h3>Pjesma 2</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
-            <div class="card"><h3>Pjesma 3</h3><iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe></div>
+    <footer>&copy; 2026 Trap Balkan - Official Music Hub</footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="lyrics-text">Učitavanje...</div>
         </div>
     </div>
 
     <script>
-    function openModal(id) {
-        document.getElementById('modal').style.display = "block";
-        // Ovdje ćemo kasnije učitavati tekstove iz posebnih fajlova
-        document.getElementById('lyrics-text').innerHTML = "Ovdje dolazi tekst pjesme..."; 
-    }
-    function closeModal() {
-        document.getElementById('modal').style.display = "none";
-    }
-</script>
-
+        const tekstovi = {
+            'tekst1': "Tekst pjesme 1...", 'tekst2': "Tekst pjesme 2...", 'tekst3': "Tekst pjesme 3...",
+            'tekst4': "Tekst pjesme 4...", 'tekst5': "Tekst pjesme 5...", 'tekst6': "Tekst pjesme 6...",
+            'tekst7': "Tekst pjesme 7...", 'tekst8': "Tekst pjesme 8...", 'tekst9': "Tekst pjesme 9...",
+            'tekst10': "Tekst pjesme 10..."
+        };
+        function openModal(id) {
+            document.getElementById('modal').style.display = "block";
+            document.getElementById('lyrics-text').innerText = tekstovi[id] || "Tekst dolazi uskoro.";
+        }
+        function closeModal() { document.getElementById('modal').style.display = "none"; }
+    </script>
 </body>
 </html>
