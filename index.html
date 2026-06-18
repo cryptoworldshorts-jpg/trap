@@ -33,6 +33,30 @@
 
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
     </style>
+
+   /* Styling za novu karticu i social bar */
+.card { 
+    background: #121212; 
+    padding: 30px; 
+    border-radius: 20px; 
+    border: 1px solid #333; 
+}
+
+.social-links { 
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+}
+
+.social-links a { 
+    background: #000; 
+    padding: 10px 20px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 0.8rem; 
+    border: 1px solid #444;
+}
 </head>
 <body>
 
@@ -46,16 +70,27 @@
         </nav>
     </header>
 
-    <!-- Hero Sekcija -->
-    <section class="hero-section">
-        <div class="hero-text">
-            <h1>SVE PJESME NA JEDNOM MJESTU</h1>
-            <p>Najnoviji trap hitovi iz prve ruke. Klikni i slušaj.</p>
+    <!-- Hero Sekcija - Sada sa okvirom i social barom -->
+<section class="hero-section">
+    <!-- Lijeva kartica (Tekst + Social) -->
+    <div class="card">
+        <h1>SVE PJESME NA JEDNOM MJESTU</h1>
+        <p style="color: #aaa; margin-bottom: 30px;">Najnoviji trap hitovi iz prve ruke. Klikni i slušaj.</p>
+        
+        <div class="social-links">
+            <a href="#">YOUTUBE</a>
+            <a href="#">SPOTIFY</a>
+            <a href="#">FB</a>
+            <a href="#">TIKTOK</a>
+            <a href="#">INSTAGRAM</a>
         </div>
-        <div class="hero-video">
-            <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
-        </div>
-    </section>
+    </div>
+
+    <!-- Desna kartica (Video) -->
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/fjzgBXjaAcc" frameborder="0"></iframe>
+    </div>
+</section>
 
     <!-- Grid od 3 -->
     <div class="bento-container">
