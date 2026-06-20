@@ -6,117 +6,75 @@
     <title>Trap Balkan | Official HQ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 2px solid #222; background: #0a0a0a; }
+        /* OSNOVNI RESET */
+        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        
+        /* HEADER - OVDJE JE KLJUČ PORAVNANJA */
+        header { 
+            background: #0a0a0a; 
+            border-bottom: 2px solid #222; 
+            padding: 20px 0; 
+        }
+        .header-inner { 
+            max-width: 1400px; margin: 0 auto; padding: 0 40px; 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        
         .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 50px; height: 50px; border-radius: 50%;  }
-        .nav-links a { color: #aaa; margin-left: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .logo-area img { width: 50px; height: 50px; border-radius: 50%; }
+        .logo-area h2 { margin: 0; font-family: 'Anton', sans-serif; letter-spacing: 1px; }
+
+        .nav-right { display: flex; align-items: center; gap: 30px; }
         
+        /* SUBSCRIBE DUGME */
+        .sub-btn { 
+            background: #3b82f6; color: white; padding: 10px 20px; 
+            border-radius: 50px; text-decoration: none; font-weight: bold; 
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            white-space: nowrap;
+        }
+
+        /* IKONE */
+        .social-links { display: flex; gap: 20px; font-size: 1.5rem; align-items: center; }
+        .social-links a { transition: 0.3s; }
+        .social-links a:hover { transform: scale(1.2); }
+
+        /* OSTALO (Bento grid i kartice) */
         .bento-container { max-width: 1400px; margin: 40px auto; padding: 0 40px; }
-        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; margin-bottom: 50px; }
-        
-        .card { background: #121212; padding: 30px; border-radius: 25px; border: 1px solid #333; display: flex; flex-direction: column; }
+        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        .card { background: #121212; padding: 25px; border-radius: 25px; border: 1px solid #333; }
         .card iframe { width: 100%; height: 200px; border-radius: 15px; margin-top: 15px; }
-        
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
         
-        /* POPRAVLJENO: Ikone sada imaju stalne boje */
-        .social-links { display: flex; gap: 30px; margin-top: auto; padding-top: 40px; align-items: center; }
-        .social-links a { font-size: 2.2rem; text-decoration: none; transition: 0.3s; }
-        .social-links a:hover { transform: scale(1.2); }
-        
-        .yt { color: #FF0000 !important; } 
-        .sp { color: #1DB954 !important; } 
-        .fb { color: #4267B2 !important; } 
-        .tt { color: #ffffff !important; } 
-        .ig { color: #E1306C !important; }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; }
-        .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; max-height: 80vh; overflow-y: auto; }
-        .modal-content p { white-space: pre-line; line-height: 1.8; font-size: 1.1rem; color: #ddd; }
-        
-        .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
-        .lyrics-btn { margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+        .lyrics-btn { width: 100%; margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
         .lyrics-btn:hover { background: #d32f2f; }
 
-        footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
-        @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
-
-       /* Očisti stari header i sredi container */
-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 0; /* Makli smo 5% da koristi container */
-    border-bottom: 2px solid #222; 
-    background: #0a0a0a; 
-}
-
-/* Ovo osigurava da sve bude u liniji */
-.container { 
-    max-width: 1400px; 
-    margin: 0 auto; 
-    padding: 0 40px; 
-}
-
-.logo-area { display: flex; align-items: center; gap: 15px; }
-.logo-area img { width: 50px; height: 50px; border-radius: 50%; }
-
-.nav-right { display: flex; align-items: center; gap: 30px; }
-
-/* Subscribe dugme - sad će biti savršeno poravnato */
-.sub-btn { 
-    background: #3b82f6; color: white; padding: 10px 20px; 
-    border-radius: 50px; text-decoration: none; font-weight: bold; 
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-        /* Ovo osigurava da ikone i dugme budu u istoj liniji */
-.nav-right {
-    display: flex;
-    align-items: center; /* Ovo ih poravnava po sredini */
-    gap: 25px;
-}
-
-/* Osiguraj da sub-btn ne "divlja" sa visinom */
-.sub-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px; /* Fiksna visina da bude u liniji sa ikonama */
-}
-
-/* Reset za body da ne pravi razmake po rubovima */
-body { 
-    margin: 0; 
-    padding: 0; 
-}
+        /* MODAL */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
+        .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
+        .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
     </style>
 </head>
 <body>
 
-   <header>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
-        <!-- Lijeva strana -->
-        <div class="logo-area" style="display: flex; align-items: center; gap: 15px;">
-            <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%;">
-            <h2 style="margin: 0; font-family: 'Anton', sans-serif;">TRAP BALKAN</h2>
-        </div>
-
-        <!-- Desna strana (Subscribe + Ikone u liniji) -->
-        <nav class="nav-right" style="display: flex; align-items: center; gap: 25px;">
-            <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
-            
-            <div class="social-links" style="display: flex; align-items: center; gap: 20px; font-size: 1.5rem;">
-                <a href="#" style="color: #1DB954;"><i class="fab fa-spotify"></i></a>
-                <a href="#" style="color: #4267B2;"><i class="fab fa-facebook"></i></a>
-                <a href="#" style="color: #ffffff;"><i class="fab fa-tiktok"></i></a>
-                <a href="#" style="color: #E1306C;"><i class="fab fa-instagram"></i></a>
+    <!-- ISPRAVLJEN HEADER -->
+    <header>
+        <div class="header-inner">
+            <div class="logo-area">
+                <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Logo">
+                <h2>TRAP BALKAN</h2>
             </div>
-        </nav>
-    </div>
-</header>
-</div>
+            <nav class="nav-right">
+                <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
+                <div class="social-links">
+                    <a href="#" style="color: #1DB954;"><i class="fab fa-spotify"></i></a>
+                    <a href="#" style="color: #4267B2;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #fff;"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" style="color: #E1306C;"><i class="fab fa-instagram"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <section class="hero-section bento-container">
     <div class="card">
