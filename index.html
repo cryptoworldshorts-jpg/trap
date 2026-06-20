@@ -42,53 +42,58 @@
         footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
 
-       /* Popravak poravnanja */
-.site-header { 
+       /* Očisti stari header i sredi container */
+header { 
     display: flex; 
-    align-items: center; 
     justify-content: space-between; 
-    padding: 20px 0; 
-    border-bottom: 1px solid #222;
-    width: 100%; /* Osigurava da zauzme punu širinu */
-}
-
-/* Ovo je ključ: da header bude unutar container granica kao i ostatak sajta */
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
-}
-
-/* Dodaj ovo da ikone ne bježe */
-.nav-right { 
-    display: flex; 
     align-items: center; 
-    gap: 20px; 
-    padding-right: 0; /* Osigurava da nema razmaka s desne strane */
+    padding: 20px 0; /* Makli smo 5% da koristi container */
+    border-bottom: 2px solid #222; 
+    background: #0a0a0a; 
+}
+
+/* Ovo osigurava da sve bude u liniji */
+.container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 40px; 
+}
+
+.logo-area { display: flex; align-items: center; gap: 15px; }
+.logo-area img { width: 50px; height: 50px; border-radius: 50%; }
+
+.nav-right { display: flex; align-items: center; gap: 30px; }
+
+/* Subscribe dugme - sad će biti savršeno poravnato */
+.sub-btn { 
+    background: #3b82f6; color: white; padding: 10px 20px; 
+    border-radius: 50px; text-decoration: none; font-weight: bold; 
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
     </style>
 </head>
 <body>
 
     <!-- HEADER SEKCJA -->
-<header class="site-header">
-    <div class="logo-area">
-        <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Logo">
-        <h2>TRAP BALKAN</h2>
-    </div>
-
-    <!-- Navigacija sa ikonama i Subscribe dugmetom -->
-    <nav class="nav-right">
-        <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
-        
-        <div class="social-links">
-            <a href="#" title="Spotify" style="color: #1DB954;"><i class="fab fa-spotify"></i></a>
-            <a href="#" title="Facebook" style="color: #1877F2;"><i class="fab fa-facebook"></i></a>
-            <a href="#" title="TikTok" style="color: #fff;"><i class="fab fa-tiktok"></i></a>
-            <a href="#" title="Instagram" style="color: #E1306C;"><i class="fab fa-instagram"></i></a>
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <img src="https://i.postimg.cc/XNPBvX1b/Logo-TB.png" alt="Logo">
+            <h2>TRAP BALKAN</h2>
         </div>
-    </nav>
-</header>
+
+        <nav class="nav-right">
+            <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
+            
+            <div class="social-links" style="display:flex; gap:20px; font-size:1.5rem;">
+                <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
+                <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </header>
+</div>
 
     <section class="hero-section bento-container">
     <div class="card">
