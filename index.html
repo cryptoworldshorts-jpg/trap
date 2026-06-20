@@ -6,100 +6,56 @@
     <title>Trap Balkan | Official HQ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* OSNOVNI RESET */
-        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        
-        /* HEADER - OVDJE JE KLJUČ PORAVNANJA */
-        header { 
-            background: #0a0a0a; 
-            border-bottom: 2px solid #222; 
-            padding: 20px 0; 
-        }
-        .header-inner { 
-            max-width: 1400px; margin: 0 auto; padding: 0 40px; 
-            display: flex; justify-content: space-between; align-items: center; 
-        }
-        
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 50px; height: 50px; border-radius: 50%; }
-        .logo-area h2 { margin: 0; font-family: 'Anton', sans-serif; letter-spacing: 1px; }
+    /* 1. RESET I BODY */
+    body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
 
-        .nav-right { display: flex; align-items: center; gap: 30px; }
-        
-        /* SUBSCRIBE DUGME */
-        .sub-btn { 
-            background: #3b82f6; color: white; padding: 10px 20px; 
-            border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-            white-space: nowrap;
-        }
+    /* 2. HEADER - "U VINKLU" */
+    header { background: #0a0a0a; border-bottom: 2px solid #222; padding: 20px 0; }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo-area { display: flex; align-items: center; gap: 15px; }
+    .logo-area img { width: 50px; height: 50px; border-radius: 50%; }
+    .logo-area h2 { margin: 0; font-family: 'Anton', sans-serif; letter-spacing: 1px; }
 
-        /* IKONE */
-        .social-links { display: flex; gap: 20px; font-size: 1.5rem; align-items: center; }
-        .social-links a { transition: 0.3s; }
-        .social-links a:hover { transform: scale(1.2); }
+    .nav-right { display: flex; align-items: center; gap: 25px; }
+    .sub-btn { background: #3b82f6; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); display: inline-flex; align-items: center; height: 40px; }
 
-        /* OSTALO (Bento grid i kartice) */
-        .bento-container { max-width: 1400px; margin: 40px auto; padding: 0 40px; }
-        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-        .card { background: #121212; padding: 25px; border-radius: 25px; border: 1px solid #333; }
-        .card iframe { width: 100%; height: 200px; border-radius: 15px; margin-top: 15px; }
-        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        
-        .lyrics-btn { width: 100%; margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
-        .lyrics-btn:hover { background: #d32f2f; }
+    /* 3. BENTO KONTEJNERI */
+    .bento-container { max-width: 1400px; margin: 40px auto; padding: 0 40px; }
+    .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+    .card { background: #121212; padding: 30px; border-radius: 25px; border: 1px solid #333; display: flex; flex-direction: column; }
+    .card iframe { width: 100%; height: 200px; border-radius: 15px; margin-top: 15px; }
+    .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-        /* MODAL */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
-        .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
-        .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
+    /* 4. IKONE (GLOBALNE + SPECIJALNE) */
+    .social-links { display: flex; align-items: center; }
+    .social-links a { text-decoration: none; transition: 0.3s; }
+    .social-links a:hover { transform: scale(1.2); }
 
-         /* --- FOOTER I MODAL STIL --- */
+    /* IKONE U KARTICI (HERO) - OVDJE JE BIO PROBLEM */
+    .hero-section .social-links { gap: 30px; margin-top: auto; padding-top: 40px; }
+    .hero-section .social-links a { font-size: 2.2rem; }
 
-/* Jedinstven stil za ikone - globalno */
-.social-links { display: flex; gap: 20px; align-items: center; }
-.social-links a { font-size: 2.2rem; text-decoration: none; transition: 0.3s; }
-.social-links a:hover { transform: scale(1.2); }
+    /* IKONE U HEADERU - Fiks */
+    .nav-right .social-links { gap: 15px; }
+    .nav-right .social-links a { font-size: 1.5rem; }
 
-/* Boje ikona */
-.yt { color: #FF0000 !important; } 
-.sp { color: #1DB954 !important; } 
-.fb { color: #4267B2 !important; } 
-.tt { color: #ffffff !important; } 
-.ig { color: #E1306C !important; }
+    /* BOJE */
+    .yt { color: #FF0000 !important; } .sp { color: #1DB954 !important; } 
+    .fb { color: #4267B2 !important; } .tt { color: #ffffff !important; } .ig { color: #E1306C !important; }
 
-/* MODAL */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; }
-.modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; max-height: 80vh; overflow-y: auto; }
-.modal-content p { white-space: pre-line; line-height: 1.8; font-size: 1.1rem; color: #ddd; }
-.close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
+    /* 5. MODALI, LYRICS I FOOTER */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
+    .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
+    .modal-content p { white-space: pre-line; line-height: 1.8; font-size: 1.1rem; color: #ddd; }
+    .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
+    .lyrics-btn { margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+    .lyrics-btn:hover { background: #d32f2f; }
 
-/* FOOTER - SREDJEN */
-footer { 
-    text-align: center; 
-    padding: 40px 0; 
-    border-top: 1px solid #222; /* Samo jedna linija */
-    margin-top: 50px; 
-}
-.footer-inner { max-width: 1400px; margin: 0 auto; }
-.footer-inner .social-links { justify-content: center; margin-bottom: 20px; font-size: 1.8rem; }
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid #222; margin-top: 50px; }
+    .footer-inner .social-links { justify-content: center; margin-bottom: 20px; font-size: 1.8rem; }
 
-/* HEADER FIX - OVO NE DIRAJ */
-.nav-right .social-links { margin-top: 0 !important; padding-top: 0 !important; gap: 15px !important; display: flex !important; align-items: center !important; }
-.nav-right .social-links a { font-size: 1.5rem !important; }
-
-        /* Hero sekcija ikone - vrati razmak */
-.hero-section .social-links {
-    margin-top: auto !important;
-    padding-top: 40px !important;
-    gap: 30px !important;
-}
-
-/* Veličina ikona u kartici */
-.hero-section .social-links a {
-    font-size: 2.2rem !important;
-}
-    </style>
+    @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
