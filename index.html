@@ -6,19 +6,48 @@
     <title>Trap Balkan | Official HQ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* NUKLEARNA OPCIJA ZA MOBITEL */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Ovo 100% sprečava pomjeranje lijevo-desno */
+}
+
+/* Osigurava da sve bude unutar ekrana */
+* {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+}
+        
     /* 1. RESET I BODY */
     body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
 
-    /* 2. HEADER - "U VINKLU" */
-    header { background: #0a0a0a; border-bottom: 2px solid #222; padding: 20px 0; }
-    .header-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
-    .logo-area { display: flex; align-items: center; gap: 15px; }
-    .logo-area img { width: 50px; height: 50px; border-radius: 50%; }
-    .logo-area h2 { margin: 0; font-family: 'Anton', sans-serif; letter-spacing: 1px; }
+    /* 2. HEADER - "U VINKLU" (MOBILNO OPTIMIZOVANO) */
+header { 
+    background: #0a0a0a; 
+    border-bottom: 2px solid #222; 
+    padding: 15px 0; /* Malo manje paddinga za mobitel */
+    width: 100%;
+}
+.header-inner { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 20px; /* SMANJENO SA 40px NA 20px ZA MOBITEL */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.logo-area { display: flex; align-items: center; gap: 10px; } /* Malo smanjen gap */
+.logo-area img { width: 40px; height: 40px; border-radius: 50%; } /* Malo manji logo za mob */
+.logo-area h2 { font-size: 1.2rem; } /* Smanjen font naslova */
 
-    .nav-right { display: flex; align-items: center; gap: 25px; }
-    .sub-btn { background: #3b82f6; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); display: inline-flex; align-items: center; height: 40px; }
-
+.nav-right { display: flex; align-items: center; gap: 15px; } /* Smanjen gap */
+.sub-btn { 
+    padding: 8px 15px; /* Manje dugme */
+    font-size: 0.8rem; 
+    height: 35px;
+}
     /* 3. BENTO KONTEJNERI - OPTIMIZOVANI */
 .bento-container { 
     max-width: 1400px; 
@@ -94,10 +123,19 @@ footer .social-links {
     header { padding: 15px 20px !important; }
 }
 
-    @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+    /* Sprečava da bilo šta bude šire od samog ekrana */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    /* Osigurava da logo i dugme ne "guraju" stranicu */
+    .header-inner { padding: 0 15px !important; }
+}
 
-        /* Sprečava da tekst "gura" stranicu u stranu */
-* { word-wrap: break-word; overflow-wrap: break-word; }
+    @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
