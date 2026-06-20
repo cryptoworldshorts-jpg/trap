@@ -73,6 +73,19 @@
         
         footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
         @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
+
+        /* Fiks za header ikone - dodaj ovo na dno CSS-a */
+.nav-right .social-links {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    gap: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nav-right .social-links a {
+    font-size: 1.5rem !important; /* Manje nego u karticama da stane u liniju */
+}
     </style>
 </head>
 <body>
@@ -85,14 +98,14 @@
                 <h2>TRAP BALKAN</h2>
             </div>
             <nav class="nav-right">
-                <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
-                <div class="social-links">
-                    <a href="#" style="color: #1DB954;"><i class="fab fa-spotify"></i></a>
-                    <a href="#" style="color: #4267B2;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: #fff;"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" style="color: #E1306C;"><i class="fab fa-instagram"></i></a>
-                </div>
-            </nav>
+    <a href="https://www.youtube.com/@TrapBalkan" target="_blank" class="sub-btn">SUBSCRIBE</a>
+    <div class="social-links">
+        <a href="#" class="sp"><i class="fab fa-spotify"></i></a>
+        <a href="#" class="fb"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+    </div>
+</nav>
         </div>
     </header>
 
