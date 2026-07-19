@@ -1959,14 +1959,13 @@ Noć još uvijek piše...
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
     </script>
 
-    <div class="card">
-    <h3>Burek Sa Sirom</h3>
-    <iframe src="https://www.youtube.com/embed/-M1tHvOhkMY" frameborder="0"></iframe>
-    <button class="lyrics-btn" onclick="openModal('bureksasirom')">TEKST PJESME</button>
-    
-    <!-- ISPRAVLJEN SEO MOST -->
-    <div style="display:none;">
-        <p>Ej, ej Trap Balkan Haha. Kasno poslije ponoći, puni stolovi. Ekipa za stolom, svi smo gladni ponovo. Kaže konobar: Sefe, sta cemo? Kazem: Samo donesi, ne pitaj nista bro. Neko trazi cevape, neko trazi pizzu. Neko broji kalorije, neko trazi krizu. A ja samo gledam sta je stiglo na sto. Zlatna boja kore, brate, to je to. Burek sa sirom. Burek sa sirom. Opet ce se pola Balkana posvadjat zbog imena. Burek sa sirom. Burek sa sirom. Pisi sta hoces u komentaru, ja ga jedem s mirom. Sir, sir, sir, pored bureka sir. Sir, sir, sir, opet nastaje nemir. Jedni kazu sirnica, drugi kazu burek. Treci kazu nebitno je, samo da je vruce. Dok se rasprava vodi vec sat vremena, nestalo iz tepsije prije svih problema. Komentari gore, internet se pali. Kao da se rjesava sudbina planete. A ja samo sjedim, smijem se sa strane. I narucujem drugu turu za jarane. Burek sa sirom. Burek sa sirom. Opet ce se pola Balkana posvadjat zbog imena. Burek sa sirom. Burek sa sirom. Pisi sta hoces u komentaru, ja ga jedem s mirom. Burek sa sirom. Burek sa sirom. Nije bitno kako zoves, dok je vruc i dobar, brt.</p>
+    <div id="bureksasirom" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('bureksasirom')">&times;</span>
+        <h2>Burek Sa Sirom</h2>
+        <p>
+            Ej, ej Trap Balkan Haha... (ovdje stavi svoj puni tekst) ... Nije bitno kako zoveš, dok je vruć i dobar, brt.
+        </p>
     </div>
 </div>
 
