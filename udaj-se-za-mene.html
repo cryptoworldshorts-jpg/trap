@@ -74,6 +74,15 @@
             .card { padding: 20px !important; }
             .header-inner { padding: 0 15px !important; }
         }
+
+        .related-section { margin-top: 50px; border-top: 1px solid #222; padding-top: 30px; }
+.related-section h3 { margin-bottom: 20px; font-size: 1.2rem; color: #fff; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.related-card { background: #121212; border: 1px solid #333; padding: 15px; border-radius: 12px; text-decoration: none; color: #fff; transition: 0.3s; display: block; text-align: center; }
+.related-card:hover { border-color: #d32f2f; transform: translateY(-3px); }
+.related-card span { font-size: 0.95rem; font-weight: bold; }
+
+@media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -265,6 +274,21 @@ Za nas.</p>
             </div>
         </div>
     </main>
+
+    <div class="related-section">
+    <h3>Preporučeni hitovi</h3>
+    <div class="related-grid">
+        <a href="https://trapbalkan.com/burek-sa-sirom" class="related-card">
+            <span>🔥 Burek Sa Sirom</span>
+        </a>
+        <a href="https://trapbalkan.com/udaj-se-za-mene" class="related-card">
+            <span>🔥 Udaj Se Za Mene</span>
+        </a>
+        <a href="https://open.spotify.com/playlist/7f4TQSyUG12GN8b0PpEXTi?si=T1wdGFYDQ4WSfNn--Orjzg" target="_blank" rel="noopener noreferrer" class="related-card" style="border-color: #1DB954;">
+            <span style="color: #1DB954;"><i class="fab fa-spotify"></i> Slušaj Spotify Playlistu</span>
+        </a>
+    </div>
+</div>
 
     <footer>
         <div class="footer-inner">
