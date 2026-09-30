@@ -226,6 +226,117 @@ footer .social-links {
         </div>
     </header>
 
+    <!-- GLAVNI TV PLEJER - ODMAH ISPOD HEADERA -->
+    <section class="bento-container" style="margin-top: 30px;">
+        <div class="card tv-player-container" style="background: #121212; padding: 25px; border-radius: 25px; border: 1px solid #333;">
+            <h2 style="margin-top: 0; color: #fff; text-align: center; font-size: 1.5rem; margin-bottom: 20px;">📺 TRAP BALKAN TV / RADIO</h2>
+            
+            <!-- Veliki TV ekran / Plejer -->
+            <div class="main-screen" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 15px; overflow: hidden;">
+                <div id="youtube-player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+            </div>
+
+            <!-- Kontrole i Info o trenutnoj pjesmi -->
+            <div class="player-controls" style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0 15px 0;">
+                <button id="prev-btn" onclick="prevSong()" style="background: #ff3333; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s;">⏮ Prethodna</button>
+                <span id="current-song-title" style="color: #fff; font-weight: bold; font-size: 1rem; text-align: center; padding: 0 10px;">Učitavanje...</span>
+                <button id="next-btn" onclick="nextSong()" style="background: #ff3333; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s;">Sljedeća ⏭</button>
+            </div>
+
+            <!-- Lista pjesama (Playlist) -->
+            <div class="playlist-container" id="playlist" style="max-height: 220px; overflow-y: auto; background: #1a1a1a; border-radius: 12px; padding: 10px; border: 1px solid #222;">
+                <!-- Ovdje se lista automatski generiše preko JavaScript-a -->
+            </div>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT ZA TV PLEJER -->
+    <script>
+        // OVDJE DODAGEŠ SVOJE PJESME (YouTube ID i naziv) - lako možeš dodavati nove redove!
+        const playlist = [
+            { id: 'ZYFRiNrVjVo', title: 'Trap Balkan - Nešto U Tebi' },
+            { id: 'OKtWZ1WtSa4', title: 'Trap Balkan - Budi To Što Jesi (Remix)' },
+            { id: 'V6Msord3sg0', title: 'Naziv sljedeće pjesme ili tuđeg autora' }
+        ];
+
+        let currentIndex = 0;
+        let player;
+
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                videoId: playlist[0].id,
+                playerVars: { 'playsinline': 1, 'autoplay': 0, 'controls': 1 },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            renderPlaylist();
+            updateSongInfo();
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                nextSong();
+            }
+        }
+
+        function nextSong() {
+            currentIndex = (currentIndex + 1) % playlist.length;
+            playSong(currentIndex);
+        }
+
+        function prevSong() {
+            currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+            playSong(currentIndex);
+        }
+
+        function playSong(index) {
+            currentIndex = index;
+            player.loadVideoById(playlist[currentIndex].id);
+            updateSongInfo();
+            updateActivePlaylistUI();
+        }
+
+        function updateSongInfo() {
+            document.getElementById('current-song-title').innerText = playlist[currentIndex].title;
+        }
+
+        function renderPlaylist() {
+            const listContainer = document.getElementById('playlist');
+            listContainer.innerHTML = '';
+            playlist.forEach((song, index) => {
+                const item = document.createElement('div');
+                item.className = 'playlist-item';
+                item.style.cssText = "padding: 10px 12px; margin-bottom: 6px; background: #252525; color: #ccc; border-radius: 6px; cursor: pointer; font-size: 0.95rem; transition: 0.2s; display: flex; align-items: center;";
+                
+                if(index === currentIndex) {
+                    item.style.background = "#ff3333";
+                    item.style.color = "white";
+                    item.style.fontWeight = "bold";
+                }
+                
+                item.innerHTML = `<span>🎵 &nbsp;</span> <span>${index + 1}. ${song.title}</span>`;
+                item.onclick = () => playSong(index);
+                listContainer.appendChild(item);
+            });
+        }
+
+        function updateActivePlaylistUI() {
+            renderPlaylist(); // Osvježava listu i prebacuje crvenu boju na trenutno aktivnu pjesmu
+        }
+    </script>
+
     <section class="hero-section bento-container">
     <div class="card">
         <h1>SVE PJESME NA JEDNOM MJESTU</h1>
