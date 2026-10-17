@@ -298,13 +298,13 @@
             border: 1px solid #333333; 
         }
 
-        .video-container iframe { 
+        /* Ovdje ubacujemo div u koji YouTube API sam ubacuje iframe */
+        #youtube-player { 
             position: absolute; 
             top: 0; 
             left: 0; 
             width: 100%; 
             height: 100%; 
-            border: 0; 
         }
 
         .song-list-title { 
@@ -417,7 +417,7 @@
                 <button class="action-btn" onclick="prikaziPlaylisten('autor1')">Pokreni Play Listu</button>
             </div>
 
-            <!-- AUTOR 2 (DODANO) -->
+            <!-- AUTOR 2 -->
             <div class="card">
                 <div>
                     <div class="card-img-wrapper">
@@ -460,7 +460,8 @@
 
             <div class="player-grid">
                 <div class="video-container">
-                    <iframe id="main-iframe" src="" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- YouTube API ovdje automatski ubacuje plejer -->
+                    <div id="youtube-player"></div>
                 </div>
                 <div>
                     <div class="song-list-title" id="song-count-title">Lista pjesama:</div>
@@ -512,26 +513,8 @@
         let trenutnaLista = [];
         let trenutniIndex = 0;
 
-        // Inicijalizacija YouTube Plejera preko zvaničnog API-ja
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('main-iframe', {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // Plejer je spreman
-        }
-
-        // Kada pjesma završi (State = 0), automatski pređi na sljedeću u krug (Loop)
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED) {
-                trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length; // Prelazi na sljedeću ili vraća na 0 ako je kraj
-                pustiPjesmuPoIndexu(trenutniIndex);
-            }
+            // API je spreman
         }
 
         function prikaziPlaylisten(autorKey) {
@@ -545,25 +528,45 @@
             container.innerHTML = '';
 
             trenutnaLista = autor.pjesme;
+            trenutniIndex = 0;
 
-            // Prikaz pjesama i automatsko numerisanje (1, 2, 3...)
+            // Prikaz pjesama i automatsko numerisanje
             autor.pjesme.forEach((pjesma, index) => {
                 const item = document.createElement('div');
                 item.className = 'song-item';
                 item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
-                
                 item.onclick = () => pustiPjesmuPoIndexu(index);
                 container.appendChild(item);
             });
 
-            // Prikaži sekciju plejera prije pokretanja da element bude vidljiv u DOM-u
+            // Prikaži sekciju plejera
             const playerSec = document.getElementById('player-section');
             playerSec.style.display = 'block';
             playerSec.scrollIntoView({ behavior: 'smooth' });
 
-            // Pokreni prvu pjesmu sa liste
-            if (autor.pjesme.length > 0) {
+            // Inicijalizuj YouTube plejer ako već ne postoji, ili učitaj prvu pjesmu ako već postoji
+            if (!player) {
+                player = new YT.Player('youtube-player', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: trenutnaLista[0].ytId,
+                    playerVars: { 'playsinline': 1, 'autoplay': 1, 'controls': 1 },
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            } else {
                 pustiPjesmuPoIndexu(0);
+            }
+
+            oznaciAktivnuPjesmu();
+        }
+
+        function onPlayerStateChange(event) {
+            // Kada pjesma završi (YT.PlayerState.ENDED = 0), pređi na sljedeću
+            if (event.data === YT.PlayerState.ENDED) {
+                trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length;
+                pustiPjesmuPoIndexu(trenutniIndex);
             }
         }
 
@@ -573,9 +576,16 @@
             trenutniIndex = index;
             const pjesma = trenutnaLista[index];
 
-            // Vizuelno označavanje aktivne pjesme u listi
+            if (player && typeof player.loadVideoById === 'function') {
+                player.loadVideoById(pjesma.ytId);
+            }
+            
+            oznaciAktivnuPjesmu();
+        }
+
+        function oznaciAktivnuPjesmu() {
             document.querySelectorAll('.song-item').forEach((el, i) => {
-                if (i === index) {
+                if (i === trenutniIndex) {
                     el.style.borderColor = '#d32f2f';
                     el.style.background = '#1e1e1e';
                 } else {
@@ -583,21 +593,11 @@
                     el.style.background = '#0a0a0a';
                 }
             });
-
-            // Ako je API plejer učitan, koristi loadVideoById da aktivno prati stanje (kraj pjesme)
-            if (player && typeof player.loadVideoById === 'function') {
-                player.loadVideoById(pjesma.ytId);
-            } else {
-                // Rezervna opcija ako plejer još nije u potpunosti spreman
-                document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${pjesma.ytId}?enablejsapi=1&autoplay=1`;
-            }
         }
 
         function zatvoriPlayer() {
             if (player && typeof player.stopVideo === 'function') {
                 player.stopVideo();
-            } else {
-                document.getElementById('main-iframe').src = '';
             }
             document.getElementById('player-section').style.display = 'none';
         }
