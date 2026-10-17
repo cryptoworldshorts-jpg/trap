@@ -244,7 +244,7 @@
             cursor: not-allowed; 
         }
 
-        /* 4. PLAYER SEKCIJA (OPCIJA A) */
+        /* 4. PLAYER SEKCIJA */
         .player-section { 
             display: none; 
             background: #121212; 
@@ -359,7 +359,6 @@
             font-size: 0.85rem; 
         }
 
-        /* RESPONSIVE MEDIA QUERIES */
         @media (max-width: 1100px) {
             .bento-grid { grid-template-columns: repeat(3, 1fr); }
         }
@@ -400,28 +399,25 @@
             <p>Službeni katalog autorskih projekata i saradnika. Odaberite autora za pregled izdanja.</p>
         </div>
 
-        <!-- BENTO GRID - 20 KARTICA -->
+        <!-- BENTO GRID -->
         <div class="bento-grid">
 
-            <!-- AUTOR 1 (PRIMJER AKTIVNOG AUTORA) -->
-<div class="card">
-    <div>
-        <div class="card-img-wrapper">
-            <!-- DIREKTAN LINK SA i.postimg.cc -->
-            <img src="https://i.postimg.cc/t7MtJgZP/e306f8af.jpg" alt="Trap Balkan">
-            
-            <!-- YOUTUBE LINK KA KANALU (OTVARA U NOVOM PROZORU) -->
-            <a href="https://www.youtube.com/@TrapBalkan" target="_blank" rel="noopener noreferrer" class="yt-link" title="Otvorite zvanični YouTube kanal">
-                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-        </div>
-        <div class="card-title">Trap Balkan</div>
-        <div class="card-sub">10 Pjesama • Deep House Balkan</div>
-    </div>
-    <button class="action-btn" onclick="prikaziPlaylisten('autor1')">Pokreni Play Listu</button>
-</div>
+            <!-- AUTOR 1 -->
+            <div class="card">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="https://i.postimg.cc/t7MtJgZP/e306f8af.jpg" alt="Trap Balkan">
+                        <a href="https://www.youtube.com/@TrapBalkan" target="_blank" rel="noopener noreferrer" class="yt-link" title="Otvorite zvanični YouTube kanal">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                    <div class="card-title">Trap Balkan</div>
+                    <div class="card-sub">10 Pjesama • Deep House Balkan</div>
+                </div>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor1')">Pokreni Play Listu</button>
+            </div>
 
-            <!-- AUTOR 2 (PRIMJER AKTIVNOG AUTORA) -->
+            <!-- AUTOR 2 (DODANO) -->
             <div class="card">
                 <div>
                     <div class="card-img-wrapper">
@@ -431,12 +427,12 @@
                         </a>
                     </div>
                     <div class="card-title">Ime Autora 2</div>
-                    <div class="card-sub">10 Pjesama • Oriental Folk</div>
+                    <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
                 <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
 
-            <!-- SOON KARTICE (3 do 20) -->
+            <!-- SOON KARTICE -->
             <div class="card card-soon">
                 <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
                 <div class="card-title">Novi Autor</div>
@@ -450,26 +446,10 @@
                 <div class="card-sub">Uskoro novo izdanje</div>
                 <button class="action-btn" disabled>Uskoro</button>
             </div>
-
-            <div class="card card-soon">
-                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
-                <div class="card-title">Novi Autor</div>
-                <div class="card-sub">Uskoro novo izdanje</div>
-                <button class="action-btn" disabled>Uskoro</button>
-            </div>
-
-            <div class="card card-soon">
-                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
-                <div class="card-title">Novi Autor</div>
-                <div class="card-sub">Uskoro novo izdanje</div>
-                <button class="action-btn" disabled>Uskoro</button>
-            </div>
-
-            <!-- Ostale SOON kartice po potrebi... -->
 
         </div>
 
-        <!-- PLAYER & LISTA PJESAMA (OPCIJA A) -->
+        <!-- PLAYER & LISTA PJESAMA -->
         <section id="player-section" class="player-section">
             <div class="player-header">
                 <div>
@@ -483,7 +463,7 @@
                     <iframe id="main-iframe" src="" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div>
-                    <div class="song-list-title">Lista pjesama (10):</div>
+                    <div class="song-list-title" id="song-count-title">Lista pjesama:</div>
                     <div id="song-list-container" class="song-list">
                         <!-- Pjesme se ubacuju dinamički putem JavaScript-a -->
                     </div>
@@ -497,120 +477,130 @@
         &copy; 2026 TRAP BALKAN. Sva prava zadržana.
     </footer>
 
-   <!-- YouTube IFrame API Script -->
-<script src="https://www.youtube.com/iframe_api"></script>
+    <!-- YouTube IFrame API Script -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 
-<script>
-    // BAZA AUTORA I NJIHOVIH PJESAMA
-    const bazaAutora = {
-        "autor1": {
-            ime: "Trap Balkan",
-            pjesme: [
-                { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
-                { naslov: "Budi to što jesi", ytId: "OKtWZ1WtSa4" },
-                { naslov: "O Meni", ytId: "SVE32n7dJ74" },
-                { naslov: "Ne Znaš Ti", ytId: "VDO1cKVRLBg" },
-                { naslov: "Ostao Sam Tamo Remix", ytId: "CwBvdzRvIic" },
-                { naslov: "Volim te", ytId: "B6Strw5sPGU" },
-                { naslov: "Isti Grad, Drugi Ja", ytId: "-2sxOnn6pCI" },
-                { naslov: "Okana Okana", ytId: "t_Ih7uuOrGs" },
-                { naslov: "Nek Gori Noć", ytId: "nzIKX-lZpYI" },
-                { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
-            ]
-        }
-    };
-
-    let player = null;
-    let trenutnaLista = [];
-    let trenutniIndex = 0;
-
-    // Inicijalizacija YouTube Plejera preko zvaničnog API-ja
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('main-iframe', {
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
+    <script>
+        // BAZA AUTORA I NJIHOVIH PJESAMA
+        const bazaAutora = {
+            "autor1": {
+                ime: "Trap Balkan",
+                pjesme: [
+                    { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
+                    { naslov: "Budi to što jesi", ytId: "OKtWZ1WtSa4" },
+                    { naslov: "O Meni", ytId: "SVE32n7dJ74" },
+                    { naslov: "Ne Znaš Ti", ytId: "VDO1cKVRLBg" },
+                    { naslov: "Ostao Sam Tamo Remix", ytId: "CwBvdzRvIic" },
+                    { naslov: "Volim te", ytId: "B6Strw5sPGU" },
+                    { naslov: "Isti Grad, Drugi Ja", ytId: "-2sxOnn6pCI" },
+                    { naslov: "Okana Okana", ytId: "t_Ih7uuOrGs" },
+                    { naslov: "Nek Gori Noć", ytId: "nzIKX-lZpYI" },
+                    { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
+                ]
+            },
+            "autor2": {
+                ime: "Ime Autora 2",
+                pjesme: [
+                    { naslov: "Samo Nemam Onu Koju Volim", ytId: "O6py2jsjvYc" },
+                    { naslov: "Izgubio Sam Dio Sebe", ytId: "3BjtN0_764U" },
+                    { naslov: "Zaboravio Sam Kako Se Voli", ytId: "JWJTsm3OYBo" }
+                ]
             }
-        });
-    }
+        };
 
-    function onPlayerReady(event) {
-        // Plejer je spreman
-    }
+        let player = null;
+        let trenutnaLista = [];
+        let trenutniIndex = 0;
 
-    // Kada pjesma završi (State = 0), automatski pređi na sljedeću u krug (Loop)
-    function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-            trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length; // Prelazi na sljedeću ili vraća na 0 ako je kraj
-            pustiPjesmuPoIndexu(trenutniIndex);
+        // Inicijalizacija YouTube Plejera preko zvaničnog API-ja
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('main-iframe', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
         }
-    }
 
-    function prikaziPlaylisten(autorKey) {
-        const autor = bazaAutora[autorKey];
-        if (!autor) return;
+        function onPlayerReady(event) {
+            // Plejer je spreman
+        }
 
-        document.getElementById('autor-naslov').innerText = "Izdanja - " + autor.ime;
-        const container = document.getElementById('song-list-container');
-        container.innerHTML = '';
+        // Kada pjesma završi (State = 0), automatski pređi na sljedeću u krug (Loop)
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length; // Prelazi na sljedeću ili vraća na 0 ako je kraj
+                pustiPjesmuPoIndexu(trenutniIndex);
+            }
+        }
 
-        trenutnaLista = autor.pjesme;
+        function prikaziPlaylisten(autorKey) {
+            const autor = bazaAutora[autorKey];
+            if (!autor) return;
 
-        // Prikaz pjesama i automatsko numerisanje (1, 2, 3...)
-        autor.pjesme.forEach((pjesma, index) => {
-            const item = document.createElement('div');
-            item.className = 'song-item';
-            item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
+            document.getElementById('autor-naslov').innerText = "Izdanja - " + autor.ime;
+            document.getElementById('song-count-title').innerText = `Lista pjesama (${autor.pjesme.length}):`;
             
-            item.onclick = () => pustiPjesmuPoIndexu(index);
-            container.appendChild(item);
-        });
+            const container = document.getElementById('song-list-container');
+            container.innerHTML = '';
 
-        // Prikaži sekciju plejera prije pokretanja da element bude vidljiv u DOM-u
-        const playerSec = document.getElementById('player-section');
-        playerSec.style.display = 'block';
-        playerSec.scrollIntoView({ behavior: 'smooth' });
+            trenutnaLista = autor.pjesme;
 
-        // Pokreni prvu pjesmu sa liste
-        if (autor.pjesme.length > 0) {
-            pustiPjesmuPoIndexu(0);
-        }
-    }
+            // Prikaz pjesama i automatsko numerisanje (1, 2, 3...)
+            autor.pjesme.forEach((pjesma, index) => {
+                const item = document.createElement('div');
+                item.className = 'song-item';
+                item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
+                
+                item.onclick = () => pustiPjesmuPoIndexu(index);
+                container.appendChild(item);
+            });
 
-    function pustiPjesmuPoIndexu(index) {
-        if (!trenutnaLista || trenutnaLista.length === 0) return;
-        
-        trenutniIndex = index;
-        const pjesma = trenutnaLista[index];
+            // Prikaži sekciju plejera prije pokretanja da element bude vidljiv u DOM-u
+            const playerSec = document.getElementById('player-section');
+            playerSec.style.display = 'block';
+            playerSec.scrollIntoView({ behavior: 'smooth' });
 
-        // Vizuelno označavanje aktivne pjesme u listi
-        document.querySelectorAll('.song-item').forEach((el, i) => {
-            if (i === index) {
-                el.style.borderColor = '#d32f2f';
-                el.style.background = '#1e1e1e';
-            } else {
-                el.style.borderColor = '#222222';
-                el.style.background = '#0a0a0a';
+            // Pokreni prvu pjesmu sa liste
+            if (autor.pjesme.length > 0) {
+                pustiPjesmuPoIndexu(0);
             }
-        });
-
-        // Ako je API plejer učitan, koristi loadVideoById da aktivno prati stanje (kraj pjesme)
-        if (player && typeof player.loadVideoById === 'function') {
-            player.loadVideoById(pjesma.ytId);
-        } else {
-            // Rezervna opcija ako plejer još nije u potpunosti spreman
-            document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${pjesma.ytId}?enablejsapi=1&autoplay=1`;
         }
-    }
 
-    function zatvoriPlayer() {
-        if (player && typeof player.stopVideo === 'function') {
-            player.stopVideo();
-        } else {
-            document.getElementById('main-iframe').src = '';
+        function pustiPjesmuPoIndexu(index) {
+            if (!trenutnaLista || trenutnaLista.length === 0) return;
+            
+            trenutniIndex = index;
+            const pjesma = trenutnaLista[index];
+
+            // Vizuelno označavanje aktivne pjesme u listi
+            document.querySelectorAll('.song-item').forEach((el, i) => {
+                if (i === index) {
+                    el.style.borderColor = '#d32f2f';
+                    el.style.background = '#1e1e1e';
+                } else {
+                    el.style.borderColor = '#222222';
+                    el.style.background = '#0a0a0a';
+                }
+            });
+
+            // Ako je API plejer učitan, koristi loadVideoById da aktivno prati stanje (kraj pjesme)
+            if (player && typeof player.loadVideoById === 'function') {
+                player.loadVideoById(pjesma.ytId);
+            } else {
+                // Rezervna opcija ako plejer još nije u potpunosti spreman
+                document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${pjesma.ytId}?enablejsapi=1&autoplay=1`;
+            }
         }
-        document.getElementById('player-section').style.display = 'none';
-    }
-</script>
+
+        function zatvoriPlayer() {
+            if (player && typeof player.stopVideo === 'function') {
+                player.stopVideo();
+            } else {
+                document.getElementById('main-iframe').src = '';
+            }
+            document.getElementById('player-section').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
