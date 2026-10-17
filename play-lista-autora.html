@@ -500,7 +500,7 @@
     <!-- JAVASCRIPT LOGIKA -->
     <script>
         // BAZA AUTORA I NJIHOVIH 10 PJESAMA
-       const bazaAutora = {
+      const bazaAutora = {
             "autor1": {
                 ime: "Trap Balkan",
                 pjesme: [
@@ -515,9 +515,8 @@
                     { naslov: "Nek Gori Noć", ytId: "nzIKX-lZpYI" },
                     { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
                 ]
-            }
-        },
-        "autor2": {
+            }, // <-- ZAREZ IZMEĐU AUTORA
+            "autor2": {
                 ime: "Ime Autora 2",
                 pjesme: [
                     { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
@@ -532,7 +531,7 @@
                     { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
                 ]
             }
-        };
+        }; // <-- ZATVARANJE CELE BAZE TEK NA KRAJU
 
         function prikaziPlaylisten(autorKey) {
             const autor = bazaAutora[autorKey];
