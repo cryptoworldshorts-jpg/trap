@@ -1,226 +1,562 @@
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorska Izdanja | Trap Balkan</title>
+    <meta name="description" content="Službena autorska izdanja, playliste i izvođači na platformi Trap Balkan. Slušajte autorske trake bez preusmjeravanja i oglasa.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-<!-- Schema.org SEO Struktura za Katalog -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicCatalog",
-  "name": "Trap Balkan - Autorska Izdanja",
-  "description": "Zvanični katalog autorskih izdanja, izvođača i YouTube selekcija.",
-  "url": "https://trapbalkan.com/play-lista-autora.html"
-}
-</script>
-<div>
-    <!-- HEADER / NAVIGACIJA -->
-    <header class="p-6 border-b border-zinc-800/80 max-w-7xl mx-auto flex justify-between items-center w-full">
-        <a href="index.html" class="text-2xl font-extrabold tracking-wider text-red-500 hover:text-red-400 transition">TRAP BALKAN</a>
-        <nav class="space-x-6 text-sm font-medium">
-            <a href="index.html" class="text-zinc-400 hover:text-white transition">Početna</a>
-            <a href="play-lista-autora.html" class="text-white border-b-2 border-red-500 pb-1">Autorska Izdanja</a>
-        </nav>
+    <!-- Schema.org SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicCatalog",
+      "name": "Trap Balkan - Autorska Izdanja",
+      "description": "Zvanični katalog autorskih izdanja i izvođača."
+    }
+    </script>
+
+    <style>
+        /* 1. RESET I MOBILNA OPTIMIZACIJA */
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box !important;
+            max-width: 100% !important;
+        }
+
+        /* 2. HEADER */
+        header { 
+            background: #0a0a0a; 
+            border-bottom: 2px solid #222222; 
+            padding: 15px 0; 
+            width: 100%;
+        }
+
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-decoration: none; 
+            color: #ffffff; 
+        }
+
+        .logo-area h2 { 
+            font-size: 1.2rem; 
+            margin: 0; 
+            font-weight: 800; 
+            letter-spacing: 1px; 
+        }
+
+        .nav-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+        }
+
+        .nav-link { 
+            color: #aaaaaa; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: 0.3s; 
+        }
+
+        .nav-link:hover, .nav-link.active { 
+            color: #ffffff; 
+        }
+
+        /* 3. MAIN KONTEJNER I BENTO GRID */
+        .bento-container { 
+            max-width: 1400px; 
+            margin: 40px auto; 
+            padding: 0 40px; 
+        }
+
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+
+        .section-header h1 { 
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            margin: 0 0 10px 0; 
+            color: #ffffff; 
+        }
+
+        .section-header p { 
+            color: #888888; 
+            font-size: 0.95rem; 
+            margin: 0; 
+        }
+
+        .bento-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px; 
+        }
+
+        /* KARTICE */
+        .card { 
+            background: #121212; 
+            padding: 20px; 
+            border-radius: 25px; 
+            border: 1px solid #333333; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card:hover { 
+            border-color: #555555; 
+        }
+
+        .card-img-wrapper { 
+            position: relative; 
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            background: #1a1a1a; 
+            margin-bottom: 15px; 
+        }
+
+        .card-img-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.3s; 
+        }
+
+        .card:hover .card-img-wrapper img { 
+            transform: scale(1.04); 
+        }
+
+        /* YOUTUBE IKONICA NA KARTICI */
+        .yt-link { 
+            position: absolute; 
+            top: 12px; 
+            right: 12px; 
+            background: rgba(0, 0, 0, 0.8); 
+            color: #FF0000 !important; 
+            width: 38px; 
+            height: 38px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-decoration: none; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            transition: transform 0.3s, background 0.3s; 
+        }
+
+        .yt-link:hover { 
+            transform: scale(1.15); 
+            background: #FF0000; 
+            color: #ffffff !important; 
+        }
+
+        .yt-link svg { 
+            width: 18px; 
+            height: 18px; 
+            fill: currentColor; 
+        }
+
+        .card-title { 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin: 0 0 5px 0; 
+            color: #ffffff; 
+        }
+
+        .card-sub { 
+            font-size: 0.8rem; 
+            color: #777777; 
+            margin: 0 0 15px 0; 
+        }
+
+        /* DUGMAD */
+        .action-btn { 
+            width: 100%; 
+            padding: 12px; 
+            background: #222222; 
+            border: 1px solid #444444; 
+            color: #ffffff; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            transition: background 0.3s, border-color 0.3s; 
+        }
+
+        .action-btn:hover { 
+            background: #d32f2f; 
+            border-color: #d32f2f; 
+        }
+
+        /* SOON KARTICE */
+        .card-soon { 
+            opacity: 0.5; 
+        }
+
+        .soon-placeholder { 
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border: 1px dashed #444444; 
+            border-radius: 18px; 
+            color: #666666; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+        }
+
+        .action-btn:disabled { 
+            background: #1a1a1a; 
+            border-color: #2a2a2a; 
+            color: #555555; 
+            cursor: not-allowed; 
+        }
+
+        /* 4. PLAYER SEKCIJA (OPCIJA A) */
+        .player-section { 
+            display: none; 
+            background: #121212; 
+            border: 1px solid #333333; 
+            border-radius: 25px; 
+            padding: 30px; 
+            margin-top: 50px; 
+        }
+
+        .player-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 25px; 
+            border-bottom: 1px solid #222222; 
+            padding-bottom: 15px; 
+        }
+
+        .player-header h2 { 
+            margin: 0; 
+            font-size: 1.5rem; 
+        }
+
+        .close-btn { 
+            background: #222222; 
+            border: 1px solid #444444; 
+            color: #ffffff; 
+            padding: 6px 14px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 0.85rem; 
+        }
+
+        .close-btn:hover { 
+            background: #d32f2f; 
+        }
+
+        .player-grid { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            gap: 30px; 
+        }
+
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            background: #000000; 
+            border: 1px solid #333333; 
+        }
+
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
+
+        .song-list-title { 
+            font-size: 0.85rem; 
+            color: #888888; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 12px; 
+        }
+
+        .song-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            max-height: 350px; 
+            overflow-y: auto; 
+        }
+
+        .song-item { 
+            background: #0a0a0a; 
+            border: 1px solid #222222; 
+            padding: 12px 15px; 
+            border-radius: 10px; 
+            color: #dddddd; 
+            font-size: 0.9rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            cursor: pointer; 
+            transition: 0.2s; 
+        }
+
+        .song-item:hover { 
+            background: #1e1e1e; 
+            border-color: #d32f2f; 
+            color: #ffffff; 
+        }
+
+        .song-item .play-icon { 
+            color: #d32f2f; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+        }
+
+        /* 5. FOOTER */
+        footer { 
+            text-align: center; 
+            padding: 40px 0; 
+            border-top: 1px solid #222222; 
+            margin-top: 60px; 
+            color: #666666; 
+            font-size: 0.85rem; 
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 1100px) {
+            .bento-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .player-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .bento-container { padding: 0 15px !important; }
+            .card { padding: 15px !important; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .section-header h1 { font-size: 1.6rem; }
+            header { padding: 15px 15px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo-area">
+                <h2>TRAP BALKAN</h2>
+            </a>
+            <nav class="nav-right">
+                <a href="index.html" class="nav-link">Početna</a>
+                <a href="play-lista-autora.html" class="nav-link active">Autorska Izdanja</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- GLAVNI SADRŽAJ -->
-    <main class="max-w-7xl mx-auto px-4 py-12">
-        
-        <!-- NASLOV I SEO UVOD -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">Autorska Izdanja &amp; Autori</h1>
-            <p class="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                Oficijelni katalog pjesama, projekata i saradnika. Izaberite autora za pregled i preslušavanje kompletne liste od 10 autorskih traka.
-            </p>
+    <!-- MAIN GLAVNI CONTENT -->
+    <main class="bento-container">
+        <div class="section-header">
+            <h1>Autorska Izdanja &amp; Autori</h1>
+            <p>Službeni katalog autorskih projekata i saradnika. Odaberite autora za pregled izdanja.</p>
         </div>
 
-        <!-- BENTO GRID (20 KARTICA AUTORA) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+        <!-- BENTO GRID - 20 KARTICA -->
+        <div class="bento-grid">
 
-            <!-- AUTOR 1 (Aktivni Šablon) -->
-            <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 transition flex flex-col justify-between group">
+            <!-- AUTOR 1 (PRIMJER AKTIVNOG AUTORA) -->
+            <div class="card">
                 <div>
-                    <!-- Logo Autora + YouTube Poveznica -->
-                    <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-zinc-800">
-                        <img src="slike/autori/autor-1.jpg" alt="Ime Autora 1 Logo" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        
-                        <!-- YT Ikona (Otvara zvanični kanal u novom prozoru) -->
-                        <a href="https://www.youtube.com/@KanalAutora1" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           title="Posjeti zvanični YouTube kanal" 
-                           class="absolute top-3 right-3 bg-black/80 hover:bg-red-600 text-white p-2.5 rounded-full backdrop-blur-md transition-all duration-200 border border-zinc-700/50 shadow-lg">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
+                    <div class="card-img-wrapper">
+                        <img src="slike/autor-1.jpg" alt="Ime Autora Logo">
+                        <!-- YOUTUBE LINK KA KANALU (OTVARA U NOVOM PROZORU) -->
+                        <a href="https://www.youtube.com/@KanalAutora" target="_blank" rel="noopener noreferrer" class="yt-link" title="Otvorite zvanični YouTube kanal">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
-
-                    <h2 class="text-xl font-bold text-white mb-1 tracking-tight">Ime Autora 1</h2>
-                    <p class="text-xs text-zinc-400 mb-4">10 Traka • Balkan Trap / Oriental</p>
+                    <div class="card-title">Ime Autora 1</div>
+                    <div class="card-sub">10 Pjesama • Balkan Trap</div>
                 </div>
-
-                <button onclick="ucitajAutora('autor1')" class="w-full py-2.5 bg-zinc-800 hover:bg-red-600 text-white font-medium rounded-lg text-sm transition-colors">
-                    Otvori Izdanja
-                </button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor1')">Otvori Izdanja</button>
             </div>
 
-            <!-- AUTOR 2 (Aktivni Šablon) -->
-            <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 transition flex flex-col justify-between group">
+            <!-- AUTOR 2 (PRIMJER AKTIVNOG AUTORA) -->
+            <div class="card">
                 <div>
-                    <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-zinc-800">
-                        <img src="slike/autori/autor-2.jpg" alt="Ime Autora 2 Logo" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        
-                        <a href="https://www.youtube.com/@KanalAutora2" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           title="Posjeti zvanični YouTube kanal" 
-                           class="absolute top-3 right-3 bg-black/80 hover:bg-red-600 text-white p-2.5 rounded-full backdrop-blur-md transition-all duration-200 border border-zinc-700/50 shadow-lg">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
+                    <div class="card-img-wrapper">
+                        <img src="slike/autor-2.jpg" alt="Ime Autora 2 Logo">
+                        <a href="https://www.youtube.com/@KanalAutora2" target="_blank" rel="noopener noreferrer" class="yt-link" title="Otvorite zvanični YouTube kanal">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
-
-                    <h2 class="text-xl font-bold text-white mb-1 tracking-tight">Ime Autora 2</h2>
-                    <p class="text-xs text-zinc-400 mb-4">10 Traka • Folk Drill / Ethno</p>
+                    <div class="card-title">Ime Autora 2</div>
+                    <div class="card-sub">10 Pjesama • Oriental Folk</div>
                 </div>
-
-                <button onclick="ucitajAutora('autor2')" class="w-full py-2.5 bg-zinc-800 hover:bg-red-600 text-white font-medium rounded-lg text-sm transition-colors">
-                    Otvori Izdanja
-                </button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
 
-            <!-- PLACEHOLDER / COMING SOON KARTICE (3 do 20) -->
-            <script>
-                for(let i = 3; i <= 20; i++) {
-                    document.write(`
-                    <div class="bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-5 flex flex-col justify-between opacity-50 hover:opacity-75 transition">
-                        <div>
-                            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-zinc-900 border border-dashed border-zinc-800 flex items-center justify-center">
-                                <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 border border-zinc-800 px-3 py-1 rounded-full bg-zinc-950">SOON</span>
-                            </div>
-                            <h2 class="text-xl font-bold text-zinc-500 mb-1">Novi Autor #${i}</h2>
-                            <p class="text-xs text-zinc-600 mb-4">Uskoro novo izdanje</p>
-                        </div>
-                        <button disabled class="w-full py-2.5 bg-zinc-900/50 text-zinc-600 font-medium rounded-lg text-sm cursor-not-allowed">
-                            Uskoro
-                        </button>
-                    </div>
-                    `);
-                }
-            </script>
+            <!-- SOON KARTICE (3 do 20) -->
+            <div class="card card-soon">
+                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
+                <div class="card-title">Novi Autor</div>
+                <div class="card-sub">Uskoro novo izdanje</div>
+                <button class="action-btn" disabled>Uskoro</button>
+            </div>
+
+            <div class="card card-soon">
+                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
+                <div class="card-title">Novi Autor</div>
+                <div class="card-sub">Uskoro novo izdanje</div>
+                <button class="action-btn" disabled>Uskoro</button>
+            </div>
+
+            <div class="card card-soon">
+                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
+                <div class="card-title">Novi Autor</div>
+                <div class="card-sub">Uskoro novo izdanje</div>
+                <button class="action-btn" disabled>Uskoro</button>
+            </div>
+
+            <div class="card card-soon">
+                <div class="card-img-wrapper"><div class="soon-placeholder">SOON</div></div>
+                <div class="card-title">Novi Autor</div>
+                <div class="card-sub">Uskoro novo izdanje</div>
+                <button class="action-btn" disabled>Uskoro</button>
+            </div>
+
+            <!-- Ostale SOON kartice po potrebi... -->
 
         </div>
 
-        <!-- PLAYER & INTERAKTIVNA LISTA 10 PJESAMA (Opcija A) -->
-        <section id="player-sekcija" class="hidden bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-2xl transition-all">
-            <div class="flex justify-between items-center mb-6 border-b border-zinc-800 pb-4">
+        <!-- PLAYER & LISTA PJESAMA (OPCIJA A) -->
+        <section id="player-section" class="player-section">
+            <div class="player-header">
                 <div>
-                    <h2 id="naslov-autora" class="text-2xl font-bold text-white">Izabrani Autor</h2>
-                    <p class="text-xs text-zinc-400 mt-1">Izaberite traku iz liste za reprodukciju na sajtu</p>
+                    <h2 id="autor-naslov">Autor - Izdanja</h2>
                 </div>
-                <button onclick="zatvoriPlayer()" class="text-zinc-400 hover:text-white text-sm bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-lg transition">
-                    ✕ Zatvori
-                </button>
+                <button class="close-btn" onclick="zatvoriPlayer()">✕ Zatvori</button>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Glavni Video Plejer -->
-                <div class="lg:col-span-7">
-                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-black shadow-2xl border border-zinc-800/80">
-                        <iframe id="main-player" class="w-full h-full" src="" title="YouTube player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+            <div class="player-grid">
+                <div class="video-container">
+                    <iframe id="main-iframe" src="" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-
-                <!-- Lista 10 Pjesama Autora -->
-                <div class="lg:col-span-5 flex flex-col">
-                    <h3 class="text-xs font-semibold text-zinc-400 mb-3 uppercase tracking-wider">Lista Autorskih Izdanja (10):</h3>
-                    <div id="lista-pjesama" class="space-y-2 max-h-[380px] overflow-y-auto pr-2">
-                        <!-- Pjesme se učitavaju dinamički putem JavaScript-a -->
+                <div>
+                    <div class="song-list-title">Lista pjesama (10):</div>
+                    <div id="song-list-container" class="song-list">
+                        <!-- Pjesme se ubacuju dinamički putem JavaScript-a -->
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
-</div>
 
-<!-- FOOTER -->
-<footer class="border-t border-zinc-800/80 py-6 text-center text-xs text-zinc-500">
-    <p>&copy; Trap Balkan. Sva prava pridržana.</p>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 TRAP BALKAN. Sva prava zadržana.
+    </footer>
 
-<!-- JAVASCRIPT LOGIKA -->
-<script>
-    // Baza Autora sa njihovim YouTube Video ID-jevima
-    const bazaAutora = {
-        "autor1": {
-            ime: "Ime Autora 1",
-            pjesme: [
-                { naslov: "1. Naslov Prve Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "2. Naslov Druge Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "3. Naslov Treće Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "4. Naslov Četvrte Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "5. Naslov Pete Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "6. Naslov Šeste Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "7. Naslov Sedme Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "8. Naslov Osme Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "9. Naslov Devete Pjesme", ytId: "dQw4w9WgXcQ" },
-                { naslov: "10. Naslov Desete Pjesme", ytId: "dQw4w9WgXcQ" }
-            ]
-        },
-        "autor2": {
-            ime: "Ime Autora 2",
-            pjesme: [
-                { naslov: "1. Traka Jedan", ytId: "dQw4w9WgXcQ" },
-                { naslov: "2. Traka Dva", ytId: "dQw4w9WgXcQ" },
-                { naslov: "3. Traka Tri", ytId: "dQw4w9WgXcQ" },
-                { naslov: "4. Traka Četiri", ytId: "dQw4w9WgXcQ" },
-                { naslov: "5. Traka Pet", ytId: "dQw4w9WgXcQ" },
-                { naslov: "6. Traka Šest", ytId: "dQw4w9WgXcQ" },
-                { naslov: "7. Traka Sedam", ytId: "dQw4w9WgXcQ" },
-                { naslov: "8. Traka Osam", ytId: "dQw4w9WgXcQ" },
-                { naslov: "9. Traka Devet", ytId: "dQw4w9WgXcQ" },
-                { naslov: "10. Traka Deset", ytId: "dQw4w9WgXcQ" }
-            ]
-        }
-    };
+    <!-- JAVASCRIPT LOGIKA -->
+    <script>
+        // BAZA AUTORA I NJIHOVIH 10 PJESAMA
+        const bazaAutora = {
+            "autor1": {
+                ime: "Ime Autora 1",
+                pjesme: [
+                    { naslov: "1. Prva Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "2. Druga Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "3. Treća Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "4. Četvrta Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "5. Peta Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "6. Šesta Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "7. Sedma Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "8. Osma Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "9. Deveta Pjesma - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "10. Deseta Pjesma - Naziv", ytId: "dQw4w9WgXcQ" }
+                ]
+            },
+            "autor2": {
+                ime: "Ime Autora 2",
+                pjesme: [
+                    { naslov: "1. Traka Jedan - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "2. Traka Dva - Naziv", ytId: "dQw4w9WgXcQ" },
+                    { naslov: "3. Traka Tri - Naziv", ytId: "dQw4w9WgXcQ" }
+                ]
+            }
+        };
 
-    function ucitajAutora(id) {
-        const autor = bazaAutora[id];
-        if(!autor) return;
+        function prikaziPlaylisten(autorKey) {
+            const autor = bazaAutora[autorKey];
+            if (!autor) return;
 
-        document.getElementById('naslov-autora').innerText = autor.ime;
-        const containerListe = document.getElementById('lista-pjesama');
-        containerListe.innerHTML = '';
+            document.getElementById('autor-naslov').innerText = "Izdanja - " + autor.ime;
+            const container = document.getElementById('song-list-container');
+            container.innerHTML = '';
 
-        // Generiši listu od 10 pjesama
-        autor.pjesme.forEach((pjesma) => {
-            const btn = document.createElement('button');
-            btn.className = "w-full text-left p-3 rounded-xl bg-zinc-950/80 hover:bg-red-600/20 hover:border-red-500/50 border border-zinc-800/80 text-sm flex justify-between items-center transition group";
-            btn.innerHTML = `
-                <span class="font-medium text-zinc-300 group-hover:text-white transition">${pjesma.naslov}</span>
-                <span class="text-xs text-red-500 font-bold opacity-0 group-hover:opacity-100 transition">Pusti ▶</span>
-            `;
-            btn.onclick = () => pustiPjesmu(pjesma.ytId);
-            containerListe.appendChild(btn);
-        });
+            autor.pjesme.forEach((pjesma) => {
+                const item = document.createElement('div');
+                item.className = 'song-item';
+                item.innerHTML = `<span>${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
+                item.onclick = () => pustiPjesmu(pjesma.ytId);
+                container.appendChild(item);
+            });
 
-        // Automatski učitaj prvu pjesmu sa liste
-        if(autor.pjesme.length > 0) {
-            pustiPjesmu(autor.pjesme[0].ytId);
+            if (autor.pjesme.length > 0) {
+                pustiPjesmu(autor.pjesme[0].ytId);
+            }
+
+            const playerSec = document.getElementById('player-section');
+            playerSec.style.display = 'block';
+            playerSec.scrollIntoView({ behavior: 'smooth' });
         }
 
-        const sekcija = document.getElementById('player-sekcija');
-        sekcija.classList.remove('hidden');
-        sekcija.scrollIntoView({ behavior: 'smooth' });
-    }
+        function pustiPjesmu(ytId) {
+            document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+        }
 
-    function pustiPjesmu(ytId) {
-        document.getElementById('main-player').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
-    }
-
-    function zatvoriPlayer() {
-        document.getElementById('main-player').src = '';
-        document.getElementById('player-sekcija').classList.add('hidden');
-    }
-</script>
+        function zatvoriPlayer() {
+            document.getElementById('main-iframe').src = '';
+            document.getElementById('player-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
