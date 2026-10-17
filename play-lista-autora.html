@@ -172,6 +172,7 @@
             text-decoration: none; 
             border: 1px solid rgba(255, 255, 255, 0.15); 
             transition: transform 0.3s, background 0.3s; 
+            z-index: 2;
         }
 
         .yt-link:hover { 
@@ -298,7 +299,6 @@
             border: 1px solid #333333; 
         }
 
-        /* Ovdje ubacujemo div u koji YouTube API sam ubacuje iframe */
         #youtube-player { 
             position: absolute; 
             top: 0; 
@@ -375,6 +375,22 @@
             .section-header h1 { font-size: 1.6rem; }
             header { padding: 15px 15px !important; }
         }
+
+        .badge-new {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #d32f2f;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(211, 47, 47, 0.5);
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -403,7 +419,7 @@
         <div class="bento-grid">
 
             <!-- AUTOR 1 -->
-            <div class="card">
+            <div class="card" data-autor="autor1">
                 <div>
                     <div class="card-img-wrapper">
                         <img src="https://i.postimg.cc/t7MtJgZP/e306f8af.jpg" alt="Trap Balkan">
@@ -418,7 +434,7 @@
             </div>
 
             <!-- AUTOR 2 -->
-            <div class="card">
+            <div class="card" data-autor="autor2">
                 <div>
                     <div class="card-img-wrapper">
                         <img src="https://i.postimg.cc/zv7KVF22/Neon-USKORO-Over-a-Coastal-City.png" alt="Ime Autora 2 Logo">
@@ -477,7 +493,6 @@
                 <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
 
-
             <!-- AUTOR 6 -->
             <div class="card">
                 <div>
@@ -492,7 +507,6 @@
                 </div>
                 <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
-
 
             <!-- AUTOR 7 -->
             <div class="card">
@@ -509,7 +523,6 @@
                 <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
 
-
             <!-- AUTOR 8 -->
             <div class="card">
                 <div>
@@ -524,12 +537,6 @@
                 </div>
                 <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
             </div>
-
-
-
-
-
-
 
             <!-- SOON KARTICE -->
             <div class="card card-soon">
@@ -559,7 +566,6 @@
 
             <div class="player-grid">
                 <div class="video-container">
-                    <!-- YouTube API ovdje automatski ubacuje plejer -->
                     <div id="youtube-player"></div>
                 </div>
                 <div>
@@ -581,10 +587,11 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // BAZA AUTORA I NJIHOVIH PJESAMA
+        // BAZA AUTORA I NJIHOVIH PJESAMA (sa datumom objave za automatsko gašenje NEW značke nakon 48h)
         const bazaAutora = {
             "autor1": {
                 ime: "Trap Balkan",
+                datumObjave: "2026-10-17T22:00:00",
                 pjesme: [
                     { naslov: "Samo Nemam Onu Koju Volim", ytId: "O6py2jsjvYc" },
                     { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
@@ -601,6 +608,7 @@
             },
             "autor2": {
                 ime: "Ime Autora 2",
+                datumObjave: "2026-10-17T22:00:00",
                 pjesme: [
                     { naslov: "Samo Nemam Onu Koju Volim", ytId: "O6py2jsjvYc" },
                     { naslov: "Izgubio Sam Dio Sebe", ytId: "3BjtN0_764U" },
@@ -616,6 +624,35 @@
         function onYouTubeIframeAPIReady() {
             // API je spreman
         }
+
+        // FUNKCIJA ZA PROVJERU 48 SATI
+        function jeLiNovo(datumString) {
+            if (!datumString) return false;
+            const datumObjave = new Date(datumString);
+            const sada = new Date();
+            const razlikaSati = (sada - datumObjave) / (1000 * 60 * 60);
+            return razlikaSati >= 0 && razlikaSati <= 48;
+        }
+
+        // AUTOMATSKO DODAVANJE "NEW" ZNAČKE NA KARTICE
+        function primijeniNewZnacke() {
+            document.querySelectorAll('.card[data-autor]').forEach(card => {
+                const autorKey = card.getAttribute('data-autor');
+                const autor = bazaAutora[autorKey];
+                
+                if (autor && jeLiNovo(autor.datumObjave)) {
+                    const imgWrapper = card.querySelector('.card-img-wrapper');
+                    if (imgWrapper && !imgWrapper.querySelector('.badge-new')) {
+                        const badge = document.createElement('span');
+                        badge.className = 'badge-new';
+                        badge.innerText = 'NEW';
+                        imgWrapper.appendChild(badge);
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', primijeniNewZnacke);
 
         function prikaziPlaylisten(autorKey) {
             const autor = bazaAutora[autorKey];
