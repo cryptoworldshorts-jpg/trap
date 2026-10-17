@@ -541,24 +541,21 @@
             const container = document.getElementById('song-list-container');
             container.innerHTML = '';
 
-            // Izvlačimo sve YouTube ID-jeve autora za playlistu/loop
             const sviYtId = autor.pjesme.map(p => p.ytId);
 
             autor.pjesme.forEach((pjesma, index) => {
                 const item = document.createElement('div');
                 item.className = 'song-item';
-                
-                // Automatski dodaje redni broj (index + 1)
                 item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
                 
-                // Klikom na pjesmu pokreće se ta pjesma, a ostatak playliste nastavlja iza nje
-                item.onclick = () => pustiPjesmuSaListe(sviYtId, index);
+                // Proslijeđujemo tačan ytId i cijelu listu
+                item.onclick = () => pustiPjesmuSaListe(pjesma.ytId, sviYtId);
                 container.appendChild(item);
             });
 
-            // Pokreni prvu pjesmu i učitaj playlistu po defaultu
+            // Pokreni prvu pjesmu sa liste
             if (autor.pjesme.length > 0) {
-                pustiPjesmuSaListe(sviYtId, 0);
+                pustiPjesmuSaListe(autor.pjesme[0].ytId, sviYtId);
             }
 
             const playerSec = document.getElementById('player-section');
@@ -566,15 +563,14 @@
             playerSec.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Pusta izabranu pjesmu i formira playlistu od preostalih pjesama radi automatskog nastavljanja i kruženja (Loop)
-        function pustiPjesmuSaListe(sviYtId, izabraniIndex) {
-            const trenutniId = sviYtId[izabraniIndex];
-            // Reorganizujemo listu tako da pjesme idu po redu od izabrane, pa u krug
-            const preostaliId = sviYtId.slice(izabraniIndex + 1).concat(sviYtId.slice(0, izabraniIndex));
-            const playlistParam = preostaliId.join(',');
-
-            document.getElementById('main-iframe').src = 
-                `https://www.youtube.com/embed/${trenutniId}?autoplay=1&playlist=${playlistParam}&loop=1`;
+        function pustiPjesmuSaListe(trenutniYtId, sviYtId) {
+            // Formiramo playlistu od svih ostalih pjesama radi autoplaya
+            const ostalePjesme = sviYtId.filter(id => id !== trenutniYtId).join(',');
+            
+            // Čist URL sa garantovanim pokretanjem tačno izabrane pjesme
+            const embedUrl = `https://www.youtube.com/embed/${trenutniYtId}?autoplay=1&playlist=${ostalePjesme}&loop=1`;
+            
+            document.getElementById('main-iframe').src = embedUrl;
         }
 
         function zatvoriPlayer() {
