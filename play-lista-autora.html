@@ -500,28 +500,36 @@
     <!-- JAVASCRIPT LOGIKA -->
     <script>
         // BAZA AUTORA I NJIHOVIH 10 PJESAMA
-        const bazaAutora = {
+       const bazaAutora = {
             "autor1": {
                 ime: "Trap Balkan",
                 pjesme: [
-                    { naslov: "1. Trap Balkan - Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
-                    { naslov: "2. Trap Balkan - Budi to što jesi", ytId: "OKtWZ1WtSa4" },
-                    { naslov: "3. Trap Balkan - O Meni", ytId: "SVE32n7dJ74" },
-                    { naslov: "4. Trap Balkan - Ne Znaš Ti", ytId: "VDO1cKVRLBg" },
-                    { naslov: "5. Trap Balkan - Ostao Sam Tamo Remix", ytId: "CwBvdzRvIic" },
-                    { naslov: "6. Trap Balkan - Volim te", ytId: "B6Strw5sPGU" },
-                    { naslov: "7. Trap Balkan - Isti Grad, Drugi Ja", ytId: "-2sxOnn6pCI" },
-                    { naslov: "8. Trap Balkan - Okana Okana", ytId: "t_Ih7uuOrGs" },
-                    { naslov: "9. Trap Balkan - Nek Gori Noć", ytId: "nzIKX-lZpYI" },
-                    { naslov: "10. Trap Balkan - Žena Bez Imena", ytId: "_viRI6x5sBk" }
+                    { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
+                    { naslov: "Budi to što jesi", ytId: "OKtWZ1WtSa4" },
+                    { naslov: "O Meni", ytId: "SVE32n7dJ74" },
+                    { naslov: "Ne Znaš Ti", ytId: "VDO1cKVRLBg" },
+                    { naslov: "Ostao Sam Tamo Remix", ytId: "CwBvdzRvIic" },
+                    { naslov: "Volim te", ytId: "B6Strw5sPGU" },
+                    { naslov: "Isti Grad, Drugi Ja", ytId: "-2sxOnn6pCI" },
+                    { naslov: "Okana Okana", ytId: "t_Ih7uuOrGs" },
+                    { naslov: "Nek Gori Noć", ytId: "nzIKX-lZpYI" },
+                    { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
                 ]
-            },
-            "autor2": {
+            }
+        };
+        "autor2": {
                 ime: "Ime Autora 2",
                 pjesme: [
-                    { naslov: "1. Traka Jedan - Naziv", ytId: "dQw4w9WgXcQ" },
-                    { naslov: "2. Traka Dva - Naziv", ytId: "dQw4w9WgXcQ" },
-                    { naslov: "3. Traka Tri - Naziv", ytId: "dQw4w9WgXcQ" }
+                    { naslov: "Nešto U Tebi", ytId: "ZYFRiNrVjVo" },
+                    { naslov: "Budi to što jesi", ytId: "OKtWZ1WtSa4" },
+                    { naslov: "O Meni", ytId: "SVE32n7dJ74" },
+                    { naslov: "Ne Znaš Ti", ytId: "VDO1cKVRLBg" },
+                    { naslov: "Ostao Sam Tamo Remix", ytId: "CwBvdzRvIic" },
+                    { naslov: "Volim te", ytId: "B6Strw5sPGU" },
+                    { naslov: "Isti Grad, Drugi Ja", ytId: "-2sxOnn6pCI" },
+                    { naslov: "Okana Okana", ytId: "t_Ih7uuOrGs" },
+                    { naslov: "Nek Gori Noć", ytId: "nzIKX-lZpYI" },
+                    { naslov: "Žena Bez Imena", ytId: "_viRI6x5sBk" }
                 ]
             }
         };
@@ -534,16 +542,24 @@
             const container = document.getElementById('song-list-container');
             container.innerHTML = '';
 
-            autor.pjesme.forEach((pjesma) => {
+            // Izvlačimo sve YouTube ID-jeve autora za playlistu/loop
+            const sviYtId = autor.pjesme.map(p => p.ytId);
+
+            autor.pjesme.forEach((pjesma, index) => {
                 const item = document.createElement('div');
                 item.className = 'song-item';
-                item.innerHTML = `<span>${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
-                item.onclick = () => pustiPjesmu(pjesma.ytId);
+                
+                // Automatski dodaje redni broj (index + 1)
+                item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
+                
+                // Klikom na pjesmu pokreće se ta pjesma, a ostatak playliste nastavlja iza nje
+                item.onclick = () => pustiPjesmuSaListe(sviYtId, index);
                 container.appendChild(item);
             });
 
+            // Pokreni prvu pjesmu i učitaj playlistu po defaultu
             if (autor.pjesme.length > 0) {
-                pustiPjesmu(autor.pjesme[0].ytId);
+                pustiPjesmuSaListe(sviYtId, 0);
             }
 
             const playerSec = document.getElementById('player-section');
@@ -551,8 +567,15 @@
             playerSec.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function pustiPjesmu(ytId) {
-            document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+        // Pusta izabranu pjesmu i formira playlistu od preostalih pjesama radi automatskog nastavljanja i kruženja (Loop)
+        function pustiPjesmuSaListe(sviYtId, izabraniIndex) {
+            const trenutniId = sviYtId[izabraniIndex];
+            // Reorganizujemo listu tako da pjesme idu po redu od izabrane, pa u krug
+            const preostaliId = sviYtId.slice(izabraniIndex + 1).concat(sviYtId.slice(0, izabraniIndex));
+            const playlistParam = preostaliId.join(',');
+
+            document.getElementById('main-iframe').src = 
+                `https://www.youtube.com/embed/${trenutniId}?autoplay=1&playlist=${playlistParam}&loop=1`;
         }
 
         function zatvoriPlayer() {
