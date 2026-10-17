@@ -497,7 +497,7 @@
         &copy; 2026 TRAP BALKAN. Sva prava zadržana.
     </footer>
 
-    <!-- YouTube IFrame API Script -->
+   <!-- YouTube IFrame API Script -->
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
@@ -524,19 +524,24 @@
     let trenutnaLista = [];
     let trenutniIndex = 0;
 
-    // Inicijalizacija YouTube Plejera
+    // Inicijalizacija YouTube Plejera preko zvaničnog API-ja
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('main-iframe', {
             events: {
+                'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
             }
         });
     }
 
+    function onPlayerReady(event) {
+        // Plejer je spreman
+    }
+
     // Kada pjesma završi (State = 0), automatski pređi na sljedeću u krug (Loop)
     function onPlayerStateChange(event) {
         if (event.data === YT.PlayerState.ENDED) {
-            trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length; // Kada dođe do kraja, vraća na 0
+            trenutniIndex = (trenutniIndex + 1) % trenutnaLista.length; // Prelazi na sljedeću ili vraća na 0 ako je kraj
             pustiPjesmuPoIndexu(trenutniIndex);
         }
     }
@@ -555,21 +560,21 @@
         autor.pjesme.forEach((pjesma, index) => {
             const item = document.createElement('div');
             item.className = 'song-item';
-            item.id = `song-item-${index}`;
             item.innerHTML = `<span>${index + 1}. ${pjesma.naslov}</span><span class="play-icon">PUSTI ▶</span>`;
             
             item.onclick = () => pustiPjesmuPoIndexu(index);
             container.appendChild(item);
         });
 
+        // Prikaži sekciju plejera prije pokretanja da element bude vidljiv u DOM-u
+        const playerSec = document.getElementById('player-section');
+        playerSec.style.display = 'block';
+        playerSec.scrollIntoView({ behavior: 'smooth' });
+
         // Pokreni prvu pjesmu sa liste
         if (autor.pjesme.length > 0) {
             pustiPjesmuPoIndexu(0);
         }
-
-        const playerSec = document.getElementById('player-section');
-        playerSec.style.display = 'block';
-        playerSec.scrollIntoView({ behavior: 'smooth' });
     }
 
     function pustiPjesmuPoIndexu(index) {
@@ -578,7 +583,7 @@
         trenutniIndex = index;
         const pjesma = trenutnaLista[index];
 
-        // Označi aktivnu pjesmu u listi vizuelno
+        // Vizuelno označavanje aktivne pjesme u listi
         document.querySelectorAll('.song-item').forEach((el, i) => {
             if (i === index) {
                 el.style.borderColor = '#d32f2f';
@@ -589,17 +594,17 @@
             }
         });
 
-        // Pusti tačnu pjesmu
-        if (player && player.loadVideoById) {
+        // Ako je API plejer učitan, koristi loadVideoById da aktivno prati stanje (kraj pjesme)
+        if (player && typeof player.loadVideoById === 'function') {
             player.loadVideoById(pjesma.ytId);
         } else {
-            // Fallback ako se API još uvek učitava
+            // Rezervna opcija ako plejer još nije u potpunosti spreman
             document.getElementById('main-iframe').src = `https://www.youtube.com/embed/${pjesma.ytId}?enablejsapi=1&autoplay=1`;
         }
     }
 
     function zatvoriPlayer() {
-        if (player && player.stopVideo) {
+        if (player && typeof player.stopVideo === 'function') {
             player.stopVideo();
         } else {
             document.getElementById('main-iframe').src = '';
