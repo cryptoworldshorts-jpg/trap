@@ -200,23 +200,26 @@
             margin: 0 0 15px 0; 
         }
 
-        /* DUGMAD */
+        /* UPEČATLJIVA ZELENA DUGMAD */
         .action-btn { 
             width: 100%; 
             padding: 12px; 
-            background: #222222; 
-            border: 1px solid #444444; 
+            background: #198754; 
+            border: 1px solid #20c997; 
             color: #ffffff; 
-            font-weight: 600; 
+            font-weight: 700; 
             font-size: 0.85rem; 
             border-radius: 12px; 
             cursor: pointer; 
-            transition: background 0.3s, border-color 0.3s; 
+            transition: background 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s; 
+            box-shadow: 0 4px 12px rgba(25, 135, 84, 0.25);
         }
 
         .action-btn:hover { 
-            background: #d32f2f; 
-            border-color: #d32f2f; 
+            background: #157347; 
+            border-color: #25ffb0; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(25, 135, 84, 0.4);
         }
 
         /* SOON KARTICE */
@@ -243,6 +246,8 @@
             border-color: #2a2a2a; 
             color: #555555; 
             cursor: not-allowed; 
+            box-shadow: none;
+            transform: none;
         }
 
         /* 4. PLAYER SEKCIJA */
@@ -445,7 +450,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 3 -->
@@ -460,7 +465,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 4 -->
@@ -475,7 +480,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 5 -->
@@ -490,7 +495,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 6 -->
@@ -505,7 +510,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 7 -->
@@ -520,7 +525,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- AUTOR 8 -->
@@ -535,7 +540,7 @@
                     <div class="card-title">Ime Autora 2</div>
                     <div class="card-sub">3 Pjesme • Specijalna Izdanja</div>
                 </div>
-                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Otvori Izdanja</button>
+                <button class="action-btn" onclick="prikaziPlaylisten('autor2')">Pokreni Play Listu</button>
             </div>
 
             <!-- SOON KARTICE -->
@@ -587,7 +592,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // BAZA AUTORA I NJIHOVIH PJESAMA (sa datumom objave za automatsko gašenje NEW značke nakon 48h)
+        // BAZA AUTORA I NJIHOVIH PJESAMA
         const bazaAutora = {
             "autor1": {
                 ime: "Trap Balkan",
