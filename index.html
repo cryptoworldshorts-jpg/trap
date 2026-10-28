@@ -52,157 +52,125 @@
       ]
     }
     </script>
-    <style>
+   <style>
         /* NUKLEARNA OPCIJA ZA MOBITEL */
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Ovo 100% sprečava pomjeranje lijevo-desno */
-}
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-/* Osigurava da sve bude unutar ekrana */
-* {
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-}
-        
-    /* 1. RESET I BODY */
-    body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        *, *::before, *::after {
+            box-sizing: border-box !important;
+            max-width: 100% !important;
+        }
+            
+        /* 1. RESET I BODY */
+        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
 
-    /* 2. HEADER - "U VINKLU" (MOBILNO OPTIMIZOVANO) */
-header { 
-    background: #0a0a0a; 
-    border-bottom: 2px solid #222; 
-    padding: 15px 0; /* Malo manje paddinga za mobitel */
-    width: 100%;
-}
-.header-inner { 
-    max-width: 1400px; 
-    margin: 0 auto; 
-    padding: 0 20px; /* SMANJENO SA 40px NA 20px ZA MOBITEL */
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-.logo-area { display: flex; align-items: center; gap: 10px; } /* Malo smanjen gap */
-.logo-area img { width: 40px; height: 40px; border-radius: 50%; } /* Malo manji logo za mob */
-.logo-area h2 { font-size: 1.2rem; } /* Smanjen font naslova */
+        /* 2. HEADER - "U VINKLU" (MOBILNO OPTIMIZOVANO) */
+        header { 
+            background: #0a0a0a; 
+            border-bottom: 2px solid #222; 
+            padding: 15px 0; 
+            width: 100%;
+        }
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+        .logo-area img { width: 40px; height: 40px; border-radius: 50%; }
+        .logo-area h2 { font-size: 1.2rem; margin: 0; }
 
-.nav-right { display: flex; align-items: center; gap: 15px; } /* Smanjen gap */
-.sub-btn { 
-    padding: 8px 15px; /* Manje dugme */
-    font-size: 0.8rem; 
-    height: 35px;
-}
-    /* 3. BENTO KONTEJNERI - OPTIMIZOVANI */
-.bento-container { 
-    max-width: 1400px; 
-    margin: 40px auto; 
-    padding: 0 40px; /* Ovo ostaje za desktop */
-}
+        .nav-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
-.card { 
-    background: #121212; 
-    padding: 30px; 
-    border-radius: 25px; 
-    border: 1px solid #333; 
-    display: flex; 
-    flex-direction: column;
-}
+        /* ŽANROVI U HEADERU */
+        .genre-nav { display: flex; gap: 15px; align-items: center; }
+        .genre-nav a { color: #aaa; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .genre-nav a:hover { color: #198754; }
 
-/* OVO RJEŠAVA PROBLEM NA MOBITELU */
-@media (max-width: 768px) {
-    .bento-container { padding: 0 15px !important; } /* Manji padding na mobitelu */
-    .card { padding: 20px !important; }              /* Uža margina unutar kartice */
-}
+        /* 3. BENTO KONTEJNERI - OPTIMIZOVANI */
+        .bento-container { 
+            max-width: 1400px; 
+            margin: 40px auto; 
+            padding: 0 40px; 
+        }
 
-.hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-.card iframe { width: 100%; height: 200px; border-radius: 15px; margin-top: 15px; }
-.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .card { 
+            background: #121212; 
+            padding: 30px; 
+            border-radius: 25px; 
+            border: 1px solid #333; 
+            display: flex; 
+            flex-direction: column; 
+        }
 
-    /* 4. IKONE (GLOBALNE + SPECIJALNE) */
-    .social-links { display: flex; align-items: center; }
-    .social-links a { text-decoration: none; transition: 0.3s; }
-    .social-links a:hover { transform: scale(1.2); }
+        @media (max-width: 768px) {
+            .bento-container { padding: 0 15px !important; }
+            .card { padding: 20px !important; }
+            .header-inner { flex-direction: column; text-align: center; padding: 10px 15px; }
+            .nav-right { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+            .genre-nav { justify-content: center; flex-wrap: wrap; gap: 12px; }
+        }
 
-    /* IKONE U KARTICI (HERO) - OVDJE JE BIO PROBLEM */
-    .hero-section .social-links { gap: 30px; margin-top: auto; padding-top: 40px; }
-    .hero-section .social-links a { font-size: 2.2rem; }
+        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        .card iframe { width: 100%; height: 200px; border-radius: 15px; margin-top: 15px; }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-    /* IKONE U HEADERU - Fiks */
-    .nav-right .social-links { gap: 15px; }
-    .nav-right .social-links a { font-size: 1.5rem; }
+        /* 4. IKONE */
+        .social-links { display: flex; align-items: center; }
+        .social-links a { text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { transform: scale(1.2); }
 
-    /* BOJE */
-    .yt { color: #FF0000 !important; } .sp { color: #1DB954 !important; } 
-    .fb { color: #4267B2 !important; } .tt { color: #ffffff !important; } .ig { color: #E1306C !important; }
+        .hero-section .social-links { gap: 30px; margin-top: auto; padding-top: 40px; }
+        .hero-section .social-links a { font-size: 2.2rem; }
 
-    /* 5. MODALI, LYRICS I FOOTER */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
-    .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 80%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
-    .modal-content p { white-space: pre-line; line-height: 1.8; font-size: 1.1rem; color: #ddd; }
-    .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
-    .lyrics-btn { margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
-    .lyrics-btn:hover { background: #d32f2f; }
+        .nav-right .social-links { gap: 15px; }
+        .nav-right .social-links a { font-size: 1.5rem; }
 
-    footer { text-align: center; padding: 40px 0; border-top: 1px solid #222; margin-top: 50px; }
-    .footer-inner .social-links { justify-content: center; margin-bottom: 20px; font-size: 1.8rem; }
+        /* BOJE */
+        .yt { color: #FF0000 !important; } .sp { color: #1DB954 !important; } 
+        .fb { color: #4267B2 !important; } .tt { color: #ffffff !important; } .ig { color: #E1306C !important; }
 
-        /* Samo footer ikone malo razmaknuti */
-footer .social-links { 
-    gap: 40px !important; 
-    font-size: 2.0rem !important; 
-}
+        /* 5. MODALI, LYRICS I FOOTER */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
+        .modal-content { background: #121212; margin: 5% auto; padding: 40px; width: 90%; max-width: 600px; border-radius: 20px; border: 1px solid #333; position: relative; }
+        .modal-content p { white-space: pre-line; line-height: 1.8; font-size: 1.1rem; color: #ddd; }
+        .close { position: absolute; top: 20px; right: 30px; font-size: 30px; cursor: pointer; color: #d32f2f; }
+        .lyrics-btn { margin-top: 15px; padding: 12px; background: #222; border: 1px solid #444; color: #fff; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+        .lyrics-btn:hover { background: #d32f2f; }
+
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid #222; margin-top: 50px; }
+        .footer-inner .social-links { justify-content: center; margin-bottom: 20px; font-size: 2.0rem !important; gap: 40px !important; }
 
         @media (max-width: 600px) {
-    /* Sprečava horizontalno pomjeranje cijelog sajta */
-    body { overflow-x: hidden; }
-    
-    /* Kartica postaje "fluidna" na mobitelu */
-    .card { 
-        padding: 15px !important; /* Manje prostora na mobitelu */
-        width: 100% !important; 
-        box-sizing: border-box !important; /* Ovo rješava "širinu" trake */
-    }
-    
-    /* Header padding na mobitelu da ne gura u stranu */
-    header { padding: 15px 20px !important; }
-}
+            body { overflow-x: hidden; }
+            .card { padding: 15px !important; width: 100% !important; box-sizing: border-box !important; }
+            header { padding: 15px 20px !important; }
+        }
 
-        @media (max-width: 600px) {
-    /* Sprečava da bilo šta bude šire od samog ekrana */
-    body, html {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-    
-    /* Osigurava da logo i dugme ne "guraju" stranicu */
-    .header-inner { padding: 0 15px !important; }
-}
-
-        /* OGRANIČENJE ZA MODAL - NE DIRAMO OSTATAK KODA */
-.modal-content { 
-    max-width: 600px !important; 
-    width: 90% !important; 
-    margin: 5% auto !important; 
-}
-
-    @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .hero-section, .bento-grid { grid-template-columns: 1fr; } }
 
         .about-section {
-    background: #121212;
-    padding: 40px;
-    border-radius: 25px;
-    border: 1px solid #333;
-    max-width: 1000px; /* Širina okvira */
-    margin: 50px auto; /* Razmak od sadržaja iznad i ispod */
-    text-align: center;
-    color: #ddd;
-}
-.about-section h2 { margin-top: 0; color: #fff; }
-</style>
+            background: #121212;
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid #333;
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+            color: #ddd;
+        }
+        .about-section h2 { margin-top: 0; color: #fff; }
+    </style>
 </head>
 <body>
 
