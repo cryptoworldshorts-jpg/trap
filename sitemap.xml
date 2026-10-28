@@ -389,5 +389,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  </url>
+  <loc>https://trapbalkan.com/oriental-trap</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  </url>
+  <loc>https://trapbalkan.com/deep-house</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  </url>
+  <loc>https://trapbalkan.com/pop-folk</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
